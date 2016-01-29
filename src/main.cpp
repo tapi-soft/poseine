@@ -1,4 +1,5 @@
 #include "DxLib.h"
+#include "GameManager.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -14,6 +15,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     FILE* fp;
     freopen_s(&fp, "CONOUT$", "w", stdout);
     freopen_s(&fp, "CONIN$", "r", stdin);
+
+    //---- Game Start
+    GameManager game_manager;
+    game_manager.start();
 
     //---- End processing
     WaitKey();

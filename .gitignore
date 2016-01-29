@@ -1,3 +1,5 @@
 Debug/
 Log.txt
 *.sdf
+*.opensdf
+*.vcxproj.user
