@@ -85,15 +85,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\draw\DrawManager.cpp" />
-    <ClCompile Include="src\FpsManager.cpp" />
+    <ClCompile Include="src\DrawManager.cpp" />
+    <ClCompile Include="src\fps\FpsManager.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
+    <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\draw\DrawManager.h" />
-    <ClInclude Include="src\FpsManager.h" />
+    <ClInclude Include="src\DrawManager.h" />
+    <ClInclude Include="src\fps\FpsManager.h" />
     <ClInclude Include="src\GameManager.h" />
+    <ClInclude Include="src\GameState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
