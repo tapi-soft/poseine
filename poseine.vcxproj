@@ -85,11 +85,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\draw\DrawManager.cpp" />
     <ClCompile Include="src\FpsManager.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\draw\DrawManager.h" />
     <ClInclude Include="src\FpsManager.h" />
     <ClInclude Include="src\GameManager.h" />
   </ItemGroup>

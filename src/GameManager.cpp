@@ -5,10 +5,12 @@
 GameManager::GameManager()
 {
     fps_manager = new FpsManager();
+    draw_manager = new DrawManager();
 }
 //---------------------------------------------------------------------
 GameManager::~GameManager()
 {
+    delete(draw_manager);
     delete(fps_manager);
 }
 //---------------------------------------------------------------------
@@ -33,6 +35,7 @@ int GameManager::start()
 int GameManager::update()
 {
     fps_manager->update();
+    draw_manager->update();
     fps_manager->wait();
     return 0;
 }
