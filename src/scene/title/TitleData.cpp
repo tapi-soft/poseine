@@ -1,6 +1,14 @@
 //---------------------------------------------------------------------
 #include "TitleData.h"
 
+//---------------------------------------------------------------------
+const int TitleData::BUTTON_BEGIN = 0;
+const int TitleData::BUTTON_CONTINUE = 1;
+const int TitleData::BUTTON_SETTING = 2;
+const int TitleData::BUTTON_SPECIAL = 3;
+const int TitleData::BUTTON_OFFICIAL = 4;
+const int TitleData::BUTTON_END = 5;
+
 int TitleData::button_num = 6;
 int TitleData::button_size_x = 200;
 int TitleData::button_size_y = 40;

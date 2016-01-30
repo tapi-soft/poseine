@@ -3,6 +3,12 @@
 class TitleData
 {
 public:
+    static const int BUTTON_BEGIN;
+    static const int BUTTON_CONTINUE;
+    static const int BUTTON_SETTING;
+    static const int BUTTON_SPECIAL;
+    static const int BUTTON_OFFICIAL;
+    static const int BUTTON_END;
 private:
     TitleData();
     ~TitleData();
