@@ -4,6 +4,7 @@
 //---------------------------------------------------------------------
 TitleManager::TitleManager(GameState* state)
 {
+    game_state = state;
     title_state = state->getSceneState()->getTitleState();
     input_state = state->getInputState();
 }
@@ -36,26 +37,62 @@ void TitleManager::clickTitle()
 
     // 
     if (TitleData::isButtonPos(TitleData::BUTTON_BEGIN, mousex, mousey)) {
-        printf("BUTTON_BEGIN\n");
+        clickTitleBegin();
     }
     else if (TitleData::isButtonPos(TitleData::BUTTON_CONTINUE, mousex, mousey)) {
-        printf("BUTTON_CONTINUE\n");
+        clickTitleContinue();
     }
     else if (TitleData::isButtonPos(TitleData::BUTTON_SETTING, mousex, mousey)) {
-        printf("BUTTON_SETTING\n");
+        clickTitleSetting();
     }
     else if (TitleData::isButtonPos(TitleData::BUTTON_SPECIAL, mousex, mousey)) {
-        printf("BUTTON_SPECIAL\n");
+        clickTitleSpecial();
     }
     else if (TitleData::isButtonPos(TitleData::BUTTON_OFFICIAL, mousex, mousey)) {
-        printf("BUTTON_OFFICIAL\n");
+        clickTitleOfficial();
     }
     else if (TitleData::isButtonPos(TitleData::BUTTON_END, mousex, mousey)) {
-        printf("BUTTON_END\n");
+        clickTitleEnd();
     }
 }
 //---------------------------------------------------------------------
 void TitleManager::clickCircle()
 {
 
+}
+//---------------------------------------------------------------------
+void TitleManager::clickTitleBegin()
+{
+
+}
+//---------------------------------------------------------------------
+void TitleManager::clickTitleContinue()
+{
+
+}
+//---------------------------------------------------------------------
+void TitleManager::clickTitleSetting()
+{
+
+}
+//---------------------------------------------------------------------
+void TitleManager::clickTitleSpecial()
+{
+
+}
+//---------------------------------------------------------------------
+void TitleManager::clickTitleOfficial()
+{
+    ShellExecute(
+        NULL,
+        TEXT("open"),
+        TEXT("http://tapi-soft.github.io/"),
+        NULL,
+        TEXT(""),
+        SW_SHOW);
+}
+//---------------------------------------------------------------------
+void TitleManager::clickTitleEnd()
+{
+    game_state->gameEnd();
 }

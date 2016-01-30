@@ -43,6 +43,7 @@ int GameManager::update()
     scene_manager->update();
     game_draw->update();
     fps_manager->wait();
+    if (game_state->isEnd()) { return -1; }
     return 0;
 }
 //---------------------------------------------------------------------
