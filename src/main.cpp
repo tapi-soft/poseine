@@ -24,7 +24,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     game_manager.start();
 
     //---- End processing
-    WaitKey();
     DxLib_End();
     return 0;
 }
