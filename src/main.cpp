@@ -4,7 +4,10 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     //---- Initial processing
-    SetGraphMode(1280, 720, 32);
+    SetGraphMode(
+        SystemData::getWindowWidth(),
+        SystemData::getWindowHeight(),
+        SystemData::getWindowColor());
     ChangeWindowMode(TRUE);
     SetWindowText("GameName");
     if (DxLib_Init() == -1)	{ return -1; }
