@@ -18,6 +18,8 @@ SceneManager::~SceneManager()
 //---------------------------------------------------------------------
 void SceneManager::update()
 {
+    scene_state->update();
+
     int scene = scene_state->getScene();
     if (scene == SceneState::SCENE_DEBUG) {}
     if (scene == SceneState::SCENE_TITLE) { title_manager->update(); }

@@ -7,7 +7,7 @@
 class GameDraw
 {
 private:
-    SceneState* sceneState;
+    SceneState* scene_state;
     TitleDraw* title_draw;
     MainDraw* main_draw;
 public:
