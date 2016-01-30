@@ -17,6 +17,8 @@ TitleDraw::~TitleDraw()
 void TitleDraw::loadImage()
 {
     image_circle_logo = LoadGraph("image/title/circle_logo.png");
+    image_title_back = LoadGraph("image/title/title_back.png");
+    LoadDivGraph("image/title/title_button.png", 12, 6, 2, 200, 40, image_title_button);
 }
 //---------------------------------------------------------------------
 void TitleDraw::update()
@@ -52,5 +54,11 @@ void TitleDraw::drawCircle()
 //---------------------------------------------------------------------
 void TitleDraw::drawTitle()
 {
+    // background
+    DrawGraph(0, 0, image_title_back, TRUE);
 
+    // button
+    for (int i = 0; i < 6; i++) {
+        DrawGraph(1000, 350+i*60, image_title_button[i], TRUE);
+    }
 }
