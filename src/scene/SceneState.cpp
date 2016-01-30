@@ -18,3 +18,4 @@ SceneState::~SceneState()
 }
 //---------------------------------------------------------------------
 int SceneState::getScene() { return scene; }
+TitleState* SceneState::getTitleState() { return title_state; }

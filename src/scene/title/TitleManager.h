@@ -4,6 +4,7 @@
 class TitleManager
 {
 private:
+    TitleState* title_state;
 public:
     TitleManager(GameState*);
     ~TitleManager();

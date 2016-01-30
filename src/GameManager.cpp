@@ -39,6 +39,7 @@ int GameManager::start()
 int GameManager::update()
 {
     fps_manager->update();
+    scene_manager->update();
     game_draw->update();
     fps_manager->wait();
     return 0;

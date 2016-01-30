@@ -14,6 +14,6 @@ private:
 public:
     SceneState();
     ~SceneState();
-
     int getScene();
+    TitleState* getTitleState();
 };
