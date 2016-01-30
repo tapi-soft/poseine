@@ -8,10 +8,15 @@ public:
     static const int ACTION_CIRCLE_FADEIN;
     static const int ACTION_CIRCLE_DISP;
     static const int ACTION_CIRCLE_FADEOUT;
+    static const int ACTION_TITLE_FADEIN;
+    static const int ACTION_TITLE_DISP;
 private:
     int now_state;
     int now_action;
     int alpha;
+    int elapsed_action_frame;
+
+    void changeAction(int);
 public:
     TitleState();
     ~TitleState();
