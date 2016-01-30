@@ -89,6 +89,7 @@
     <ClCompile Include="src\fps\FpsManager.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\GameState.cpp" />
+    <ClCompile Include="src\input\InputState.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\scene\SceneManager.cpp" />
     <ClCompile Include="src\scene\SceneState.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="src\fps\FpsManager.h" />
     <ClInclude Include="src\GameManager.h" />
     <ClInclude Include="src\GameState.h" />
+    <ClInclude Include="src\input\InputState.h" />
     <ClInclude Include="src\scene\SceneManager.h" />
     <ClInclude Include="src\scene\SceneState.h" />
     <ClInclude Include="src\scene\title\TitleData.h" />
