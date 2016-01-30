@@ -90,12 +90,16 @@
     <ClCompile Include="src\GameManager.cpp" />
     <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\scene\SceneManager.cpp" />
+    <ClCompile Include="src\scene\SceneState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DrawManager.h" />
     <ClInclude Include="src\fps\FpsManager.h" />
     <ClInclude Include="src\GameManager.h" />
     <ClInclude Include="src\GameState.h" />
+    <ClInclude Include="src\scene\SceneManager.h" />
+    <ClInclude Include="src\scene\SceneState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
