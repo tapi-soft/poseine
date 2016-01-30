@@ -1,18 +1,18 @@
 //-----------------------------------------------------------
-#include "DrawManager.h"
+#include "GameDraw.h"
 
 //-----------------------------------------------------------
-DrawManager::DrawManager(GameState* state)
+GameDraw::GameDraw(GameState* state)
 {
 
 }
 //-----------------------------------------------------------
-DrawManager::~DrawManager()
+GameDraw::~GameDraw()
 {
 
 }
 //-----------------------------------------------------------
-void DrawManager::update()
+void GameDraw::update()
 {
     DrawCircle(100, 100, 100, GetColor(255, 0, 0), TRUE);
     ScreenFlip();

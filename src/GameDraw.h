@@ -2,7 +2,7 @@
 #include "DxLib.h"
 #include "GameState.h"
 
-class DrawManager
+class GameDraw
 {
 private:
 

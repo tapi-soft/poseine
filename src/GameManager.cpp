@@ -6,14 +6,14 @@ GameManager::GameManager()
 {
     game_state = new GameState();
     fps_manager = new FpsManager();
-    draw_manager = new DrawManager(game_state);
+    game_draw = new GameDraw(game_state);
     scene_manager = new SceneManager(game_state);
 }
 //---------------------------------------------------------------------
 GameManager::~GameManager()
 {
     delete(scene_manager);
-    delete(draw_manager);
+    delete(game_draw);
     delete(fps_manager);
     delete(game_state);
 }
@@ -39,7 +39,7 @@ int GameManager::start()
 int GameManager::update()
 {
     fps_manager->update();
-    draw_manager->update();
+    game_draw->update();
     fps_manager->wait();
     return 0;
 }
