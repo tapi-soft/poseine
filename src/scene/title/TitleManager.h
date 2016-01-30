@@ -1,5 +1,6 @@
 #pragma once
 #include "../../GameState.h"
+#include "../SceneState.h"
 #include "TitleData.h"
 
 class TitleManager

@@ -15,6 +15,7 @@ private:
 public:
     SceneState();
     ~SceneState();
+    void changeScene(int);
     int getScene();
     TitleState* getTitleState();
     MainState* getMainState();

@@ -4,7 +4,7 @@
 //---------------------------------------------------------------------
 MainDraw::MainDraw(GameState* state)
 {
-
+    loadImage();
 }
 //---------------------------------------------------------------------
 MainDraw::~MainDraw()
@@ -12,7 +12,12 @@ MainDraw::~MainDraw()
 
 }
 //---------------------------------------------------------------------
+void MainDraw::loadImage()
+{
+    image_back[1] = LoadGraph("image/back/back_1.png");
+}
+//---------------------------------------------------------------------
 void MainDraw::update()
 {
-
+    DrawGraph(0, 0, image_back[1], TRUE);
 }

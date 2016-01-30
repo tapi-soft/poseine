@@ -19,6 +19,11 @@ SceneState::~SceneState()
     delete(title_state);
 }
 //---------------------------------------------------------------------
+void SceneState::changeScene(int scene)
+{
+    this->scene = scene;
+}
+//---------------------------------------------------------------------
 int SceneState::getScene() { return scene; }
 TitleState* SceneState::getTitleState() { return title_state; }
 MainState* SceneState::getMainState() { return main_state; }

@@ -63,7 +63,7 @@ void TitleManager::clickCircle()
 //---------------------------------------------------------------------
 void TitleManager::clickTitleBegin()
 {
-
+    game_state->getSceneState()->changeScene(SceneState::SCENE_MAIN);
 }
 //---------------------------------------------------------------------
 void TitleManager::clickTitleContinue()
