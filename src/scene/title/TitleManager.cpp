@@ -15,5 +15,7 @@ TitleManager::~TitleManager()
 void TitleManager::update()
 {
     title_state->update();
+
+    // click process
 }
 //---------------------------------------------------------------------
