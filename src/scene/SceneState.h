@@ -3,8 +3,8 @@
 class SceneState
 {
 public:
-    static const int SCENE_DEBUG = 0;
-    static const int SCENE_TITLE = 1;
+    static const int SCENE_DEBUG;
+    static const int SCENE_TITLE;
 private:
     int scene;
 public:
