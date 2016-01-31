@@ -1,5 +1,8 @@
 #pragma once
+#include "DxLib.h"
+#include <iostream>
 #include <string>
+#include <sstream>
 #include "ScenarioData.h"
 
 class AllScenarioData
@@ -10,6 +13,7 @@ private:
     AllScenarioData();
     ~AllScenarioData();
 public:
+    void loadData();
     static AllScenarioData* getInstance();
     std::string getName(int);
     std::string getText(int);
