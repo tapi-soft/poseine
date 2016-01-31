@@ -72,5 +72,6 @@ int InputState::getMouseWheel() { return wheel; }
 int InputState::getPointX() { return point_x; }
 int InputState::getPointY() { return point_y; }
 int InputState::getClick(int n) { return click[n - 1]; }
+int InputState::getLeftClick() { return getClick(MOUSE_INPUT_LEFT); }
 int InputState::getPreClick(int n) { return pre_click[n - 1]; }
 bool InputState::isRereaseClick(int n) { return (click[n - 1] == 0 && pre_click[n - 1] >= 1); }

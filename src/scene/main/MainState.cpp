@@ -19,11 +19,11 @@ void MainState::update()
     if (is_text_disp) {
         disp_length += isJapaneseCharacter(getText()[disp_length]);
         if (disp_length >= getText().length()) {
-            is_text_disp = false;
+            fullTextOpen();
         }
     }
 }
-//-----------------------------------------------------------
+//---------------------------------------------------------------------
 int MainState::isJapaneseCharacter(unsigned char code)
 {
     if ((code >= 0x81 && code <= 0x9F) ||
@@ -31,6 +31,19 @@ int MainState::isJapaneseCharacter(unsigned char code)
         return 2;
     }
     return 1;
+}
+//---------------------------------------------------------------------
+void MainState::fullTextOpen()
+{
+    is_text_disp = false;
+    disp_length = getText().length();
+}
+//---------------------------------------------------------------------
+void MainState::nextScenario()
+{
+    scenario_num++;
+    is_text_disp = true;
+    disp_length = 0;
 }
 //---------------------------------------------------------------------
 std::string MainState::getName()
@@ -82,3 +95,7 @@ std::string MainState::getText3()
     return AllScenarioData::getInstance()->getText3(scenario_num).substr(0, disp_length - length1 - length2);
 }
 //---------------------------------------------------------------------
+bool MainState::isTextDisp()
+{
+    return is_text_disp;
+}
