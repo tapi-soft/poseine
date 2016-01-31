@@ -61,6 +61,7 @@ void MainState::fullTextOpen()
 {
     is_text_disp = false;
     disp_length = getText().length();
+    chara_alpha = 255;
 }
 //---------------------------------------------------------------------
 void MainState::nextScenario()
