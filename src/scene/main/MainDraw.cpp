@@ -4,6 +4,8 @@
 //---------------------------------------------------------------------
 MainDraw::MainDraw(GameState* state)
 {
+    main_state = state->getSceneState()->getMainState();
+
     font = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 28, 3, DX_FONTTYPE_ANTIALIASING_EDGE);
     color_white = GetColor(255, 255, 255);
     loadImage();
@@ -36,8 +38,8 @@ void MainDraw::update()
     DrawGraph(0, SystemData::getWindowHeight() - 200, image_textbar, TRUE);
 
     // font
-    DrawFormatStringToHandle(250, SystemData::getWindowHeight() - 200 + 30, color_white, font, "y%sz", "‹{–{");
-    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 70, color_white, font, "%s", "‰´‚Ì–¼‘O‚Í‹{–{I‚Ç‚±‚É‚Å‚à‚¢‚é•’Ê‚Ì‹{–{‚¾‚ºI");
-    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 105, color_white, font, "%s", "‰´‚Ì‡–°ŽžŠÔ‚Í”L•À‚¾I");
-    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 140, color_white, font, "%s", "‚¤‚¤‚¤‚¤‚¤‚¤‚¤‚¤‚¤‚¤‚¤‚¤‚¤");
+    DrawFormatStringToHandle(250, SystemData::getWindowHeight() - 200 + 30, color_white, font, "y%sz", main_state->getName().c_str());
+    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 70, color_white, font, "%s", main_state->getText1().c_str());
+    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 105, color_white, font, "%s", main_state->getText2().c_str());
+    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 140, color_white, font, "%s", main_state->getText3().c_str());
 }

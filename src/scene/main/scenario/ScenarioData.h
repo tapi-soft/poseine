@@ -1,14 +1,16 @@
 #pragma once
 #include <string>
-#include "scenario/AllScenarioData.h"
 
-class MainState
+class ScenarioData
 {
 private:
+    std::string name;
+    std::string text1;
+    std::string text2;
+    std::string text3;
 public:
-    MainState();
-    ~MainState();
-    void update();
+    ScenarioData();
+    ~ScenarioData();
 
     std::string getName();
     std::string getText1();

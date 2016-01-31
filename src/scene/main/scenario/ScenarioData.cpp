@@ -1,39 +1,37 @@
 //---------------------------------------------------------------------
-#include "MainState.h"
+#include "ScenarioData.h"
 
 //---------------------------------------------------------------------
-MainState::MainState()
+ScenarioData::ScenarioData()
 {
-
+    name = "宮本";
+    text1 = "「タイムトラベルの理論はどれも思考実験です。";
+    text2 = "それらの理論からでは、実際にタイムマシンを作る";
+    text3 = "ことはできないということ。それが私からの回答です」";
 }
 //---------------------------------------------------------------------
-MainState::~MainState()
-{
-
-}
-//---------------------------------------------------------------------
-void MainState::update()
+ScenarioData::~ScenarioData()
 {
 
 }
 //---------------------------------------------------------------------
-std::string MainState::getName()
+std::string ScenarioData::getName()
 {
-    return "宮本";
+    return name;
 }
 //---------------------------------------------------------------------
-std::string MainState::getText1()
+std::string ScenarioData::getText1()
 {
-    return AllScenarioData::getInstance()->getText1(1);
+    return text1;
 }
 //---------------------------------------------------------------------
-std::string MainState::getText2()
+std::string ScenarioData::getText2()
 {
-    return AllScenarioData::getInstance()->getText2(1);
+    return text2;
 }
 //---------------------------------------------------------------------
-std::string MainState::getText3()
+std::string ScenarioData::getText3()
 {
-    return AllScenarioData::getInstance()->getText3(1);
+    return text3;
 }
 //---------------------------------------------------------------------
