@@ -42,6 +42,6 @@ int ScenarioData::getBackimage()     { return backimage; }
 int ScenarioData::getNext()          { return next; }
 int ScenarioData::getFade()          { return fade; }
 int ScenarioData::getCharaNum()      { return chara_num; }
-int ScenarioData::getCharaPos(int)   { return chara_pos[num]; }
-int ScenarioData::getCharaImage(int) { return chara_image[num]; }
-int ScenarioData::getCharaFace(int)  { return chara_face[num]; }
+int ScenarioData::getCharaPos(int num)   { return chara_pos[num]; }
+int ScenarioData::getCharaImage(int num) { return chara_image[num]; }
+int ScenarioData::getCharaFace(int num)  { return chara_face[num]; }

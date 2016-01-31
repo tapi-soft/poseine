@@ -119,6 +119,25 @@ int MainState::getBackimage()
     return AllScenarioData::getInstance()->getBackimage(scenario_num);
 }
 //---------------------------------------------------------------------
+int MainState::getCharaNum()
+{
+    return AllScenarioData::getInstance()->getCharaNum(scenario_num);
+}
+//---------------------------------------------------------------------
+int MainState::getCharaImage(int n)
+{
+    return AllScenarioData::getInstance()->getCharaImage(scenario_num, n);
+}
+//---------------------------------------------------------------------
+int MainState::getCharaPos(int n)
+{
+    return AllScenarioData::getInstance()->getCharaPos(scenario_num, n);
+}
+//---------------------------------------------------------------------
+int MainState::getCharaFace(int n)
+{
+    return AllScenarioData::getInstance()->getCharaFace(scenario_num, n);
+}
 //---------------------------------------------------------------------
 bool MainState::isTextDisp()
 {

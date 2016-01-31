@@ -42,10 +42,25 @@ void MainDraw::update()
 
     // chara
     SetDrawMode(DX_DRAWMODE_BILINEAR);
-    //DrawExtendGraph(140, -100, 1140, 1950, image_chara[1], TRUE);
-    DrawExtendGraph(390, 100, 890, 1100, image_chara[1], TRUE);
+    for (int n = 1; n <= main_state->getCharaNum(); n++) {
+        int pos   = main_state->getCharaPos(n);
+        int image = main_state->getCharaImage(n);
+        int face  = main_state->getCharaFace(n);
+        switch (pos) {
+        case 1: DrawExtendGraph(240, -100, 1040, 1550, image_chara[image], TRUE); break;
+        case 2: DrawExtendGraph(390, 100, 890, 1100, image_chara[image], TRUE);   break;
+        case 3: DrawExtendGraph(90, 100, 590, 1100, image_chara[image], TRUE);    break;
+        case 4: DrawExtendGraph(690, 100, 1190, 1100, image_chara[image], TRUE);  break;
+        case 5: DrawExtendGraph(490, 200, 790, 800, image_chara[image], TRUE);    break;
+        case 6: DrawExtendGraph(90, 200, 390, 800, image_chara[image], TRUE);     break;
+        case 7: DrawExtendGraph(890, 200, 1190, 800, image_chara[image], TRUE);   break;
+        case 8: DrawExtendGraph(290, 200, 590, 800, image_chara[image], TRUE);    break;
+        case 9: DrawExtendGraph(690, 200, 990, 800, image_chara[image], TRUE);    break;
+        }
+    }
     SetDrawMode(DX_DRAWMODE_NEAREST);
 
+    // text window
     drawTextwindow();
 
     // font

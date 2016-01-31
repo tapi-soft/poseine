@@ -25,4 +25,8 @@ public:
     int getText3Length(int);
     int getNext(int);
     int getBackimage(int);
+    int getCharaNum(int);
+    int getCharaImage(int, int);
+    int getCharaPos(int, int);
+    int getCharaFace(int, int);
 };

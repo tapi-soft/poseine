@@ -152,3 +152,23 @@ int AllScenarioData::getBackimage(int n)
 {
     return scenario_data[n]->getBackimage();
 }
+//---------------------------------------------------------------------
+int AllScenarioData::getCharaNum(int n)
+{
+    return scenario_data[n]->getCharaNum();
+}
+//---------------------------------------------------------------------
+int AllScenarioData::getCharaImage(int scenario_num, int chara_num)
+{
+    return scenario_data[scenario_num]->getCharaImage(chara_num);
+}
+//---------------------------------------------------------------------
+int AllScenarioData::getCharaPos(int scenario_num, int chara_num)
+{
+    return scenario_data[scenario_num]->getCharaPos(chara_num);
+}
+//---------------------------------------------------------------------
+int AllScenarioData::getCharaFace(int scenario_num, int chara_num)
+{
+    return scenario_data[scenario_num]->getCharaFace(chara_num);
+}
