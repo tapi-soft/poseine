@@ -7,10 +7,12 @@ class MainState
 {
 private:
     int scenario_num;
+    int pre_scenario_num;
     int disp_length;
     bool is_text_disp;
     int elapsed_end_flame;   // テキスト表示終わってからの経過フレーム数
     int now_mode;
+    int chara_alpha;
 public:
     MainState();
     ~MainState();
@@ -29,10 +31,17 @@ public:
     int getCharaImage(int);
     int getCharaPos(int);
     int getCharaFace(int);
+    int getPreCharaNum();
+    int getPreCharaImage(int);
+    int getPreCharaPos(int);
+    int getPreCharaFace(int);
 
     int getButtonState(int, int, int);
     int getNowMode();
+    int getCharaAlpha();
 
     void changeMode(int);
     bool isTextDisp();
+    bool isPreCharaEqual(int, int);  // 前に同じ画像があるか
+    bool isNextCharaEqual(int, int); // 次に同じ画像があるか
 };

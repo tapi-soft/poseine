@@ -168,8 +168,30 @@
 
 #NUM 17
 #BACK 1
+#CHARA 2 1 1
 #NAME ‹{–{—[‰Ä
 #TEXT1 ‚±‚ñ‚É‚¿‚Í¢ŠE‚±‚ñ‚É‚¿‚Í¢ŠE‚±‚ñ‚É‚¿‚Í¢ŠE
 #TEXT2 ‚³‚æ‚¤‚È‚ç¢ŠE‚³‚æ‚¤‚È‚ç¢ŠE‚³‚æ‚¤‚È‚ç¢ŠE
 #TEXT3 15
+#NEXT 18
+
+#NUM 18
+#BACK 1
+#CHARA 2 1 1
+#CHARA 3 2 1
+#NAME ‹{–{—[‰Ä
+#TEXT1 ‚±‚ñ‚É‚¿‚Í¢ŠE‚±‚ñ‚É‚¿‚Í¢ŠE‚±‚ñ‚É‚¿‚Í¢ŠE
+#TEXT2 ‚³‚æ‚¤‚È‚ç¢ŠE‚³‚æ‚¤‚È‚ç¢ŠE‚³‚æ‚¤‚È‚ç¢ŠE
+#TEXT3 16
+#NEXT 19
+
+#NUM 19
+#BACK 1
+#CHARA 2 1 1
+#CHARA 3 2 1
+#CHARA 4 3 1
+#NAME ‹{–{—[‰Ä
+#TEXT1 ‚±‚ñ‚É‚¿‚Í¢ŠE‚±‚ñ‚É‚¿‚Í¢ŠE‚±‚ñ‚É‚¿‚Í¢ŠE
+#TEXT2 ‚³‚æ‚¤‚È‚ç¢ŠE‚³‚æ‚¤‚È‚ç¢ŠE‚³‚æ‚¤‚È‚ç¢ŠE
+#TEXT3 17
 #NEXT 1

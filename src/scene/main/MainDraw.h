@@ -25,6 +25,7 @@ private:
     void loadImage();
 
     void drawTextwindow();
+    void drawChara(int);
 public:
     MainDraw(GameState*);
     ~MainDraw();

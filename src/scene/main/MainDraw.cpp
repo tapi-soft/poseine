@@ -42,22 +42,12 @@ void MainDraw::update()
 
     // chara
     SetDrawMode(DX_DRAWMODE_BILINEAR);
-    for (int n = 1; n <= main_state->getCharaNum(); n++) {
-        int pos   = main_state->getCharaPos(n);
-        int image = main_state->getCharaImage(n);
-        int face  = main_state->getCharaFace(n);
-        switch (pos) {
-        case 1: DrawExtendGraph(240, -100, 1040, 1550, image_chara[image], TRUE); break;
-        case 2: DrawExtendGraph(390, 100, 890, 1100, image_chara[image], TRUE);   break;
-        case 3: DrawExtendGraph(90, 100, 590, 1100, image_chara[image], TRUE);    break;
-        case 4: DrawExtendGraph(690, 100, 1190, 1100, image_chara[image], TRUE);  break;
-        case 5: DrawExtendGraph(490, 200, 790, 800, image_chara[image], TRUE);    break;
-        case 6: DrawExtendGraph(90, 200, 390, 800, image_chara[image], TRUE);     break;
-        case 7: DrawExtendGraph(890, 200, 1190, 800, image_chara[image], TRUE);   break;
-        case 8: DrawExtendGraph(290, 200, 590, 800, image_chara[image], TRUE);    break;
-        case 9: DrawExtendGraph(690, 200, 990, 800, image_chara[image], TRUE);    break;
-        }
-    }
+    SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255 - main_state->getCharaAlpha());
+    drawChara(1);   // pre
+    SetDrawBlendMode(DX_BLENDMODE_ALPHA, main_state->getCharaAlpha());
+    drawChara(2);   // next
+    SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+    drawChara(0);   // 
     SetDrawMode(DX_DRAWMODE_NEAREST);
 
     // text window
@@ -117,4 +107,29 @@ void MainDraw::drawTextwindow()
         MainData::getButtonPosX(MainData::BUTTON_LOAD),
         MainData::getButtonPosY(MainData::BUTTON_LOAD),
         image_button_load[button_load_state], TRUE);
+}
+//---------------------------------------------------------------------
+void MainDraw::drawChara(int mode)
+{
+    for (int n = 1; n <= ((mode == 1) ? main_state->getPreCharaNum() : main_state->getCharaNum()); n++) {
+        int pos =   ((mode == 1) ? main_state->getPreCharaPos(n)   : main_state->getCharaPos(n));
+        int image = ((mode == 1) ? main_state->getPreCharaImage(n) : main_state->getCharaImage(n));
+        int face =  ((mode == 1) ? main_state->getPreCharaFace(n)  : main_state->getCharaFace(n));
+
+        if (mode == 0 && !main_state->isPreCharaEqual(pos, image))  { continue; }
+        if (mode == 1 && main_state->isNextCharaEqual(pos, image)) { continue; }
+        if (mode == 2 && main_state->isPreCharaEqual(pos, image))  { continue; }
+
+        switch (pos) {
+        case 1: DrawExtendGraph(240, -100, 1040, 1550, image_chara[image], TRUE); break;
+        case 2: DrawExtendGraph(390, 100, 890, 1100, image_chara[image], TRUE);   break;
+        case 3: DrawExtendGraph(90, 100, 590, 1100, image_chara[image], TRUE);    break;
+        case 4: DrawExtendGraph(690, 100, 1190, 1100, image_chara[image], TRUE);  break;
+        case 5: DrawExtendGraph(490, 200, 790, 800, image_chara[image], TRUE);    break;
+        case 6: DrawExtendGraph(90, 200, 390, 800, image_chara[image], TRUE);     break;
+        case 7: DrawExtendGraph(890, 200, 1190, 800, image_chara[image], TRUE);   break;
+        case 8: DrawExtendGraph(290, 200, 590, 800, image_chara[image], TRUE);    break;
+        case 9: DrawExtendGraph(690, 200, 990, 800, image_chara[image], TRUE);    break;
+        }
+    }
 }

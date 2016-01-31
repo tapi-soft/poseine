@@ -5,10 +5,12 @@
 MainState::MainState()
 {
     scenario_num = 1;
+    pre_scenario_num = 1;
     disp_length = 0;
     is_text_disp = true;
     now_mode = MainData::MODE_NORMAL;
     elapsed_end_flame = 0;
+    chara_alpha = 0;
 }
 //---------------------------------------------------------------------
 MainState::~MainState()
@@ -19,9 +21,13 @@ MainState::~MainState()
 void MainState::update()
 {
     if (is_text_disp) {
-        disp_length += isJapaneseCharacter(getText()[disp_length]);
-        if (disp_length >= (int)getText().length()) {
-            fullTextOpen();
+        chara_alpha += 15;
+        if (chara_alpha >= 255) { chara_alpha = 255; }
+        if (chara_alpha >= 255) {
+            disp_length += isJapaneseCharacter(getText()[disp_length]);
+            if (disp_length >= (int)getText().length()) {
+                fullTextOpen();
+            }
         }
     }
     else {
@@ -59,15 +65,20 @@ void MainState::fullTextOpen()
 //---------------------------------------------------------------------
 void MainState::nextScenario()
 {
+    pre_scenario_num = scenario_num;
     scenario_num = AllScenarioData::getInstance()->getNext(scenario_num);
     is_text_disp = true;
     disp_length = 0;
     elapsed_end_flame = 0;
+    chara_alpha = 0;
 }
 //---------------------------------------------------------------------
 std::string MainState::getName()
 {
-    return AllScenarioData::getInstance()->getName(scenario_num);
+    if (chara_alpha >= 255) {
+        return AllScenarioData::getInstance()->getName(scenario_num);
+    }
+    return "";
 }
 //---------------------------------------------------------------------
 std::string MainState::getText()
@@ -139,6 +150,26 @@ int MainState::getCharaFace(int n)
     return AllScenarioData::getInstance()->getCharaFace(scenario_num, n);
 }
 //---------------------------------------------------------------------
+int MainState::getPreCharaNum()
+{
+    return AllScenarioData::getInstance()->getCharaNum(pre_scenario_num);
+}
+//---------------------------------------------------------------------
+int MainState::getPreCharaImage(int n)
+{
+    return AllScenarioData::getInstance()->getCharaImage(pre_scenario_num, n);
+}
+//---------------------------------------------------------------------
+int MainState::getPreCharaPos(int n)
+{
+    return AllScenarioData::getInstance()->getCharaPos(pre_scenario_num, n);
+}
+//---------------------------------------------------------------------
+int MainState::getPreCharaFace(int n)
+{
+    return AllScenarioData::getInstance()->getCharaFace(pre_scenario_num, n);
+}
+//---------------------------------------------------------------------
 bool MainState::isTextDisp()
 {
     return is_text_disp;
@@ -177,4 +208,25 @@ int MainState::getButtonState(int n, int x, int y)
 int MainState::getNowMode()
 {
     return now_mode;
+}
+//---------------------------------------------------------------------
+int MainState::getCharaAlpha()
+{
+    return chara_alpha;
+}
+//---------------------------------------------------------------------
+bool MainState::isPreCharaEqual(int chara_pos, int chara_image)
+{
+    for (int i = 1; i <= getPreCharaNum(); i++) {
+        if (chara_pos == getPreCharaPos(i) && chara_image == getPreCharaImage(i)) { return true; }
+    }
+    return false;
+}
+//---------------------------------------------------------------------
+bool MainState::isNextCharaEqual(int chara_pos, int chara_image)
+{
+    for (int i = 1; i <= getCharaNum(); i++) {
+        if (chara_pos == getCharaPos(i) && chara_image == getCharaImage(i)) { return true; }
+    }
+    return false;
 }
