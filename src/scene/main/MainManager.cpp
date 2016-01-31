@@ -20,11 +20,16 @@ void MainManager::update()
 
     // 
     if (input_state->getLeftClick() == 1) {
-        if (main_state->isTextDisp()) {
-            main_state->fullTextOpen();
-        }
-        else {
-            main_state->nextScenario();
-        }
+        leftClickProcess();
+    }
+}
+//---------------------------------------------------------------------
+void MainManager::leftClickProcess()
+{
+    if (main_state->isTextDisp()) {
+        main_state->fullTextOpen();
+    }
+    else {
+        main_state->nextScenario();
     }
 }

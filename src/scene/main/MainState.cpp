@@ -41,14 +41,14 @@ void MainState::fullTextOpen()
 //---------------------------------------------------------------------
 void MainState::nextScenario()
 {
-    scenario_num++;
+    scenario_num = AllScenarioData::getInstance()->getNext(scenario_num);
     is_text_disp = true;
     disp_length = 0;
 }
 //---------------------------------------------------------------------
 std::string MainState::getName()
 {
-    return AllScenarioData::getInstance()->getName(1);
+    return AllScenarioData::getInstance()->getName(scenario_num);
 }
 //---------------------------------------------------------------------
 std::string MainState::getText()

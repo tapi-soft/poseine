@@ -142,3 +142,8 @@ int AllScenarioData::getText3Length(int n)
 {
     return scenario_data[n]->getText3().length();
 }
+//---------------------------------------------------------------------
+int AllScenarioData::getNext(int n)
+{
+    return scenario_data[n]->getNext();
+}
