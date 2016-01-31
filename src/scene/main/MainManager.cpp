@@ -25,12 +25,10 @@ void MainManager::update()
 
     // mouse wheel process
     if (input_state->getMouseWheel() < 0) {
-        if (main_state->isTextDisp()) {
-            main_state->fullTextOpen();
-        }
-        else {
-            main_state->nextScenario();
-        }
+        textClickProcess();
+    }
+    if (input_state->getMouseWheel() > 0) {
+        logButtonClickProcess();
     }
 }
 //---------------------------------------------------------------------
@@ -41,35 +39,71 @@ void MainManager::leftClickProcess()
 
     // auto button
     if (MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey)) {
-        puts("auto button");
+        autoButtonClickProcess();
     }
     // skip button
     else if (MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey)) {
-        puts("skip button");
+        skipButtonClickProcess();
     }
     // log button
     else if (MainData::isButtonPos(MainData::BUTTON_LOG, mousex, mousey)) {
-        puts("log button");
+        logButtonClickProcess();
     }
     // conf button
     else if (MainData::isButtonPos(MainData::BUTTON_CONF, mousex, mousey)) {
-        puts("conf button");
+        confButtonClickProcess();
     }
     // save button
     else if (MainData::isButtonPos(MainData::BUTTON_SAVE, mousex, mousey)) {
-        puts("save button");
+        saveButtonClickProcess();
     }
     // load button
     else if (MainData::isButtonPos(MainData::BUTTON_LOAD, mousex, mousey)) {
-        puts("load button");
+        loadButtonClickProcess();
     }
     // text
     else {
-        if (main_state->isTextDisp()) {
-            main_state->fullTextOpen();
-        }
-        else {
-            main_state->nextScenario();
-        }
+        textClickProcess();
     }
 }
+//---------------------------------------------------------------------
+void MainManager::textClickProcess()
+{
+    if (main_state->isTextDisp()) {
+        main_state->fullTextOpen();
+    }
+    else {
+        main_state->nextScenario();
+    }
+}
+//---------------------------------------------------------------------
+void MainManager::autoButtonClickProcess()
+{
+    puts("autoButtonClickProcess");
+}
+//---------------------------------------------------------------------
+void MainManager::skipButtonClickProcess()
+{
+    puts("skipButtonClickProcess");
+}
+//---------------------------------------------------------------------
+void MainManager::logButtonClickProcess()
+{
+    puts("logButtonClickProcess");
+}
+//---------------------------------------------------------------------
+void MainManager::confButtonClickProcess()
+{
+    puts("confButtonClickProcess");
+}
+//---------------------------------------------------------------------
+void MainManager::saveButtonClickProcess()
+{
+    puts("saveButtonClickProcess");
+}
+//---------------------------------------------------------------------
+void MainManager::loadButtonClickProcess()
+{
+    puts("loadButtonClickProcess");
+}
+//---------------------------------------------------------------------
