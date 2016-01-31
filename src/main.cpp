@@ -10,9 +10,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         SystemData::getWindowColor());
     ChangeWindowMode(TRUE);
     SetWindowText("GameName");
+
     if (DxLib_Init() == -1)	{ return -1; }
     if (SetDrawScreen(DX_SCREEN_BACK) != 0) { return -1; }
-
+    //SetDrawMode(DX_DRAWMODE_BILINEAR);
     //---- Debug console
     AllocConsole();
     FILE* fp;

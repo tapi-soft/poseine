@@ -10,7 +10,7 @@ SceneState::SceneState()
 {
     title_state = new TitleState();
     main_state = new MainState();
-    scene = SCENE_TITLE;
+    scene = SCENE_MAIN;
     is_fade = false;
 }
 //---------------------------------------------------------------------
@@ -32,7 +32,7 @@ void SceneState::update()
             }
         }
         else {
-            alpha -= 10;
+            alpha -= 20;
             if (alpha <= 0) {
                 alpha = 0;
                 is_fade = false;
