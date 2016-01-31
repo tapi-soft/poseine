@@ -147,3 +147,8 @@ int AllScenarioData::getNext(int n)
 {
     return scenario_data[n]->getNext();
 }
+//---------------------------------------------------------------------
+int AllScenarioData::getBackimage(int n)
+{
+    return scenario_data[n]->getBackimage();
+}

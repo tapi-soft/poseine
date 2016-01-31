@@ -20,7 +20,12 @@ MainDraw::~MainDraw()
 void MainDraw::loadImage()
 {
     image_back[1] = LoadGraph("image/back/back_1.png");
+    image_back[2] = LoadGraph("image/back/back_2.png");
     image_chara[1] = LoadGraph("image/chara/chara_1.png");
+    image_chara[2] = LoadGraph("image/chara/chara_2.png");
+    image_chara[3] = LoadGraph("image/chara/chara_3.png");
+    image_chara[4] = LoadGraph("image/chara/chara_4.png");
+    image_chara[5] = LoadGraph("image/chara/chara_5.png");
     image_textbar = LoadGraph("image/main/textbar.png");
     LoadDivGraph("image/main/button_auto.png", 3, 3, 1, 49, 44, image_button_auto);
     LoadDivGraph("image/main/button_skip.png", 3, 3, 1, 49, 44, image_button_skip);
@@ -33,7 +38,7 @@ void MainDraw::loadImage()
 void MainDraw::update()
 {
     // back
-    DrawGraph(0, 0, image_back[1], TRUE);
+    DrawGraph(0, 0, image_back[main_state->getBackimage()], TRUE);
 
     // chara
     SetDrawMode(DX_DRAWMODE_BILINEAR);

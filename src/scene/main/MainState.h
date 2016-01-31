@@ -24,6 +24,7 @@ public:
     std::string getText1();
     std::string getText2();
     std::string getText3();
+    int getBackimage();
 
     int getButtonState(int, int, int);
     int getNowMode();

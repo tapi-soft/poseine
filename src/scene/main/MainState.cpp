@@ -114,6 +114,12 @@ std::string MainState::getText3()
     return AllScenarioData::getInstance()->getText3(scenario_num).substr(0, disp_length - length1 - length2);
 }
 //---------------------------------------------------------------------
+int MainState::getBackimage()
+{
+    return AllScenarioData::getInstance()->getBackimage(scenario_num);
+}
+//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 bool MainState::isTextDisp()
 {
     return is_text_disp;

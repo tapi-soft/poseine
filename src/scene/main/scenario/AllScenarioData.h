@@ -24,4 +24,5 @@ public:
     int getText2Length(int);
     int getText3Length(int);
     int getNext(int);
+    int getBackimage(int);
 };
