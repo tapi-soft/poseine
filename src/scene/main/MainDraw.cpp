@@ -62,37 +62,37 @@ void MainDraw::drawTextwindow()
     int mousey = input_state->getPointY();
 
     //
-    int button_auto_state = MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey) ? 1 : 0;
+    int button_auto_state = main_state->getButtonState(MainData::BUTTON_AUTO, mousex, mousey);
     DrawGraph(
         MainData::getButtonPosX(MainData::BUTTON_AUTO),
         MainData::getButtonPosY(MainData::BUTTON_AUTO),
         image_button_auto[button_auto_state], TRUE);
     //
-    int button_skip_state = MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey) ? 1 : 0;
+    int button_skip_state = main_state->getButtonState(MainData::BUTTON_SKIP, mousex, mousey);
     DrawGraph(
         MainData::getButtonPosX(MainData::BUTTON_SKIP),
         MainData::getButtonPosY(MainData::BUTTON_SKIP),
         image_button_skip[button_skip_state], TRUE);
     //
-    int button_log_state = MainData::isButtonPos(MainData::BUTTON_LOG, mousex, mousey) ? 1 : 0;
+    int button_log_state = main_state->getButtonState(MainData::BUTTON_LOG, mousex, mousey);
     DrawGraph(
         MainData::getButtonPosX(MainData::BUTTON_LOG),
         MainData::getButtonPosY(MainData::BUTTON_LOG),
         image_button_log[button_log_state], TRUE);
     //
-    int button_conf_state = MainData::isButtonPos(MainData::BUTTON_CONF, mousex, mousey) ? 1 : 0;
+    int button_conf_state = main_state->getButtonState(MainData::BUTTON_CONF, mousex, mousey);
     DrawGraph(
         MainData::getButtonPosX(MainData::BUTTON_CONF),
         MainData::getButtonPosY(MainData::BUTTON_CONF),
         image_button_conf[button_conf_state], TRUE);
     //
-    int button_save_state = MainData::isButtonPos(MainData::BUTTON_SAVE, mousex, mousey) ? 1 : 0;
+    int button_save_state = main_state->getButtonState(MainData::BUTTON_SAVE, mousex, mousey);
     DrawGraph(
         MainData::getButtonPosX(MainData::BUTTON_SAVE),
         MainData::getButtonPosY(MainData::BUTTON_SAVE),
         image_button_save[button_save_state], TRUE);
     //
-    int button_load_state = MainData::isButtonPos(MainData::BUTTON_LOAD, mousex, mousey) ? 1 : 0;
+    int button_load_state = main_state->getButtonState(MainData::BUTTON_LOAD, mousex, mousey);
     DrawGraph(
         MainData::getButtonPosX(MainData::BUTTON_LOAD),
         MainData::getButtonPosY(MainData::BUTTON_LOAD),

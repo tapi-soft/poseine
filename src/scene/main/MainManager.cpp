@@ -37,33 +37,24 @@ void MainManager::leftClickProcess()
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
 
-    // auto button
-    if (MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey)) {
-        autoButtonClickProcess();
+    if (main_state->getNowMode() == MainData::MODE_NORMAL) {
+        if (MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey)) { autoButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey)) { skipButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_LOG, mousex, mousey)) { logButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_CONF, mousex, mousey)) { confButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_SAVE, mousex, mousey)) { saveButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_LOAD, mousex, mousey)) { loadButtonClickProcess(); }
+        else { textClickProcess(); }
     }
-    // skip button
-    else if (MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey)) {
-        skipButtonClickProcess();
+    else if (main_state->getNowMode() == MainData::MODE_AUTO) {
+        if (!MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey)) {
+            main_state->changeMode(MainData::MODE_NORMAL);
+        }
     }
-    // log button
-    else if (MainData::isButtonPos(MainData::BUTTON_LOG, mousex, mousey)) {
-        logButtonClickProcess();
-    }
-    // conf button
-    else if (MainData::isButtonPos(MainData::BUTTON_CONF, mousex, mousey)) {
-        confButtonClickProcess();
-    }
-    // save button
-    else if (MainData::isButtonPos(MainData::BUTTON_SAVE, mousex, mousey)) {
-        saveButtonClickProcess();
-    }
-    // load button
-    else if (MainData::isButtonPos(MainData::BUTTON_LOAD, mousex, mousey)) {
-        loadButtonClickProcess();
-    }
-    // text
-    else {
-        textClickProcess();
+    else if (main_state->getNowMode() == MainData::MODE_SKIP) {
+        if (!MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey)) {
+            main_state->changeMode(MainData::MODE_NORMAL);
+        }
     }
 }
 //---------------------------------------------------------------------
@@ -79,7 +70,7 @@ void MainManager::textClickProcess()
 //---------------------------------------------------------------------
 void MainManager::autoButtonClickProcess()
 {
-    puts("autoButtonClickProcess");
+    main_state->changeMode(MainData::MODE_AUTO);
 }
 //---------------------------------------------------------------------
 void MainManager::skipButtonClickProcess()

@@ -9,6 +9,10 @@ public:
     static const int BUTTON_SAVE;
     static const int BUTTON_LOAD;
 
+    static const int MODE_NORMAL;
+    static const int MODE_AUTO;
+    static const int MODE_SKIP;
+
 private:
     static const int BUTTON_POS_X;
     static const int BUTTON_POS_Y;

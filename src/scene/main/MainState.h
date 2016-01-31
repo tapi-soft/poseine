@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "scenario/AllScenarioData.h"
+#include "MainData.h"
 
 class MainState
 {
@@ -8,6 +9,8 @@ private:
     int scenario_num;
     int disp_length;
     bool is_text_disp;
+    int elapsed_end_flame;   // テキスト表示終わってからの経過フレーム数
+    int now_mode;
 public:
     MainState();
     ~MainState();
@@ -22,5 +25,9 @@ public:
     std::string getText2();
     std::string getText3();
 
+    int getButtonState(int, int, int);
+    int getNowMode();
+
+    void changeMode(int);
     bool isTextDisp();
 };

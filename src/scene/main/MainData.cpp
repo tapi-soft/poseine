@@ -9,6 +9,11 @@ const int MainData::BUTTON_LOG = 2;
 const int MainData::BUTTON_CONF = 3;
 const int MainData::BUTTON_SAVE = 4;
 const int MainData::BUTTON_LOAD = 5;
+
+const int MainData::MODE_NORMAL = 0;
+const int MainData::MODE_AUTO = 1;
+const int MainData::MODE_SKIP = 2;
+
 const int MainData::BUTTON_POS_X = SystemData::getWindowWidth() - 130;
 const int MainData::BUTTON_POS_Y = SystemData::getWindowHeight() - 160;
 const int MainData::BUTTON_SIZE_X = 49;
