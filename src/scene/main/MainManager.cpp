@@ -75,7 +75,7 @@ void MainManager::autoButtonClickProcess()
 //---------------------------------------------------------------------
 void MainManager::skipButtonClickProcess()
 {
-    puts("skipButtonClickProcess");
+    main_state->changeMode(MainData::MODE_SKIP);
 }
 //---------------------------------------------------------------------
 void MainManager::logButtonClickProcess()

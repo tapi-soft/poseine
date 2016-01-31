@@ -33,6 +33,13 @@ void MainState::update()
             nextScenario();
         }
     }
+    // skip mode
+    if (now_mode == MainData::MODE_SKIP) {
+        fullTextOpen();
+        if (elapsed_end_flame >= 5) {
+            nextScenario();
+        }
+    }
 }
 //---------------------------------------------------------------------
 int MainState::isJapaneseCharacter(unsigned char code)
