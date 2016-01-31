@@ -1,8 +1,26 @@
 #pragma once
 
 class MainData {
+public:
+    static const int BUTTON_AUTO;
+    static const int BUTTON_SKIP;
+    static const int BUTTON_LOG;
+    static const int BUTTON_CONF;
+    static const int BUTTON_SAVE;
+    static const int BUTTON_LOAD;
+
 private:
+    static const int BUTTON_POS_X;
+    static const int BUTTON_POS_Y;
+    static const int BUTTON_SIZE_X;
+    static const int BUTTON_SIZE_Y;
+    static const int BUTTON_MARGIN_X;
+    static const int BUTTON_MARGIN_Y;
+
     MainData();
     ~MainData();
 public:
+    static int getButtonPosX(int);
+    static int getButtonPosY(int);
+    static bool isButtonPos(int, int, int);
 };
