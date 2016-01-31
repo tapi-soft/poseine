@@ -25,10 +25,20 @@ void MainManager::update()
 
     // mouse wheel process
     if (input_state->getMouseWheel() < 0) {
-        textClickProcess();
+        if (main_state->getNowMode() == MainData::MODE_NORMAL) {
+            textClickProcess();
+        }
+        else {
+            main_state->changeMode(MainData::MODE_NORMAL);
+        }
     }
     if (input_state->getMouseWheel() > 0) {
-        logButtonClickProcess();
+        if (main_state->getNowMode() == MainData::MODE_NORMAL) {
+            logButtonClickProcess();
+        }
+        else {
+            main_state->changeMode(MainData::MODE_NORMAL);
+        }
     }
 }
 //---------------------------------------------------------------------
