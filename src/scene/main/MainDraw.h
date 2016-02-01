@@ -3,10 +3,12 @@
 #include "../../SystemData.h"
 #include "MainState.h"
 #include "MainData.h"
+#include "backlog/BacklogDraw.h"
 
 class MainDraw
 {
 private:
+    BacklogDraw* backlog_draw;
     MainState* main_state;
     InputState* input_state;
     int image_back[10];
@@ -24,6 +26,7 @@ private:
 
     void loadImage();
 
+    void drawMain();
     void drawTextwindow();
     void drawChara(int);
 public:

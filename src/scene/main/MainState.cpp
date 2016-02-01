@@ -2,8 +2,12 @@
 #include "MainState.h"
 
 //---------------------------------------------------------------------
+const int MainState::STATE_NORMAL = 0;
+const int MainState::STATE_LOG = 1;
+//---------------------------------------------------------------------
 MainState::MainState()
 {
+    backlog_state = new BacklogState();
     scenario_num = 1;
     pre_scenario_num = 1;
     disp_length = 0;
@@ -11,14 +15,25 @@ MainState::MainState()
     now_mode = MainData::MODE_NORMAL;
     elapsed_end_flame = 0;
     chara_alpha = 0;
+    now_state = STATE_NORMAL;
 }
 //---------------------------------------------------------------------
 MainState::~MainState()
 {
-
+    delete(backlog_state);
 }
 //---------------------------------------------------------------------
 void MainState::update()
+{
+    if (now_state == STATE_NORMAL) {
+        updateNormal();
+    }
+    else if (now_state == STATE_LOG) {
+        backlog_state->update();
+    }
+}
+//---------------------------------------------------------------------
+void MainState::updateNormal()
 {
     if (is_text_disp) {
         chara_alpha += 15;
@@ -230,4 +245,14 @@ bool MainState::isNextCharaEqual(int chara_pos, int chara_image)
         if (chara_pos == getCharaPos(i) && chara_image == getCharaImage(i)) { return true; }
     }
     return false;
+}
+//---------------------------------------------------------------------
+void MainState::changeState(int state)
+{
+    now_state = state;
+}
+//---------------------------------------------------------------------
+int MainState::getNowState()
+{
+    return now_state;
 }

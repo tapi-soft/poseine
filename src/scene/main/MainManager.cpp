@@ -6,11 +6,12 @@ MainManager::MainManager(GameState* state)
 {
     main_state = state->getSceneState()->getMainState();
     input_state = state->getInputState();
+    backlog_manager = new BacklogManager(state);
 }
 //---------------------------------------------------------------------
 MainManager::~MainManager()
 {
-
+    delete(backlog_manager);
 }
 //---------------------------------------------------------------------
 void MainManager::update()
@@ -18,6 +19,16 @@ void MainManager::update()
     // 
     main_state->update();
 
+    if (main_state->getNowState() == MainState::STATE_NORMAL) {
+        updateNormal();
+    }
+    if (main_state->getNowState() == MainState::STATE_LOG) {
+        backlog_manager->update();
+    }
+}
+//---------------------------------------------------------------------
+void MainManager::updateNormal()
+{
     // left click process
     if (input_state->getLeftClick() == 1) {
         leftClickProcess();
@@ -90,7 +101,7 @@ void MainManager::skipButtonClickProcess()
 //---------------------------------------------------------------------
 void MainManager::logButtonClickProcess()
 {
-    puts("logButtonClickProcess");
+    main_state->changeState(MainState::STATE_LOG);
 }
 //---------------------------------------------------------------------
 void MainManager::confButtonClickProcess()

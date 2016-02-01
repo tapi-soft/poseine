@@ -6,6 +6,7 @@ MainDraw::MainDraw(GameState* state)
 {
     main_state = state->getSceneState()->getMainState();
     input_state = state->getInputState();
+    backlog_draw = new BacklogDraw(state);
 
     font = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 28, 3, DX_FONTTYPE_ANTIALIASING_EDGE);
     color_white = GetColor(255, 255, 255);
@@ -14,7 +15,7 @@ MainDraw::MainDraw(GameState* state)
 //---------------------------------------------------------------------
 MainDraw::~MainDraw()
 {
-
+    delete(backlog_draw);
 }
 //---------------------------------------------------------------------
 void MainDraw::loadImage()
@@ -33,9 +34,19 @@ void MainDraw::loadImage()
     LoadDivGraph("image/main/button_conf.png", 3, 3, 1, 49, 44, image_button_conf);
     LoadDivGraph("image/main/button_save.png", 3, 3, 1, 49, 44, image_button_save);
     LoadDivGraph("image/main/button_load.png", 3, 3, 1, 49, 44, image_button_load);
+
 }
 //---------------------------------------------------------------------
 void MainDraw::update()
+{
+    drawMain();
+
+    if (main_state->getNowState() == MainState::STATE_LOG) {
+        backlog_draw->update();
+    }
+}
+//---------------------------------------------------------------------
+void MainDraw::drawMain()
 {
     // back
     DrawGraph(0, 0, image_back[main_state->getBackimage()], TRUE);
@@ -61,7 +72,6 @@ void MainDraw::update()
     DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 105, color_white, font, "%s", main_state->getText2().c_str());
     DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 140, color_white, font, "%s", main_state->getText3().c_str());
 }
-
 //---------------------------------------------------------------------
 void MainDraw::drawTextwindow()
 {

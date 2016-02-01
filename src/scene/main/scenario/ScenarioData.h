@@ -11,6 +11,7 @@ private:
     std::string text3;     // 3 line text
     int backimage;         // background image
     int next;              // next scenario number
+    int prev;              // previous scenario number
     int fade;              // fade kind
     int chara_num;         // number of character 
     int chara_pos[10];     // character position
@@ -28,6 +29,7 @@ public:
     void setText3(std::string);
     void setBackimage(int);
     void setNext(int);
+    void setPrev(int);
     void setFade(int);
     void setCharaNum(int);
     void setCharaPos(int, int);
@@ -41,6 +43,7 @@ public:
     std::string getText3();
     int getBackimage();
     int getNext();
+    int getPrev();
     int getFade();
     int getCharaNum();
     int getCharaPos(int);

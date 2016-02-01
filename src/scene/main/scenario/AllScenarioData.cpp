@@ -67,6 +67,11 @@ void AllScenarioData::loadData()
             ss >> s;
             scenario_data[num]->setNext(atoi(s.c_str()));
         }
+        //---- ‘O
+        else if (s == "#PRE") {
+            ss >> s;
+            scenario_data[num]->setPrev(atoi(s.c_str()));
+        }
         //---- ƒLƒƒƒ‰
         else if (s == "#CHARA") {
             // ƒLƒƒƒ‰”
@@ -146,6 +151,11 @@ int AllScenarioData::getText3Length(int n)
 int AllScenarioData::getNext(int n)
 {
     return scenario_data[n]->getNext();
+}
+//---------------------------------------------------------------------
+int AllScenarioData::getPrev(int n)
+{
+    return scenario_data[n]->getPrev();
 }
 //---------------------------------------------------------------------
 int AllScenarioData::getBackimage(int n)

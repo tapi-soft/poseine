@@ -12,6 +12,7 @@
 #TEXT2 ÇªÇÍÇÁÇÃóùò_Ç©ÇÁÇ≈ÇÕÅAé¿ç€Ç…É^ÉCÉÄÉ}ÉVÉìÇçÏÇÈ
 #TEXT3 Ç±Ç∆ÇÕÇ≈Ç´Ç»Ç¢Ç∆Ç¢Ç§Ç±Ç∆ÅBÇªÇÍÇ™éÑÇ©ÇÁÇÃâÒìöÇ≈Ç∑Åv
 #NEXT 2
+#PRE 0
 
 #NUM 2
 #BACK 1
@@ -19,6 +20,7 @@
 #TEXT1 ÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQ
 #TEXT2 ÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQ
 #NEXT 3
+#PRE 1
 
 #NUM 3
 #BACK 2
@@ -30,6 +32,7 @@
 #TEXT3 ÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇRÇR
 #FADE 1
 #NEXT 4
+#PRE 2
 
 #NUM 4
 #BACK 2
@@ -39,6 +42,7 @@
 #TEXT2 ÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇS
 #TEXT3 ÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇSÇS
 #NEXT 5
+#PRE 3
 
 #NUM 5
 #BACK 1
@@ -48,6 +52,7 @@
 #TEXT2 ÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇT
 #TEXT3 ÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇTÇT
 #NEXT 6
+#PRE 4
 
 #NUM 6
 #BACK 1
@@ -59,6 +64,7 @@
 #TEXT2 ÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇU
 #TEXT3 ÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇUÇU
 #NEXT 7
+#PRE 5
 
 #NUM 7
 #BACK 1
@@ -72,6 +78,7 @@
 #TEXT2 ÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇV
 #TEXT3 ÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇVÇV
 #NEXT 8
+#PRE 6
 
 #NUM 8
 #BACK 1
@@ -81,6 +88,7 @@
 #TEXT2 ÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇW
 #TEXT3 ÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇWÇW
 #NEXT 9
+#PRE 7
 
 #NUM 9
 #BACK 1
@@ -94,6 +102,7 @@
 #TEXT2 ÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇX
 #TEXT3 ÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇXÇX
 #NEXT 10
+#PRE 8
 
 #NUM 10
 #BACK 1
@@ -104,6 +113,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 8
 #NEXT 11
+#PRE 9
 
 #NUM 11
 #BACK 1
@@ -119,6 +129,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 9
 #NEXT 12
+#PRE 10
 
 #NUM 12
 #BACK 1
@@ -128,6 +139,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 10
 #NEXT 13
+#PRE 11
 
 #NUM 13
 #BACK 1
@@ -138,6 +150,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 11
 #NEXT 14
+#PRE 12
 
 #NUM 14
 #BACK 1
@@ -147,6 +160,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 12
 #NEXT 15
+#PRE 13
 
 #NUM 15
 #BACK 1
@@ -156,6 +170,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 13
 #NEXT 16
+#PRE 14
 
 #NUM 16
 #BACK 1
@@ -165,6 +180,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 14
 #NEXT 17
+#PRE 15
 
 #NUM 17
 #BACK 1
@@ -174,6 +190,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 15
 #NEXT 18
+#PRE 16
 
 #NUM 18
 #BACK 1
@@ -184,6 +201,7 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 16
 #NEXT 19
+#PRE 17
 
 #NUM 19
 #BACK 1
@@ -195,3 +213,4 @@
 #TEXT2 Ç≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äEÇ≥ÇÊÇ§Ç»ÇÁê¢äE
 #TEXT3 17
 #NEXT 1
+#PRE 18

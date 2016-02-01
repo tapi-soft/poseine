@@ -13,6 +13,7 @@ ScenarioData::ScenarioData()
     next = 1;
     fade = 0;
     chara_num = 0;
+    prev = 0;
 }
 //---------------------------------------------------------------------
 ScenarioData::~ScenarioData()
@@ -27,6 +28,7 @@ void ScenarioData::setText2(std::string text2)       { this->text2 = text2; }
 void ScenarioData::setText3(std::string text3)       { this->text3 = text3; }
 void ScenarioData::setBackimage(int backimage)       { this->backimage = backimage; }
 void ScenarioData::setNext(int next)                 { this->next = next; }
+void ScenarioData::setPrev(int prev)                 { this->prev = prev; }
 void ScenarioData::setFade(int fade)                 { this->fade = fade; }
 void ScenarioData::setCharaNum(int chara_num)        { this->chara_num = chara_num; }
 void ScenarioData::setCharaPos(int num, int pos)     { this->chara_pos[num] = pos; }
@@ -40,6 +42,7 @@ std::string ScenarioData::getText2() { return text2; }
 std::string ScenarioData::getText3() { return text3; }
 int ScenarioData::getBackimage()     { return backimage; }
 int ScenarioData::getNext()          { return next; }
+int ScenarioData::getPrev()          { return prev; }
 int ScenarioData::getFade()          { return fade; }
 int ScenarioData::getCharaNum()      { return chara_num; }
 int ScenarioData::getCharaPos(int num)   { return chara_pos[num]; }

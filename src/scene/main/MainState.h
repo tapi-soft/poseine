@@ -2,10 +2,16 @@
 #include <string>
 #include "scenario/AllScenarioData.h"
 #include "MainData.h"
+#include "backlog/BacklogState.h"
 
 class MainState
 {
+public:
+    static const int STATE_NORMAL;
+    static const int STATE_LOG;
+
 private:
+    BacklogState* backlog_state;
     int scenario_num;
     int pre_scenario_num;
     int disp_length;
@@ -13,10 +19,14 @@ private:
     int elapsed_end_flame;   // テキスト表示終わってからの経過フレーム数
     int now_mode;
     int chara_alpha;
+    int now_state;           // 現在の状態
+
+
 public:
     MainState();
     ~MainState();
     void update();
+    void updateNormal();
     int isJapaneseCharacter(unsigned char);
     void fullTextOpen();
     void nextScenario();
@@ -44,4 +54,6 @@ public:
     bool isTextDisp();
     bool isPreCharaEqual(int, int);  // 前に同じ画像があるか
     bool isNextCharaEqual(int, int); // 次に同じ画像があるか
+    void changeState(int);
+    int getNowState();
 };
