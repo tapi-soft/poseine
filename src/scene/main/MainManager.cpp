@@ -22,7 +22,7 @@ void MainManager::update()
     if (main_state->getNowState() == MainState::STATE_NORMAL) {
         updateNormal();
     }
-    if (main_state->getNowState() == MainState::STATE_LOG) {
+    else if (main_state->getNowState() == MainState::STATE_LOG) {
         backlog_manager->update();
     }
 }

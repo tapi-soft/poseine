@@ -1,6 +1,7 @@
 #NUM 0
-#BACK 1
-#NEXT 1
+#BACK 0
+#NEXT 0
+#PRE 0
 
 #NUM 1
 #BACK 1

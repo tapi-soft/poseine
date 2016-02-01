@@ -16,6 +16,7 @@ MainState::MainState()
     elapsed_end_flame = 0;
     chara_alpha = 0;
     now_state = STATE_NORMAL;
+    is_disp_window = true;
 }
 //---------------------------------------------------------------------
 MainState::~MainState()
@@ -250,9 +251,27 @@ bool MainState::isNextCharaEqual(int chara_pos, int chara_image)
 void MainState::changeState(int state)
 {
     now_state = state;
+
+    if (now_state == MainState::STATE_NORMAL) {
+        is_disp_window = true;
+    }
+    else if (now_state == MainState::STATE_LOG) {
+        backlog_state->setScenarioNum(scenario_num);
+        is_disp_window = false;
+    }
 }
 //---------------------------------------------------------------------
 int MainState::getNowState()
 {
     return now_state;
+}
+//---------------------------------------------------------------------
+BacklogState* MainState::getBacklogState()
+{
+    return backlog_state;
+}
+//---------------------------------------------------------------------
+bool MainState::isDispWindow()
+{
+    return is_disp_window;
 }

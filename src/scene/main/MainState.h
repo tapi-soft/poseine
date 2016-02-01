@@ -20,7 +20,7 @@ private:
     int now_mode;
     int chara_alpha;
     int now_state;           // 現在の状態
-
+    bool is_disp_window;     // ウインドウ表示しているか
 
 public:
     MainState();
@@ -56,4 +56,6 @@ public:
     bool isNextCharaEqual(int, int); // 次に同じ画像があるか
     void changeState(int);
     int getNowState();
+    BacklogState* getBacklogState();
+    bool isDispWindow();
 };
