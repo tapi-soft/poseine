@@ -4,6 +4,7 @@
 BacklogDraw::BacklogDraw(GameState* state)
 {
     backlog_state = state->getSceneState()->getMainState()->getBacklogState();
+    input_state = state->getInputState();
 
     font = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 28, 3, DX_FONTTYPE_ANTIALIASING_EDGE);
     color_white = GetColor(255, 255, 255);
@@ -13,6 +14,14 @@ BacklogDraw::BacklogDraw(GameState* state)
 BacklogDraw::~BacklogDraw()
 {
 
+}
+//---------------------------------------------------------------------
+void BacklogDraw::loadImage()
+{
+    image_window = LoadGraph("image/main/backlog/window.png");
+    //image_button_back = LoadGraph("image/main/backlog/button_back.png");
+    LoadDivGraph("image/main/backlog/button_back.png", 2, 2, 1,
+        BacklogData::getButtonBackSizeX(), BacklogData::getButtonBackSizeY(), image_button_back);
 }
 //---------------------------------------------------------------------
 void BacklogDraw::update()
@@ -50,10 +59,13 @@ void BacklogDraw::update()
     DrawFormatStringToHandle(300, 540, color_white, font, "%s", AllScenarioData::getInstance()->getText1(num).c_str());
     DrawFormatStringToHandle(300, 575, color_white, font, "%s", AllScenarioData::getInstance()->getText2(num).c_str());
     DrawFormatStringToHandle(300, 610, color_white, font, "%s", AllScenarioData::getInstance()->getText3(num).c_str());
-}
-//---------------------------------------------------------------------
-void BacklogDraw::loadImage()
-{
-    image_window = LoadGraph("image/main/backlog_window.png");
 
+    // 
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+    int image = (BacklogData::isButtonBackPos(mousex, mousey)) ? 1 : 0;
+    DrawGraph(
+        BacklogData::getButtonBackPosX(),
+        BacklogData::getButtonBackPosY(),
+        image_button_back[image], TRUE);
 }
