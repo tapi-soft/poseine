@@ -5,6 +5,7 @@ class BacklogManager {
 private:
     InputState* input_state;
     MainState* main_state;
+    BacklogState* backlog_state;
 public:
     BacklogManager(GameState*);
     ~BacklogManager();

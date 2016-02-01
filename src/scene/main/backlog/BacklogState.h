@@ -1,4 +1,5 @@
 #pragma once
+#include "../scenario/AllScenarioData.h"
 
 class BacklogState {
 private:
@@ -8,6 +9,9 @@ public:
     BacklogState();
     ~BacklogState();
     void update();
+
+    bool prevLog();
+    bool nextLog();
 
     void setScenarioNum(int);
 
