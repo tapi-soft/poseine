@@ -21,7 +21,9 @@ void BacklogManager::update()
     }
     // mouse wheel process
     if (input_state->getMouseWheel() < 0) {
-        backlog_state->nextLog();
+        if (backlog_state->nextLog()) {
+            main_state->changeState(MainState::STATE_NORMAL);
+        }
     }
     if (input_state->getMouseWheel() > 0) {
         backlog_state->prevLog();
