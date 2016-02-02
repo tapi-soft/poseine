@@ -68,7 +68,7 @@ void TitleManager::clickTitleBegin()
 //---------------------------------------------------------------------
 void TitleManager::clickTitleContinue()
 {
-
+    game_state->getSceneState()->changeScene(SceneState::SCENE_LOAD);
 }
 //---------------------------------------------------------------------
 void TitleManager::clickTitleSetting()

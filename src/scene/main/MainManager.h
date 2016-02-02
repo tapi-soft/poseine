@@ -8,6 +8,7 @@ private:
     MainState* main_state;
     InputState* input_state;
     BacklogManager* backlog_manager;
+    SceneState* scene_state;
 
     void updateNormal();
     void leftClickProcess();

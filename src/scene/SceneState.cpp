@@ -5,17 +5,21 @@
 const int SceneState::SCENE_DEBUG = 0;
 const int SceneState::SCENE_TITLE = 1;
 const int SceneState::SCENE_MAIN = 2;
+const int SceneState::SCENE_SAVE = 3;
+const int SceneState::SCENE_LOAD = 4;
 //---------------------------------------------------------------------
 SceneState::SceneState()
 {
     title_state = new TitleState();
     main_state = new MainState();
-    scene = SCENE_MAIN;
+    saveload_state = new SaveloadState();
+    scene = SCENE_TITLE;
     is_fade = false;
 }
 //---------------------------------------------------------------------
 SceneState::~SceneState()
 {
+    delete(saveload_state);
     delete(main_state);
     delete(title_state);
 }
@@ -53,4 +57,5 @@ int SceneState::getScene() { return scene; }
 bool SceneState::isFade() { return is_fade; }
 TitleState* SceneState::getTitleState() { return title_state; }
 MainState* SceneState::getMainState() { return main_state; }
+SaveloadState* SceneState::getSaveloadState() { return saveload_state; }
 int SceneState::getAlpha() { return alpha; }

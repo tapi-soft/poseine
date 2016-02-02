@@ -3,6 +3,7 @@
 #include "GameState.h"
 #include "scene/title/TitleDraw.h"
 #include "scene/main/MainDraw.h"
+#include "scene/saveload/SaveloadDraw.h"
 
 class GameDraw
 {
@@ -10,6 +11,7 @@ private:
     SceneState* scene_state;
     TitleDraw* title_draw;
     MainDraw* main_draw;
+    SaveloadDraw* saveload_draw;
 public:
     GameDraw(GameState*);
     ~GameDraw();

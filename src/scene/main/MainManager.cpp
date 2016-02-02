@@ -4,7 +4,8 @@
 //---------------------------------------------------------------------
 MainManager::MainManager(GameState* state)
 {
-    main_state = state->getSceneState()->getMainState();
+    scene_state = state->getSceneState();
+    main_state = scene_state->getMainState();
     input_state = state->getInputState();
     backlog_manager = new BacklogManager(state);
 }
@@ -111,11 +112,11 @@ void MainManager::confButtonClickProcess()
 //---------------------------------------------------------------------
 void MainManager::saveButtonClickProcess()
 {
-    puts("saveButtonClickProcess");
+    scene_state->changeScene(SceneState::SCENE_SAVE);
 }
 //---------------------------------------------------------------------
 void MainManager::loadButtonClickProcess()
 {
-    puts("loadButtonClickProcess");
+    scene_state->changeScene(SceneState::SCENE_LOAD);
 }
 //---------------------------------------------------------------------
