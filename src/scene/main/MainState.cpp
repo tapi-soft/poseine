@@ -96,6 +96,11 @@ void MainState::settingScenario(int n)
     nextScenario();
 }
 //---------------------------------------------------------------------
+int MainState::getScenarioNum()
+{
+    return scenario_num;
+}
+//---------------------------------------------------------------------
 std::string MainState::getName()
 {
     if (chara_alpha >= 255) {

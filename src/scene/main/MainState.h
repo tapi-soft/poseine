@@ -32,6 +32,7 @@ public:
     void nextScenario();
     void settingScenario(int);
 
+    int getScenarioNum();
     std::string getName();
     std::string getText();
     std::string getText1();

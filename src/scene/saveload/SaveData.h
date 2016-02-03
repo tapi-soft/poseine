@@ -6,11 +6,13 @@
 
 class SaveData
 {
+public:
+    static const int SAVEDATA_MAX = 1000;
 private:
-    bool is_data[1000];
-    int scenario_pos[1000];
-    std::string save_day[1000];
-    std::string save_time[1000];
+    bool is_data[SAVEDATA_MAX];
+    int scenario_pos[SAVEDATA_MAX];
+    std::string save_day[SAVEDATA_MAX];
+    std::string save_time[SAVEDATA_MAX];
 
     SaveData();
     ~SaveData();
@@ -18,11 +20,7 @@ public:
     static SaveData* getInstance();
 
     void load();
-
-    void setIsData(int, bool);
-    void setScenarioPos(int, int);
-    void setSaveDay(int, std::string);
-    void setSaveTime(int, std::string);
+    void save(int, int);
 
     bool isData(int);
     int getScenarioPos(int);

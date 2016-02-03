@@ -40,7 +40,8 @@ void SaveloadManager::update()
                 }
                 // save
                 if (saveload_state->getMode() == SaveloadState::MODE_SAVE) {
-
+                    int pos = scene_state->getMainState()->getScenarioNum();
+                    SaveData::getInstance()->save(num, pos);
                 }
             }
         }

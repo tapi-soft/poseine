@@ -4,7 +4,7 @@
 //---------------------------------------------------------------------
 SaveData::SaveData()
 {
-    for (int n = 0; n < 1000; n++) {
+    for (int n = 0; n < SAVEDATA_MAX; n++) {
         is_data[n] = false;
         scenario_pos[n] = 0;
         save_day[n] = "----/--/--";
@@ -46,7 +46,54 @@ void SaveData::load()
         ss >> s;
         save_time[num] = s;
     }
+    FileRead_close(fp);
     puts("Success loading savedata file");
+}
+//---------------------------------------------------------------------
+void SaveData::save(int num, int scenario_pos)
+{
+    //---- 
+    is_data[num] = true;
+
+    //---- 
+    this->scenario_pos[num] = scenario_pos;
+
+    //---- 
+    char c[256];
+    DATEDATA date;
+    GetDateTime(&date);
+    std::stringstream ds;
+    sprintf_s(c, "%02d", date.Year);
+    ds << c << "/";
+    sprintf_s(c, "%02d", date.Mon);
+    ds << c << "/";
+    sprintf_s(c, "%02d", date.Day);
+    ds << c;
+    save_day[num] = ds.str();
+
+    //---- 
+    ds.str("");
+    sprintf_s(c, "%02d", date.Hour);
+    ds << c << ":";
+    sprintf_s(c, "%02d", date.Min);
+    ds << c;
+    save_time[num] = ds.str();
+
+    //----
+    FILE *fp;
+    errno_t error = fopen_s(&fp, "savedata/savedata.dat", "wb");
+
+    if (fp == NULL){ // NULL‚ª•Ô‚Á‚Ä‚«‚½‚çƒGƒ‰[”­¶
+        puts("Fail data save");
+        return;
+    }
+    for (int n = 0; n < SAVEDATA_MAX; n++) {
+        if (is_data[n]) {
+            fprintf(fp, "%d %d %s %s\r\n", n, this->scenario_pos[n], save_day[n].c_str(), save_time[n].c_str());
+        }
+    }
+    fclose(fp);
+    puts("Success data save");
 }
 //---------------------------------------------------------------------
 SaveData* SaveData::getInstance()
@@ -54,11 +101,6 @@ SaveData* SaveData::getInstance()
     static SaveData instance;
     return &instance;
 }
-//---------------------------------------------------------------------
-void SaveData::setIsData(int n, bool flag) { is_data[n] = flag; }
-void SaveData::setScenarioPos(int n, int pos) { scenario_pos[n] = pos; }
-void SaveData::setSaveDay(int n, std::string day) { save_day[n] = day; }
-void SaveData::setSaveTime(int n, std::string time) { save_time[n] = time; }
 //---------------------------------------------------------------------
 bool SaveData::isData(int n) { return is_data[n]; }
 int SaveData::getScenarioPos(int n) { return scenario_pos[n]; }
