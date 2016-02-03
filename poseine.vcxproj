@@ -101,6 +101,7 @@
     <ClCompile Include="src\scene\main\MainState.cpp" />
     <ClCompile Include="src\scene\main\scenario\AllScenarioData.cpp" />
     <ClCompile Include="src\scene\main\scenario\ScenarioData.cpp" />
+    <ClCompile Include="src\scene\saveload\SaveData.cpp" />
     <ClCompile Include="src\scene\saveload\SaveloadData.cpp" />
     <ClCompile Include="src\scene\saveload\SaveloadDraw.cpp" />
     <ClCompile Include="src\scene\saveload\SaveloadManager.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="src\scene\main\MainState.h" />
     <ClInclude Include="src\scene\main\scenario\AllScenarioData.h" />
     <ClInclude Include="src\scene\main\scenario\ScenarioData.h" />
+    <ClInclude Include="src\scene\saveload\SaveData.h" />
     <ClInclude Include="src\scene\saveload\SaveloadData.h" />
     <ClInclude Include="src\scene\saveload\SaveloadDraw.h" />
     <ClInclude Include="src\scene\saveload\SaveloadManager.h" />
