@@ -14,6 +14,8 @@ SceneState::SceneState()
     main_state = new MainState();
     saveload_state = new SaveloadState();
     scene = SCENE_SAVE;
+    prev_scene = scene;
+    next_scene = scene;
     is_fade = false;
 }
 //---------------------------------------------------------------------
@@ -32,6 +34,7 @@ void SceneState::update()
             if (alpha >= 255) {
                 alpha = 255;
                 is_fadeout = false;
+                prev_scene = scene;
                 scene = next_scene;
             }
         }
@@ -53,6 +56,11 @@ void SceneState::changeScene(int scene)
     is_fadeout = true;
     if (scene == SCENE_SAVE) { saveload_state->setMode(SaveloadState::MODE_SAVE); }
     if (scene == SCENE_LOAD) { saveload_state->setMode(SaveloadState::MODE_LOAD); }
+}
+//---------------------------------------------------------------------
+void SceneState::backScene()
+{
+    changeScene(prev_scene);
 }
 //---------------------------------------------------------------------
 int SceneState::getScene() { return scene; }

@@ -14,6 +14,7 @@ public:
 private:
     int scene;
     int next_scene;
+    int prev_scene;
     bool is_fade;
     bool is_fadeout;
     int alpha;
@@ -25,6 +26,7 @@ public:
     ~SceneState();
     void update();
     void changeScene(int);
+    void backScene();
     int getScene();
     bool isFade();
 

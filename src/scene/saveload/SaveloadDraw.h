@@ -1,10 +1,14 @@
 #pragma once
 #include "../../GameState.h"
+#include "SaveloadData.h"
+#include "../../input/InputState.h";
+
 
 class SaveloadDraw
 {
 private:
     SaveloadState* saveload_state;
+    InputState* input_state;
     int image_back;
     int image_base[20];
     int image_button_num[50];

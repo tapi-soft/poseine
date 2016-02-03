@@ -4,6 +4,7 @@
 SaveloadDraw::SaveloadDraw(GameState* state)
 {
     saveload_state = state->getSceneState()->getSaveloadState();
+    input_state = state->getInputState();
     loadImage();
 }
 //---------------------------------------------------------------------
@@ -24,6 +25,10 @@ void SaveloadDraw::loadImage()
 //---------------------------------------------------------------------
 void SaveloadDraw::update()
 {
+    // 
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+
     // background image
     DrawGraph(0, 0, image_back, TRUE);
 
@@ -53,5 +58,6 @@ void SaveloadDraw::update()
     }
 
     // back button image
-    DrawGraph(1140, 620, image_button_back[0], TRUE);
+    int image = (SaveloadData::isButtonBackPos(mousex, mousey) ? 1 : 0);
+    DrawGraph(1140, 620, image_button_back[image], TRUE);
 }
