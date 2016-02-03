@@ -20,8 +20,8 @@ void SaveloadDraw::loadImage()
         2,
         1,
         2,
-        514,
-        114,
+        SaveloadData::getSavedataSizeX(),
+        SaveloadData::getSavedataSizeY(),
         image_base);
     LoadDivGraph("image/saveload/button_num.png",
         SaveloadData::getButtonPageNum() * 2,
@@ -62,12 +62,15 @@ void SaveloadDraw::drawLogo()
 //---------------------------------------------------------------------
 void SaveloadDraw::drawSavedata()
 {
-    for (int y = 0; y < 5; y++) {
-        for (int x = 0; x < 2; x++) {
-            int px = 50 + x * 540;
-            int py = 100 + y * 120;
-            DrawGraph(px, py, image_base[0], TRUE);
-        }
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+
+    for (int n = 0; n < SaveloadData::getSavedataNum(); n++) {
+        DrawGraph(
+            SaveloadData::getSavedataPosX(n),
+            SaveloadData::getSavedataPosY(n),
+            image_base[SaveloadData::isSavedataPos(n, mousex, mousey) ? 1 : 0],
+            TRUE);
     }
 }
 //---------------------------------------------------------------------
@@ -90,6 +93,9 @@ void SaveloadDraw::drawButtonBack()
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
     int image = (SaveloadData::isButtonBackPos(mousex, mousey) ? 1 : 0);
-    DrawGraph(1140, 620, image_button_back[image], TRUE);
+    DrawGraph(
+        SaveloadData::getButtonBackPosX(),
+        SaveloadData::getButtonBackPosY(),
+        image_button_back[image], TRUE);
 }
 //---------------------------------------------------------------------

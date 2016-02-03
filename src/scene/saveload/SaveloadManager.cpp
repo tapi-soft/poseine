@@ -26,5 +26,10 @@ void SaveloadManager::update()
                 printf("page num %d\n", n);
             }
         }
+        for (int n = 0; n < SaveloadData::getSavedataNum(); n++) {
+            if (SaveloadData::isSavedataPos(n, mousex, mousey)) {
+                printf("savedata num %d\n", n);
+            }
+        }
     }
 }
