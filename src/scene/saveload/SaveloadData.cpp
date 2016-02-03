@@ -35,3 +35,8 @@ int SaveloadData::getButtonBackPosX() { return BUTTON_BACK_POS_X; }
 int SaveloadData::getButtonBackPosY() { return BUTTON_BACK_POS_Y; }
 int SaveloadData::getButtonBackSizeX() { return BUTTON_BACK_SIZE_X; }
 int SaveloadData::getButtonBackSizeY() { return BUTTON_BACK_SIZE_Y; }
+
+int SaveloadData::getButtonNumPosX(int n) { return BUTTON_NUM_POS_X; }
+int SaveloadData::getButtonNumPosY(int n) { return BUTTON_NUM_POS_Y; }
+int SaveloadData::getButtonNumSizeX() { return BUTTON_NUM_SIZE_X; }
+int SaveloadData::getButtonNumSizeY() { return BUTTON_NUM_SIZE_Y; }

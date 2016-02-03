@@ -24,8 +24,8 @@ public:
     static int getButtonBackSizeX();
     static int getButtonBackSizeY();
 
-    static int getButtonNumPos(int);
-    static int getButtonNumPos(int);
+    static int getButtonNumPosX(int);
+    static int getButtonNumPosY(int);
     static int getButtonNumSizeX();
     static int getButtonNumSizeY();
     

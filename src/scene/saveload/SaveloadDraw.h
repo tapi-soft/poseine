@@ -1,8 +1,7 @@
 #pragma once
 #include "../../GameState.h"
 #include "SaveloadData.h"
-#include "../../input/InputState.h";
-
+#include "../../input/InputState.h"
 
 class SaveloadDraw
 {
