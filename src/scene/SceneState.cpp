@@ -13,7 +13,7 @@ SceneState::SceneState()
     title_state = new TitleState();
     main_state = new MainState();
     saveload_state = new SaveloadState();
-    scene = SCENE_TITLE;
+    scene = SCENE_SAVE;
     is_fade = false;
 }
 //---------------------------------------------------------------------
@@ -51,6 +51,8 @@ void SceneState::changeScene(int scene)
     is_fade = true;
     alpha = 0;
     is_fadeout = true;
+    if (scene == SCENE_SAVE) { saveload_state->setMode(SaveloadState::MODE_SAVE); }
+    if (scene == SCENE_LOAD) { saveload_state->setMode(SaveloadState::MODE_LOAD); }
 }
 //---------------------------------------------------------------------
 int SceneState::getScene() { return scene; }
