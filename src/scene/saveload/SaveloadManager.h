@@ -7,6 +7,7 @@ class SaveloadManager
 private:
     InputState* input_state;
     SceneState* scene_state;
+    SaveloadState* saveload_state;
 public:
     SaveloadManager(GameState*);
     ~SaveloadManager();

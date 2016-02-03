@@ -84,6 +84,7 @@ void SaveloadDraw::drawButtonPage()
         int px = SaveloadData::getButtonPagePosX(n);
         int py = SaveloadData::getButtonPagePosY(n);
         int image = n + (SaveloadData::isButtonPagePos(n, mousex, mousey) ? num : 0);
+        if (saveload_state->getPage() == n) { image = n + num; }
         DrawGraph(px, py, image_button_num[image], TRUE);
     }
 }
