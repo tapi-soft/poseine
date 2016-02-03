@@ -21,5 +21,10 @@ void SaveloadManager::update()
         if (SaveloadData::isButtonBackPos(mousex, mousey)) {
             scene_state->backScene();
         }
+        for (int n = 0; n < SaveloadData::getButtonPageNum(); n++) {
+            if (SaveloadData::isButtonPagePos(n, mousex, mousey)) {
+                printf("page num %d\n", n);
+            }
+        }
     }
 }

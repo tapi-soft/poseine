@@ -14,6 +14,11 @@ private:
     int image_button_back[2];
     int image_save_logo;
     int image_load_logo;
+
+    void drawLogo();
+    void drawSavedata();
+    void drawButtonPage();
+    void drawButtonBack();
 public:
     SaveloadDraw(GameState*);
     ~SaveloadDraw();
