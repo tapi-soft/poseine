@@ -1,6 +1,7 @@
 #pragma once
 #include "../../GameState.h"
 #include "SaveloadData.h"
+#include "SaveData.h"
 
 class SaveloadManager
 {

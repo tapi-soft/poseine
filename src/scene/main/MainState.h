@@ -30,6 +30,7 @@ public:
     int isJapaneseCharacter(unsigned char);
     void fullTextOpen();
     void nextScenario();
+    void settingScenario(int);
 
     std::string getName();
     std::string getText();
