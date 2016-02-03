@@ -13,7 +13,7 @@ SceneState::SceneState()
     title_state = new TitleState();
     main_state = new MainState();
     saveload_state = new SaveloadState();
-    scene = SCENE_SAVE;
+    scene = SCENE_TITLE;
     prev_scene = scene;
     next_scene = scene;
     is_fade = false;
