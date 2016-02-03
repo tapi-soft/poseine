@@ -2,6 +2,7 @@
 #include "../../GameState.h"
 #include "SaveloadData.h"
 #include "../../input/InputState.h"
+#include "SaveData.h"
 
 class SaveloadDraw
 {
@@ -14,6 +15,9 @@ private:
     int image_button_back[2];
     int image_save_logo;
     int image_load_logo;
+    int font_time;
+    int font_dialog;
+    int color_font;
 
     void drawLogo();
     void drawSavedata();

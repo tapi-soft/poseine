@@ -15,7 +15,9 @@ private:
     SaveData();
     ~SaveData();
 public:
-    SaveData* getInstance();
+    static SaveData* getInstance();
+
+    void load();
 
     void setIsData(int, bool);
     void setScenarioPos(int, int);

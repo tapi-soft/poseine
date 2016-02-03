@@ -5,6 +5,9 @@ SaveloadDraw::SaveloadDraw(GameState* state)
 {
     saveload_state = state->getSceneState()->getSaveloadState();
     input_state = state->getInputState();
+    font_time = CreateFontToHandle("MSゴシック", 16, 3, DX_FONTTYPE_ANTIALIASING);
+    font_dialog = CreateFontToHandle("MSゴシック", 25, 3, DX_FONTTYPE_ANTIALIASING);
+    color_font = GetColor(63, 56, 51);
     loadImage();
 }
 //---------------------------------------------------------------------
@@ -71,6 +74,16 @@ void SaveloadDraw::drawSavedata()
             SaveloadData::getSavedataPosY(n),
             image_base[SaveloadData::isSavedataPos(n, mousex, mousey) ? 1 : 0],
             TRUE);
+
+        int num = n + saveload_state->getPage() * SaveloadData::getSavedataNum();
+        DrawFormatStringToHandle(
+            SaveloadData::getSavedataPosX(n) + 370,
+            SaveloadData::getSavedataPosY(n) + 90,
+            color_font,
+            font_time,
+            "%s %s",
+            SaveData::getInstance()->getSaveDay(num).c_str(),
+            SaveData::getInstance()->getSaveTime(num).c_str());
     }
 }
 //---------------------------------------------------------------------
