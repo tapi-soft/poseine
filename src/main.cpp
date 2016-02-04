@@ -1,5 +1,6 @@
 #include "DxLib.h"
 #include "GameManager.h"
+#include "data/SystemData.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {

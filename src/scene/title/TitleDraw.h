@@ -1,6 +1,6 @@
 #pragma once
 #include "../../GameState.h"
-#include "../../SystemData.h"
+#include "../../data/SystemData.h"
 #include "TitleData.h"
 
 class TitleDraw

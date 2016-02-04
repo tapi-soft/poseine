@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------
 #include "MainData.h"
-#include "../../SystemData.h"
+#include "../../data/SystemData.h"
 
 //---------------------------------------------------------------------
 const int MainData::BUTTON_AUTO = 0;

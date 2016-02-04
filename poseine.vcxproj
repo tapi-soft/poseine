@@ -113,7 +113,7 @@
     <ClCompile Include="src\scene\title\TitleDraw.cpp" />
     <ClCompile Include="src\scene\title\TitleManager.cpp" />
     <ClCompile Include="src\scene\title\TitleState.cpp" />
-    <ClCompile Include="src\SystemData.cpp" />
+    <ClCompile Include="src\data\SystemData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data\ImageData.h" />
@@ -143,7 +143,7 @@
     <ClInclude Include="src\scene\title\TitleDraw.h" />
     <ClInclude Include="src\scene\title\TitleManager.h" />
     <ClInclude Include="src\scene\title\TitleState.h" />
-    <ClInclude Include="src\SystemData.h" />
+    <ClInclude Include="src\data\SystemData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
