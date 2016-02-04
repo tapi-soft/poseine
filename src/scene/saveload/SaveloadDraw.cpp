@@ -144,22 +144,37 @@ void SaveloadDraw::drawSavedataThumbnail(int savedata_pos)
 {
     int num = savedata_pos + saveload_state->getPage() * SaveloadData::getSavedataNum();
     int scenario_num = SaveData::getInstance()->getScenarioPos(num);
+    int px = SaveloadData::getSavedataPosX(savedata_pos) + 7;
+    int py = SaveloadData::getSavedataPosY(savedata_pos) + 7;
 
     SetDrawMode(DX_DRAWMODE_BILINEAR);
     // background
     int back_image = AllScenarioData::getInstance()->getBackimage(scenario_num);
     DrawExtendGraph(
-        SaveloadData::getSavedataPosX(savedata_pos) + 7,
-        SaveloadData::getSavedataPosY(savedata_pos) + 7,
-        SaveloadData::getSavedataPosX(savedata_pos) + 184,
-        SaveloadData::getSavedataPosY(savedata_pos) + 107,
+        px,
+        py,
+        px + 177,
+        py + 100,
         ImageData::getInstance()->getImageBack(back_image),
         TRUE);
     // character
-    for (int i = 0; i < AllScenarioData::getInstance()->getCharaNum(scenario_num); i++) {
-        int chara_image = AllScenarioData::getInstance()->getCharaImage(i, scenario_num);
-        int chara_pos = AllScenarioData::getInstance()->getCharaPos(i, scenario_num);
+    for (int n = 1; n <= AllScenarioData::getInstance()->getCharaNum(scenario_num); n++) {
 
+        int chara_image = AllScenarioData::getInstance()->getCharaImage(scenario_num, n);
+        int chara_pos = AllScenarioData::getInstance()->getCharaPos(scenario_num, n);
+        int image_handl = ImageData::getInstance()->getImageChara(chara_image);
+
+        switch (chara_pos) {
+        case 1: DrawExtendGraph(px + 34, py + -14, px + 146, py + 217, image_handl, TRUE); break;
+        case 2: DrawExtendGraph(px + 55, py + 14, px + 125, py + 154, image_handl, TRUE); break;
+        case 3: DrawExtendGraph(px + 13, py + 14, px + 83, py + 154, image_handl, TRUE); break;
+        case 4: DrawExtendGraph(px + 97, py + 14, px + 167, py + 154, image_handl, TRUE); break;
+        case 5: DrawExtendGraph(px + 69, py + 28, px + 117, py + 112, image_handl, TRUE); break;
+        case 6: DrawExtendGraph(px + 13, py + 28, px + 55, py + 112, image_handl, TRUE); break;
+        case 7: DrawExtendGraph(px + 125, py + 28, px + 167, py + 112, image_handl, TRUE); break;
+        case 8: DrawExtendGraph(px + 41, py + 28, px + 83, py + 112, image_handl, TRUE); break;
+        case 9: DrawExtendGraph(px + 97, py + 28, px + 139, py + 112, image_handl, TRUE); break;
+        }
     }
     SetDrawMode(DX_DRAWMODE_NEAREST);
 }
