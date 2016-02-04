@@ -19,6 +19,7 @@ private:
     int font_time;
     int font_dialog;
     int color_font;
+    int image_backtest;
 
     void drawLogo();
     void drawSavedata();

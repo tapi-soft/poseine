@@ -42,6 +42,8 @@ void SaveloadDraw::loadImage()
         image_button_back);
     image_save_logo = LoadGraph("image/saveload/save_logo.png");
     image_load_logo = LoadGraph("image/saveload/load_logo.png");
+
+    image_backtest = LoadGraph("image/back/back_1.png");
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::update()
@@ -87,29 +89,43 @@ void SaveloadDraw::drawSavedata()
 
         if (SaveData::getInstance()->isData(num)) {
             // text
-            int pos = SaveData::getInstance()->getScenarioPos(num);
-            std::string text = AllScenarioData::getInstance()->getText(pos);
+            int scenario_num = SaveData::getInstance()->getScenarioPos(num);
+            std::string text = AllScenarioData::getInstance()->getText(scenario_num);
+
             DrawFormatStringToHandle(
-                SaveloadData::getSavedataPosX(n) + 190,
-                SaveloadData::getSavedataPosY(n) + 15,
+                SaveloadData::getSavedataPosX(n) + 195,
+                SaveloadData::getSavedataPosY(n) + 17,
                 color_font,
                 font_time,
                 "%s",
                 text.substr(0, 38).c_str());
             DrawFormatStringToHandle(
-                SaveloadData::getSavedataPosX(n) + 190,
-                SaveloadData::getSavedataPosY(n) + 35,
+                SaveloadData::getSavedataPosX(n) + 195,
+                SaveloadData::getSavedataPosY(n) + 37,
                 color_font,
                 font_time,
                 "%s",
                 text.substr(38, 38).c_str());
             DrawFormatStringToHandle(
-                SaveloadData::getSavedataPosX(n) + 190,
-                SaveloadData::getSavedataPosY(n) + 55,
+                SaveloadData::getSavedataPosX(n) + 195,
+                SaveloadData::getSavedataPosY(n) + 57,
                 color_font,
                 font_time,
                 "%s",
                 text.substr(76, 38).c_str());
+
+            //----- thumbnail
+            SetDrawMode(DX_DRAWMODE_BILINEAR);
+            // background
+            int back_image = AllScenarioData::getInstance()->getBackimage(scenario_num);
+            DrawExtendGraph(
+                SaveloadData::getSavedataPosX(n) + 7,
+                SaveloadData::getSavedataPosY(n) + 7,
+                SaveloadData::getSavedataPosX(n) + 184,
+                SaveloadData::getSavedataPosY(n) + 107,
+                image_backtest,
+                TRUE);
+            SetDrawMode(DX_DRAWMODE_NEAREST);
         }
 
     }
