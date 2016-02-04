@@ -13,11 +13,13 @@ private:
     InputState* input_state;
     int image_back;
     int image_base[20];
+    int image_margin;
     int image_button_num[50];
     int image_button_back[2];
     int image_save_logo;
     int image_load_logo;
     int image_thumbnail_nodata;
+    int font_text;
     int font_time;
     int font_dialog;
     int color_font;

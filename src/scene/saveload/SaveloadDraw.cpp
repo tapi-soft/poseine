@@ -5,8 +5,9 @@ SaveloadDraw::SaveloadDraw(GameState* state)
 {
     saveload_state = state->getSceneState()->getSaveloadState();
     input_state = state->getInputState();
-    font_time = CreateFontToHandle("MSƒSƒVƒbƒN", 16, 3, DX_FONTTYPE_ANTIALIASING);
-    font_dialog = CreateFontToHandle("MSƒSƒVƒbƒN", 25, 3, DX_FONTTYPE_ANTIALIASING);
+    font_text = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 16, 3, DX_FONTTYPE_ANTIALIASING);
+    font_time = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 16, 3, DX_FONTTYPE_ANTIALIASING);
+    font_dialog = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 25, 3, DX_FONTTYPE_ANTIALIASING);
     color_font = GetColor(63, 56, 51);
     loadImage();
 }
@@ -26,6 +27,7 @@ void SaveloadDraw::loadImage()
         SaveloadData::getSavedataSizeX(),
         SaveloadData::getSavedataSizeY(),
         image_base);
+
     LoadDivGraph("image/saveload/button_num.png",
         SaveloadData::getButtonPageNum() * 2,
         SaveloadData::getButtonPageNum(),
@@ -43,15 +45,17 @@ void SaveloadDraw::loadImage()
     image_save_logo = LoadGraph("image/saveload/save_logo.png");
     image_load_logo = LoadGraph("image/saveload/load_logo.png");
     image_thumbnail_nodata = LoadGraph("image/saveload/thumbnail_nodata.png");
+    image_margin = LoadGraph("image/saveload/margin.png");
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::update()
 {
     DrawGraph(0, 0, image_back, TRUE);
-    drawLogo();
     drawSavedata();
+    DrawGraph(0, 0, image_margin, TRUE);
     drawButtonPage();
     drawButtonBack();
+    drawLogo();
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::drawLogo()
@@ -83,7 +87,6 @@ void SaveloadDraw::drawSavedata(int savedata_pos)
     if (SaveData::getInstance()->isData(num)) {
         drawSavedataText(savedata_pos);
     }
-
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::drawSavedataBack(int savedata_pos)
@@ -122,21 +125,21 @@ void SaveloadDraw::drawSavedataText(int savedata_pos)
         SaveloadData::getSavedataPosX(savedata_pos) + 195,
         SaveloadData::getSavedataPosY(savedata_pos) + 17,
         color_font,
-        font_time,
+        font_text,
         "%s",
         text.substr(0, 38).c_str());
     DrawFormatStringToHandle(
         SaveloadData::getSavedataPosX(savedata_pos) + 195,
         SaveloadData::getSavedataPosY(savedata_pos) + 37,
         color_font,
-        font_time,
+        font_text,
         "%s",
         text.substr(38, 38).c_str());
     DrawFormatStringToHandle(
         SaveloadData::getSavedataPosX(savedata_pos) + 195,
         SaveloadData::getSavedataPosY(savedata_pos) + 57,
         color_font,
-        font_time,
+        font_text,
         "%s",
         text.substr(76, 38).c_str());
 }
