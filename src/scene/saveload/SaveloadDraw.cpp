@@ -46,6 +46,13 @@ void SaveloadDraw::loadImage()
     image_load_logo = LoadGraph("image/saveload/load_logo.png");
     image_thumbnail_nodata = LoadGraph("image/saveload/thumbnail_nodata.png");
     image_margin = LoadGraph("image/saveload/margin.png");
+    LoadDivGraph("image/saveload/button_delete.png",
+        2,
+        2,
+        1,
+        SaveloadData::getButtonDeleteSizeX(),
+        SaveloadData::getButtonDeleteSizeY(),
+        image_button_delete);
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::update()
@@ -86,6 +93,7 @@ void SaveloadDraw::drawSavedata(int savedata_pos)
     drawSavedataTime(savedata_pos);
     if (SaveData::getInstance()->isData(num)) {
         drawSavedataText(savedata_pos);
+        drawButtonDelete(savedata_pos);
     }
 }
 //---------------------------------------------------------------------
@@ -215,3 +223,12 @@ void SaveloadDraw::drawButtonBack()
         image_button_back[image], TRUE);
 }
 //---------------------------------------------------------------------
+void SaveloadDraw::drawButtonDelete(int savedata_pos)
+{
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+    int px = SaveloadData::getButtonDeletePosX(savedata_pos);
+    int py = SaveloadData::getButtonDeletePosY(savedata_pos);
+    int image = SaveloadData::isButtonDeletePos(savedata_pos, mousex, mousey) ? 1 : 0;
+    DrawGraph(px, py, image_button_delete[image], TRUE);
+}

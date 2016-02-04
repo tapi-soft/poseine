@@ -25,12 +25,18 @@ private:
     static const int SAVEDATA_MARGIN_X;
     static const int SAVEDATA_MARGIN_Y;
 
+    static const int BUTTON_DELETE_POS_X;
+    static const int BUTTON_DELETE_POS_Y;
+    static const int BUTTON_DELETE_SIZE_X;
+    static const int BUTTON_DELETE_SIZE_Y;
+
     SaveloadData();
     ~SaveloadData();
 public:
     static bool isButtonBackPos(int, int);
     static bool isButtonPagePos(int, int, int);
     static bool isSavedataPos(int, int, int);
+    static bool isButtonDeletePos(int, int, int);
 
     static int getButtonBackPosX();
     static int getButtonBackPosY();
@@ -53,4 +59,9 @@ public:
     static int getSavedataSizeY();
     static int getSavedataMarginX();
     static int getSavedataMarginY();
+
+    static int getButtonDeletePosX(int);
+    static int getButtonDeletePosY(int);
+    static int getButtonDeleteSizeX();
+    static int getButtonDeleteSizeY();
 };

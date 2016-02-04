@@ -23,6 +23,11 @@ const int SaveloadData::SAVEDATA_SIZE_Y = 114;
 const int SaveloadData::SAVEDATA_MARGIN_X = 26;
 const int SaveloadData::SAVEDATA_MARGIN_Y = 6;
 
+const int SaveloadData::BUTTON_DELETE_POS_X = 485;
+const int SaveloadData::BUTTON_DELETE_POS_Y = 4;
+const int SaveloadData::BUTTON_DELETE_SIZE_X = 25;
+const int SaveloadData::BUTTON_DELETE_SIZE_Y = 25;
+
 //---------------------------------------------------------------------
 SaveloadData::SaveloadData()
 {
@@ -64,6 +69,16 @@ bool SaveloadData::isSavedataPos(int n, int x, int y)
     return true;
 }
 //---------------------------------------------------------------------
+bool SaveloadData::isButtonDeletePos(int n, int x, int y)
+{
+    int px1 = getButtonDeletePosX(n);
+    int py1 = getButtonDeletePosY(n);
+    int px2 = px1 + getButtonDeleteSizeX();
+    int py2 = py1 + getButtonDeleteSizeY();
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
 int SaveloadData::getButtonBackPosX() { return BUTTON_BACK_POS_X; }
 int SaveloadData::getButtonBackPosY() { return BUTTON_BACK_POS_Y; }
 int SaveloadData::getButtonBackSizeX() { return BUTTON_BACK_SIZE_X; }
@@ -89,3 +104,8 @@ int SaveloadData::getSavedataSizeX() { return SAVEDATA_SIZE_X; }
 int SaveloadData::getSavedataSizeY() { return SAVEDATA_SIZE_Y; }
 int SaveloadData::getSavedataMarginX() { return SAVEDATA_MARGIN_X; }
 int SaveloadData::getSavedataMarginY() { return SAVEDATA_MARGIN_Y; }
+
+int SaveloadData::getButtonDeletePosX(int n) { return getSavedataPosX(n) + BUTTON_DELETE_POS_X; }
+int SaveloadData::getButtonDeletePosY(int n) { return getSavedataPosY(n) + BUTTON_DELETE_POS_Y; }
+int SaveloadData::getButtonDeleteSizeX() { return BUTTON_DELETE_SIZE_X; }
+int SaveloadData::getButtonDeleteSizeY() { return BUTTON_DELETE_SIZE_Y; }

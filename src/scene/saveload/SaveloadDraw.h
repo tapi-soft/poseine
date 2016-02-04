@@ -19,6 +19,8 @@ private:
     int image_save_logo;
     int image_load_logo;
     int image_thumbnail_nodata;
+    int image_button_delete[2];
+
     int font_text;
     int font_time;
     int font_dialog;
@@ -33,6 +35,7 @@ private:
     void drawSavedataThumbnail(int);
     void drawButtonPage();
     void drawButtonBack();
+    void drawButtonDelete(int);
 public:
     SaveloadDraw(GameState*);
     ~SaveloadDraw();
