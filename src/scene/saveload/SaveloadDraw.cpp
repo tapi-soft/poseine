@@ -131,25 +131,18 @@ void SaveloadDraw::drawSavedataText(int savedata_pos)
 
     DrawFormatStringToHandle(
         SaveloadData::getSavedataPosX(savedata_pos) + 195,
-        SaveloadData::getSavedataPosY(savedata_pos) + 17,
+        SaveloadData::getSavedataPosY(savedata_pos) + 37,
         color_font,
         font_text,
         "%s",
         text.substr(0, 38).c_str());
     DrawFormatStringToHandle(
         SaveloadData::getSavedataPosX(savedata_pos) + 195,
-        SaveloadData::getSavedataPosY(savedata_pos) + 37,
-        color_font,
-        font_text,
-        "%s",
-        text.substr(38, 38).c_str());
-    DrawFormatStringToHandle(
-        SaveloadData::getSavedataPosX(savedata_pos) + 195,
         SaveloadData::getSavedataPosY(savedata_pos) + 57,
         color_font,
         font_text,
         "%s",
-        text.substr(76, 38).c_str());
+        text.substr(38, 38).c_str());
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::drawSavedataThumbnail(int savedata_pos)
