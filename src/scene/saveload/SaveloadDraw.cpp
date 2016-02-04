@@ -65,68 +65,103 @@ void SaveloadDraw::drawLogo()
 //---------------------------------------------------------------------
 void SaveloadDraw::drawSavedata()
 {
+    for (int n = 0; n < SaveloadData::getSavedataNum(); n++) {
+        drawSavedata(n);
+    }
+}
+//---------------------------------------------------------------------
+void SaveloadDraw::drawSavedata(int savedata_pos)
+{
+    int num = savedata_pos + saveload_state->getPage() * SaveloadData::getSavedataNum();
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
 
-    for (int n = 0; n < SaveloadData::getSavedataNum(); n++) {
-        DrawGraph(
-            SaveloadData::getSavedataPosX(n),
-            SaveloadData::getSavedataPosY(n),
-            image_base[SaveloadData::isSavedataPos(n, mousex, mousey) ? 1 : 0],
-            TRUE);
+    drawSavedataBack(savedata_pos);
+    drawSavedataTime(savedata_pos);
 
-        int num = n + saveload_state->getPage() * SaveloadData::getSavedataNum();
-        DrawFormatStringToHandle(
-            SaveloadData::getSavedataPosX(n) + 370,
-            SaveloadData::getSavedataPosY(n) + 90,
-            color_font,
-            font_time,
-            "%s %s",
-            SaveData::getInstance()->getSaveDay(num).c_str(),
-            SaveData::getInstance()->getSaveTime(num).c_str());
+    if (SaveData::getInstance()->isData(num)) {
+        drawSavedataText(savedata_pos);
+        drawSavedataThumbnail(savedata_pos);
+    }
+}
+//---------------------------------------------------------------------
+void SaveloadDraw::drawSavedataBack(int savedata_pos)
+{
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+    int image = SaveloadData::isSavedataPos(savedata_pos, mousex, mousey) ? 1 : 0;
 
-        if (SaveData::getInstance()->isData(num)) {
-            // text
-            int scenario_num = SaveData::getInstance()->getScenarioPos(num);
-            std::string text = AllScenarioData::getInstance()->getText(scenario_num);
+    DrawGraph(
+        SaveloadData::getSavedataPosX(savedata_pos),
+        SaveloadData::getSavedataPosY(savedata_pos),
+        image_base[image],
+        TRUE);
+}
+//---------------------------------------------------------------------
+void SaveloadDraw::drawSavedataTime(int savedata_pos)
+{
+    int num = savedata_pos + saveload_state->getPage() * SaveloadData::getSavedataNum();
+    DrawFormatStringToHandle(
+        SaveloadData::getSavedataPosX(savedata_pos) + 370,
+        SaveloadData::getSavedataPosY(savedata_pos) + 90,
+        color_font,
+        font_time,
+        "%s %s",
+        SaveData::getInstance()->getSaveDay(num).c_str(),
+        SaveData::getInstance()->getSaveTime(num).c_str());
+}
+//---------------------------------------------------------------------
+void SaveloadDraw::drawSavedataText(int savedata_pos)
+{
+    int num = savedata_pos + saveload_state->getPage() * SaveloadData::getSavedataNum();
+    int scenario_num = SaveData::getInstance()->getScenarioPos(num);
+    std::string text = AllScenarioData::getInstance()->getText(scenario_num);
 
-            DrawFormatStringToHandle(
-                SaveloadData::getSavedataPosX(n) + 195,
-                SaveloadData::getSavedataPosY(n) + 17,
-                color_font,
-                font_time,
-                "%s",
-                text.substr(0, 38).c_str());
-            DrawFormatStringToHandle(
-                SaveloadData::getSavedataPosX(n) + 195,
-                SaveloadData::getSavedataPosY(n) + 37,
-                color_font,
-                font_time,
-                "%s",
-                text.substr(38, 38).c_str());
-            DrawFormatStringToHandle(
-                SaveloadData::getSavedataPosX(n) + 195,
-                SaveloadData::getSavedataPosY(n) + 57,
-                color_font,
-                font_time,
-                "%s",
-                text.substr(76, 38).c_str());
+    DrawFormatStringToHandle(
+        SaveloadData::getSavedataPosX(savedata_pos) + 195,
+        SaveloadData::getSavedataPosY(savedata_pos) + 17,
+        color_font,
+        font_time,
+        "%s",
+        text.substr(0, 38).c_str());
+    DrawFormatStringToHandle(
+        SaveloadData::getSavedataPosX(savedata_pos) + 195,
+        SaveloadData::getSavedataPosY(savedata_pos) + 37,
+        color_font,
+        font_time,
+        "%s",
+        text.substr(38, 38).c_str());
+    DrawFormatStringToHandle(
+        SaveloadData::getSavedataPosX(savedata_pos) + 195,
+        SaveloadData::getSavedataPosY(savedata_pos) + 57,
+        color_font,
+        font_time,
+        "%s",
+        text.substr(76, 38).c_str());
+}
+//---------------------------------------------------------------------
+void SaveloadDraw::drawSavedataThumbnail(int savedata_pos)
+{
+    int num = savedata_pos + saveload_state->getPage() * SaveloadData::getSavedataNum();
+    int scenario_num = SaveData::getInstance()->getScenarioPos(num);
 
-            //----- thumbnail
-            SetDrawMode(DX_DRAWMODE_BILINEAR);
-            // background
-            int back_image = AllScenarioData::getInstance()->getBackimage(scenario_num);
-            DrawExtendGraph(
-                SaveloadData::getSavedataPosX(n) + 7,
-                SaveloadData::getSavedataPosY(n) + 7,
-                SaveloadData::getSavedataPosX(n) + 184,
-                SaveloadData::getSavedataPosY(n) + 107,
-                ImageData::getInstance()->getImageBack(back_image),
-                TRUE);
-            SetDrawMode(DX_DRAWMODE_NEAREST);
-        }
+    SetDrawMode(DX_DRAWMODE_BILINEAR);
+    // background
+    int back_image = AllScenarioData::getInstance()->getBackimage(scenario_num);
+    DrawExtendGraph(
+        SaveloadData::getSavedataPosX(savedata_pos) + 7,
+        SaveloadData::getSavedataPosY(savedata_pos) + 7,
+        SaveloadData::getSavedataPosX(savedata_pos) + 184,
+        SaveloadData::getSavedataPosY(savedata_pos) + 107,
+        ImageData::getInstance()->getImageBack(back_image),
+        TRUE);
+    // character
+    for (int i = 0; i < AllScenarioData::getInstance()->getCharaNum(scenario_num); i++) {
+        int chara_image = AllScenarioData::getInstance()->getCharaImage(i, scenario_num);
+        int chara_pos = AllScenarioData::getInstance()->getCharaPos(i, scenario_num);
 
     }
+    SetDrawMode(DX_DRAWMODE_NEAREST);
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::drawButtonPage()

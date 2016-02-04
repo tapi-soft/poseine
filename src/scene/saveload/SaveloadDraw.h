@@ -23,6 +23,11 @@ private:
 
     void drawLogo();
     void drawSavedata();
+    void drawSavedata(int);
+    void drawSavedataBack(int);
+    void drawSavedataTime(int);
+    void drawSavedataText(int);
+    void drawSavedataThumbnail(int);
     void drawButtonPage();
     void drawButtonBack();
 public:
