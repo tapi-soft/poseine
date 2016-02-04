@@ -84,6 +84,34 @@ void SaveloadDraw::drawSavedata()
             "%s %s",
             SaveData::getInstance()->getSaveDay(num).c_str(),
             SaveData::getInstance()->getSaveTime(num).c_str());
+
+        if (SaveData::getInstance()->isData(num)) {
+            // text
+            int pos = SaveData::getInstance()->getScenarioPos(num);
+            std::string text = AllScenarioData::getInstance()->getText(pos);
+            DrawFormatStringToHandle(
+                SaveloadData::getSavedataPosX(n) + 190,
+                SaveloadData::getSavedataPosY(n) + 15,
+                color_font,
+                font_time,
+                "%s",
+                text.substr(0, 38).c_str());
+            DrawFormatStringToHandle(
+                SaveloadData::getSavedataPosX(n) + 190,
+                SaveloadData::getSavedataPosY(n) + 35,
+                color_font,
+                font_time,
+                "%s",
+                text.substr(38, 38).c_str());
+            DrawFormatStringToHandle(
+                SaveloadData::getSavedataPosX(n) + 190,
+                SaveloadData::getSavedataPosY(n) + 55,
+                color_font,
+                font_time,
+                "%s",
+                text.substr(76, 38).c_str());
+        }
+
     }
 }
 //---------------------------------------------------------------------

@@ -3,6 +3,7 @@
 #include "SaveloadData.h"
 #include "../../input/InputState.h"
 #include "SaveData.h"
+#include "../main/scenario/AllScenarioData.h"
 
 class SaveloadDraw
 {
