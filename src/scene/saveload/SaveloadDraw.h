@@ -4,6 +4,7 @@
 #include "../../input/InputState.h"
 #include "SaveData.h"
 #include "../main/scenario/AllScenarioData.h"
+#include "../../data/ImageData.h"
 
 class SaveloadDraw
 {
@@ -19,7 +20,6 @@ private:
     int font_time;
     int font_dialog;
     int color_font;
-    int image_backtest;
 
     void drawLogo();
     void drawSavedata();

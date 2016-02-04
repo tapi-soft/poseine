@@ -20,13 +20,6 @@ MainDraw::~MainDraw()
 //---------------------------------------------------------------------
 void MainDraw::loadImage()
 {
-    image_back[1] = LoadGraph("image/back/back_1.png");
-    image_back[2] = LoadGraph("image/back/back_2.png");
-    image_chara[1] = LoadGraph("image/chara/chara_1.png");
-    image_chara[2] = LoadGraph("image/chara/chara_2.png");
-    image_chara[3] = LoadGraph("image/chara/chara_3.png");
-    image_chara[4] = LoadGraph("image/chara/chara_4.png");
-    image_chara[5] = LoadGraph("image/chara/chara_5.png");
     image_textbar = LoadGraph("image/main/textbar.png");
     LoadDivGraph("image/main/button_auto.png", 3, 3, 1, 49, 44, image_button_auto);
     LoadDivGraph("image/main/button_skip.png", 3, 3, 1, 49, 44, image_button_skip);
@@ -49,7 +42,8 @@ void MainDraw::update()
 void MainDraw::drawMain()
 {
     // back
-    DrawGraph(0, 0, image_back[main_state->getBackimage()], TRUE);
+    int back_image = main_state->getBackimage();
+    DrawGraph(0, 0, ImageData::getInstance()->getImageBack(back_image), TRUE);
 
     // chara
     SetDrawMode(DX_DRAWMODE_BILINEAR);
@@ -127,21 +121,22 @@ void MainDraw::drawChara(int mode)
         int pos =   ((mode == 1) ? main_state->getPreCharaPos(n)   : main_state->getCharaPos(n));
         int image = ((mode == 1) ? main_state->getPreCharaImage(n) : main_state->getCharaImage(n));
         int face =  ((mode == 1) ? main_state->getPreCharaFace(n)  : main_state->getCharaFace(n));
+        int image_handl = ImageData::getInstance()->getImageChara(image);
 
         if (mode == 0 && !main_state->isPreCharaEqual(pos, image))  { continue; }
         if (mode == 1 && main_state->isNextCharaEqual(pos, image)) { continue; }
         if (mode == 2 && main_state->isPreCharaEqual(pos, image))  { continue; }
 
         switch (pos) {
-        case 1: DrawExtendGraph(240, -100, 1040, 1550, image_chara[image], TRUE); break;
-        case 2: DrawExtendGraph(390, 100, 890, 1100, image_chara[image], TRUE);   break;
-        case 3: DrawExtendGraph(90, 100, 590, 1100, image_chara[image], TRUE);    break;
-        case 4: DrawExtendGraph(690, 100, 1190, 1100, image_chara[image], TRUE);  break;
-        case 5: DrawExtendGraph(490, 200, 790, 800, image_chara[image], TRUE);    break;
-        case 6: DrawExtendGraph(90, 200, 390, 800, image_chara[image], TRUE);     break;
-        case 7: DrawExtendGraph(890, 200, 1190, 800, image_chara[image], TRUE);   break;
-        case 8: DrawExtendGraph(290, 200, 590, 800, image_chara[image], TRUE);    break;
-        case 9: DrawExtendGraph(690, 200, 990, 800, image_chara[image], TRUE);    break;
+        case 1: DrawExtendGraph(240, -100, 1040, 1550, image_handl, TRUE); break;
+        case 2: DrawExtendGraph(390, 100, 890, 1100, image_handl, TRUE);   break;
+        case 3: DrawExtendGraph(90, 100, 590, 1100, image_handl, TRUE);    break;
+        case 4: DrawExtendGraph(690, 100, 1190, 1100, image_handl, TRUE);  break;
+        case 5: DrawExtendGraph(490, 200, 790, 800, image_handl, TRUE);    break;
+        case 6: DrawExtendGraph(90, 200, 390, 800, image_handl, TRUE);     break;
+        case 7: DrawExtendGraph(890, 200, 1190, 800, image_handl, TRUE);   break;
+        case 8: DrawExtendGraph(290, 200, 590, 800, image_handl, TRUE);    break;
+        case 9: DrawExtendGraph(690, 200, 990, 800, image_handl, TRUE);    break;
         }
     }
 }

@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\data\ImageData.cpp" />
     <ClCompile Include="src\GameDraw.cpp" />
     <ClCompile Include="src\fps\FpsManager.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
@@ -115,6 +116,7 @@
     <ClCompile Include="src\SystemData.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\data\ImageData.h" />
     <ClInclude Include="src\GameDraw.h" />
     <ClInclude Include="src\fps\FpsManager.h" />
     <ClInclude Include="src\GameManager.h" />

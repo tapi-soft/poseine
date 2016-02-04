@@ -42,8 +42,6 @@ void SaveloadDraw::loadImage()
         image_button_back);
     image_save_logo = LoadGraph("image/saveload/save_logo.png");
     image_load_logo = LoadGraph("image/saveload/load_logo.png");
-
-    image_backtest = LoadGraph("image/back/back_1.png");
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::update()
@@ -123,7 +121,7 @@ void SaveloadDraw::drawSavedata()
                 SaveloadData::getSavedataPosY(n) + 7,
                 SaveloadData::getSavedataPosX(n) + 184,
                 SaveloadData::getSavedataPosY(n) + 107,
-                image_backtest,
+                ImageData::getInstance()->getImageBack(back_image),
                 TRUE);
             SetDrawMode(DX_DRAWMODE_NEAREST);
         }

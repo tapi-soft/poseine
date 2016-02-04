@@ -4,6 +4,7 @@
 #include "MainState.h"
 #include "MainData.h"
 #include "backlog/BacklogDraw.h"
+#include "../../data/ImageData.h"
 
 class MainDraw
 {
@@ -11,8 +12,6 @@ private:
     BacklogDraw* backlog_draw;
     MainState* main_state;
     InputState* input_state;
-    int image_back[10];
-    int image_chara[10];
     int image_textbar;
     int image_button_auto[3];
     int image_button_skip[3];
