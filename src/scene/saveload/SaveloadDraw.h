@@ -17,6 +17,7 @@ private:
     int image_button_back[2];
     int image_save_logo;
     int image_load_logo;
+    int image_thumbnail_nodata;
     int font_time;
     int font_dialog;
     int color_font;

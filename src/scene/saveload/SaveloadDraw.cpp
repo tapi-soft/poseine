@@ -42,6 +42,7 @@ void SaveloadDraw::loadImage()
         image_button_back);
     image_save_logo = LoadGraph("image/saveload/save_logo.png");
     image_load_logo = LoadGraph("image/saveload/load_logo.png");
+    image_thumbnail_nodata = LoadGraph("image/saveload/thumbnail_nodata.png");
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::update()
@@ -76,13 +77,13 @@ void SaveloadDraw::drawSavedata(int savedata_pos)
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
 
+    drawSavedataThumbnail(savedata_pos);
     drawSavedataBack(savedata_pos);
     drawSavedataTime(savedata_pos);
-
     if (SaveData::getInstance()->isData(num)) {
         drawSavedataText(savedata_pos);
-        drawSavedataThumbnail(savedata_pos);
     }
+
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::drawSavedataBack(int savedata_pos)
@@ -143,9 +144,15 @@ void SaveloadDraw::drawSavedataText(int savedata_pos)
 void SaveloadDraw::drawSavedataThumbnail(int savedata_pos)
 {
     int num = savedata_pos + saveload_state->getPage() * SaveloadData::getSavedataNum();
-    int scenario_num = SaveData::getInstance()->getScenarioPos(num);
     int px = SaveloadData::getSavedataPosX(savedata_pos) + 7;
     int py = SaveloadData::getSavedataPosY(savedata_pos) + 7;
+
+    if (!SaveData::getInstance()->isData(num)) {
+        DrawGraph(px, py, image_thumbnail_nodata, TRUE);
+        return;
+    }
+
+    int scenario_num = SaveData::getInstance()->getScenarioPos(num);
 
     SetDrawMode(DX_DRAWMODE_BILINEAR);
     // background
