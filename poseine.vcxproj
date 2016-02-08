@@ -109,6 +109,10 @@
     <ClCompile Include="src\scene\saveload\SaveloadState.cpp" />
     <ClCompile Include="src\scene\SceneManager.cpp" />
     <ClCompile Include="src\scene\SceneState.cpp" />
+    <ClCompile Include="src\scene\setting\SettingData.cpp" />
+    <ClCompile Include="src\scene\setting\SettingDraw.cpp" />
+    <ClCompile Include="src\scene\setting\SettingManager.cpp" />
+    <ClCompile Include="src\scene\setting\SettingState.cpp" />
     <ClCompile Include="src\scene\title\TitleData.cpp" />
     <ClCompile Include="src\scene\title\TitleDraw.cpp" />
     <ClCompile Include="src\scene\title\TitleManager.cpp" />
@@ -139,6 +143,10 @@
     <ClInclude Include="src\scene\saveload\SaveloadState.h" />
     <ClInclude Include="src\scene\SceneManager.h" />
     <ClInclude Include="src\scene\SceneState.h" />
+    <ClInclude Include="src\scene\setting\SettingData.h" />
+    <ClInclude Include="src\scene\setting\SettingDraw.h" />
+    <ClInclude Include="src\scene\setting\SettingManager.h" />
+    <ClInclude Include="src\scene\setting\SettingState.h" />
     <ClInclude Include="src\scene\title\TitleData.h" />
     <ClInclude Include="src\scene\title\TitleDraw.h" />
     <ClInclude Include="src\scene\title\TitleManager.h" />

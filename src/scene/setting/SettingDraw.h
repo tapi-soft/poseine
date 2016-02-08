@@ -4,6 +4,9 @@
 class SettingDraw
 {
 private:
+    int image_back;
+
+    void loadImage();
 public:
     SettingDraw(GameState*);
     ~SettingDraw();
