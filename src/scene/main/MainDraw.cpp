@@ -148,9 +148,23 @@ void MainDraw::drawChara(int mode)
 //---------------------------------------------------------------------
 void MainDraw::drawSelect()
 {
-    DrawGraph(MainData::getSelectPosX(1), MainData::getSelectPosY(1), image_select[0], TRUE);
+    // 
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+
+    // select1
+    DrawGraph(
+        MainData::getSelectPosX(1),
+        MainData::getSelectPosY(1),
+        image_select[MainData::isSelectPos(1, mousex, mousey) ? 1 : 0],
+        TRUE);
     DrawFormatStringToHandle(340, 225, color_white, font, "%s", "‘I‘ðŽˆ‚P");
 
-    DrawGraph(MainData::getSelectPosX(2), MainData::getSelectPosY(2), image_select[0], TRUE);
+    // select2
+    DrawGraph(
+        MainData::getSelectPosX(2),
+        MainData::getSelectPosY(2),
+        image_select[MainData::isSelectPos(2, mousex, mousey) ? 1 : 0],
+        TRUE);
     DrawFormatStringToHandle(340, 375, color_white, font, "%s", "‘I‘ðŽˆ‚Q");
 }

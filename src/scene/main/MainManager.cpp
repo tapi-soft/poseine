@@ -58,8 +58,9 @@ void MainManager::leftClickProcess()
 {
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
+    int mode = main_state->getNowMode();
 
-    if (main_state->getNowMode() == MainData::MODE_NORMAL) {
+    if (mode == MainData::MODE_NORMAL) {
         if (MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey)) { autoButtonClickProcess(); }
         else if (MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey)) { skipButtonClickProcess(); }
         else if (MainData::isButtonPos(MainData::BUTTON_LOG, mousex, mousey)) { logButtonClickProcess(); }
@@ -68,14 +69,21 @@ void MainManager::leftClickProcess()
         else if (MainData::isButtonPos(MainData::BUTTON_LOAD, mousex, mousey)) { loadButtonClickProcess(); }
         else { textClickProcess(); }
     }
-    else if (main_state->getNowMode() == MainData::MODE_AUTO) {
+    else if (mode == MainData::MODE_AUTO) {
         if (!MainData::isButtonPos(MainData::BUTTON_AUTO, mousex, mousey)) {
             main_state->changeMode(MainData::MODE_NORMAL);
         }
     }
-    else if (main_state->getNowMode() == MainData::MODE_SKIP) {
+    else if (mode == MainData::MODE_SKIP) {
         if (!MainData::isButtonPos(MainData::BUTTON_SKIP, mousex, mousey)) {
             main_state->changeMode(MainData::MODE_NORMAL);
+        }
+    }
+    else if (mode == MainData::MODE_SELECT) {
+        for (int n = 1; n <= main_state->getSelectNum(); n++) {
+            if (MainData::isSelectPos(n, mousex, mousey)) {
+                printf("select %d\n", n);
+            }
         }
     }
 }
