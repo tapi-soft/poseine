@@ -97,6 +97,23 @@ void AllScenarioData::loadData()
             ss >> s;
             scenario_data[num]->setFade(atoi(s.c_str()));
         }
+        //---- 選択肢数
+        else if (s == "#SELECTNUM") {
+            ss >> s;
+            scenario_data[num]->setSelectNum(atoi(s.c_str()));
+        }
+        //---- 選択肢1
+        else if (s == "#SELECT") {
+            // 番号
+            ss >> s;
+            int num = atoi(s.c_str());
+            // ジャンプ先
+            ss >> s;
+            scenario_data[num]->setSelectNext(num, atoi(s.c_str()));
+            // テキスト
+            ss >> s;
+            scenario_data[num]->setSelectText(num, s);
+        }
     }
     FileRead_close(fp);
     puts("シナリオデータの読み込みに成功しました");
@@ -181,4 +198,19 @@ int AllScenarioData::getCharaPos(int scenario_num, int chara_num)
 int AllScenarioData::getCharaFace(int scenario_num, int chara_num)
 {
     return scenario_data[scenario_num]->getCharaFace(chara_num);
+}
+//---------------------------------------------------------------------
+int AllScenarioData::getSelectNum(int scenario_num)
+{
+    return scenario_data[scenario_num]->getSelectNum();
+}
+//---------------------------------------------------------------------
+int AllScenarioData::getSelectNext(int scenario_num, int select_num)
+{
+    return scenario_data[scenario_num]->getSelectNext(select_num);
+}
+//---------------------------------------------------------------------
+std::string AllScenarioData::getSelectText(int scenario_num, int select_num)
+{
+    return scenario_data[scenario_num]->getSelectText(select_num);
 }

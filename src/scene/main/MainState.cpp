@@ -12,7 +12,7 @@ MainState::MainState()
     pre_scenario_num = 1;
     disp_length = 0;
     is_text_disp = true;
-    now_mode = MainData::MODE_SELECT;
+    now_mode = MainData::MODE_NORMAL;
     elapsed_end_flame = 0;
     chara_alpha = 0;
     now_state = STATE_NORMAL;
@@ -88,6 +88,12 @@ void MainState::nextScenario()
     disp_length = 0;
     elapsed_end_flame = 0;
     chara_alpha = 0;
+    if (getSelectNum() >= 2) {
+        now_mode = MainData::MODE_SELECT;
+    }
+    else {
+        now_mode = MainData::MODE_NORMAL;
+    }
 }
 //---------------------------------------------------------------------
 void MainState::settingScenario(int n)
@@ -197,6 +203,23 @@ int MainState::getPreCharaFace(int n)
 {
     return AllScenarioData::getInstance()->getCharaFace(pre_scenario_num, n);
 }
+//---------------------------------------------------------------------
+int MainState::getSelectNum()
+{
+    return AllScenarioData::getInstance()->getSelectNum(scenario_num);
+}
+//---------------------------------------------------------------------
+int MainState::getSelectNext(int n)
+{
+    return AllScenarioData::getInstance()->getSelectNext(scenario_num, n);
+}
+//---------------------------------------------------------------------
+std::string MainState::getSelectText(int n)
+{
+    return AllScenarioData::getInstance()->getSelectText(scenario_num, n);
+}
+
+
 //---------------------------------------------------------------------
 bool MainState::isTextDisp()
 {

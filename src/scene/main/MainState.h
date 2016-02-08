@@ -47,6 +47,9 @@ public:
     int getPreCharaImage(int);
     int getPreCharaPos(int);
     int getPreCharaFace(int);
+    int getSelectNum();
+    int getSelectNext(int);
+    std::string getSelectText(int);
 
     int getButtonState(int, int, int);
     int getNowMode();

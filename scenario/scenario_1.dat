@@ -47,11 +47,10 @@
 
 #NUM 5
 #BACK 1
-#NAME ‹{–{—[‰Ä
 #CHARA 5 1 1
-#TEXT1 ‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T
-#TEXT2 ‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T
-#TEXT3 ‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T‚T
+#SELECTNUM 2
+#SELECT 1 6 ‚U‚Ö”ò‚Ô
+#SELECT 2 8 ‚W‚Ö”ò‚Ô
 #NEXT 6
 #PRE 4
 

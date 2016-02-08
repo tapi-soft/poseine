@@ -30,4 +30,7 @@ public:
     int getCharaImage(int, int);
     int getCharaPos(int, int);
     int getCharaFace(int, int);
+    int getSelectNum(int);
+    int getSelectNext(int, int);
+    std::string getSelectText(int, int);
 };
