@@ -50,6 +50,24 @@ void SaveData::load()
     puts("Success loading savedata file");
 }
 //---------------------------------------------------------------------
+void SaveData::save()
+{
+    FILE *fp;
+    errno_t error = fopen_s(&fp, "savedata/savedata.dat", "wb");
+
+    if (fp == NULL){ // NULLが返ってきたらエラー発生
+        puts("Fail data save");
+        return;
+    }
+    for (int n = 0; n < SAVEDATA_MAX; n++) {
+        if (is_data[n]) {
+            fprintf(fp, "%d %d %s %s\r\n", n, this->scenario_pos[n], save_day[n].c_str(), save_time[n].c_str());
+        }
+    }
+    fclose(fp);
+    puts("Success data save");
+}
+//---------------------------------------------------------------------
 void SaveData::save(int num, int scenario_pos)
 {
     //---- 
@@ -80,20 +98,17 @@ void SaveData::save(int num, int scenario_pos)
     save_time[num] = ds.str();
 
     //----
-    FILE *fp;
-    errno_t error = fopen_s(&fp, "savedata/savedata.dat", "wb");
+    save();
+}
+//---------------------------------------------------------------------
+void SaveData::deleteData(int num)
+{
+    is_data[num] = false;
+    scenario_pos[num] = 0;
+    save_day[num] = "----/--/--";
+    save_time[num] = "--:--";
 
-    if (fp == NULL){ // NULLが返ってきたらエラー発生
-        puts("Fail data save");
-        return;
-    }
-    for (int n = 0; n < SAVEDATA_MAX; n++) {
-        if (is_data[n]) {
-            fprintf(fp, "%d %d %s %s\r\n", n, this->scenario_pos[n], save_day[n].c_str(), save_time[n].c_str());
-        }
-    }
-    fclose(fp);
-    puts("Success data save");
+    save();
 }
 //---------------------------------------------------------------------
 SaveData* SaveData::getInstance()

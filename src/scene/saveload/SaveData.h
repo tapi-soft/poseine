@@ -20,7 +20,9 @@ public:
     static SaveData* getInstance();
 
     void load();
+    void save();
     void save(int, int);
+    void deleteData(int);
 
     bool isData(int);
     int getScenarioPos(int);

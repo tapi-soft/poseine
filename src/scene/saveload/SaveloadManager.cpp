@@ -44,7 +44,7 @@ void SaveloadManager::leftClickProcess()
 
         if (!SaveData::getInstance()->isData(num)) { continue; }
         if (SaveloadData::isButtonDeletePos(n, mousex, mousey)) {
-            printf("delete : %d\n", n);
+            SaveData::getInstance()->deleteData(num);
             return;
         }
     }
