@@ -148,9 +148,9 @@ void MainDraw::drawChara(int mode)
 //---------------------------------------------------------------------
 void MainDraw::drawSelect()
 {
-    DrawGraph(240, 200, image_select[0], TRUE);
+    DrawGraph(MainData::getSelectPosX(1), MainData::getSelectPosY(1), image_select[0], TRUE);
     DrawFormatStringToHandle(340, 225, color_white, font, "%s", "‘I‘ðŽˆ‚P");
 
-    DrawGraph(240, 350, image_select[0], TRUE);
+    DrawGraph(MainData::getSelectPosX(2), MainData::getSelectPosY(2), image_select[0], TRUE);
     DrawFormatStringToHandle(340, 375, color_white, font, "%s", "‘I‘ðŽˆ‚Q");
 }

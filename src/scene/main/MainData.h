@@ -22,10 +22,23 @@ private:
     static const int BUTTON_MARGIN_X;
     static const int BUTTON_MARGIN_Y;
 
+    static const int SELECT_SIZE_X;
+    static const int SELECT_SIZE_Y;
+    static const int SELECT1_POS_X;
+    static const int SELECT1_POS_Y;
+    static const int SELECT2_POS_X;
+    static const int SELECT2_POS_Y;
+
     MainData();
     ~MainData();
 public:
     static int getButtonPosX(int);
     static int getButtonPosY(int);
     static bool isButtonPos(int, int, int);
+
+    static int getSelectSizeX();
+    static int getSelectSizeY();
+    static int getSelectPosX(int);
+    static int getSelectPosY(int);
+    static bool isSelectPos(int, int, int);
 };
