@@ -12,7 +12,7 @@ MainState::MainState()
     pre_scenario_num = 1;
     disp_length = 0;
     is_text_disp = true;
-    now_mode = MainData::MODE_NORMAL;
+    now_mode = MainData::MODE_SELECT;
     elapsed_end_flame = 0;
     chara_alpha = 0;
     now_state = STATE_NORMAL;

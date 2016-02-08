@@ -19,6 +19,7 @@ private:
     int image_button_conf[3];
     int image_button_save[3];
     int image_button_load[3];
+    int image_select[2];
 
     int font;
     int color_white;
@@ -28,6 +29,7 @@ private:
     void drawMain();
     void drawTextwindow();
     void drawChara(int);
+    void drawSelect();
 public:
     MainDraw(GameState*);
     ~MainDraw();

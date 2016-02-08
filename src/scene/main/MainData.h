@@ -12,6 +12,7 @@ public:
     static const int MODE_NORMAL;
     static const int MODE_AUTO;
     static const int MODE_SKIP;
+    static const int MODE_SELECT;
 
 private:
     static const int BUTTON_POS_X;

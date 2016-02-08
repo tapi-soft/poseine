@@ -17,7 +17,7 @@ SceneState::SceneState()
     saveload_state = new SaveloadState();
     setting_state = new SettingState();
 
-    scene = SCENE_TITLE;
+    scene = SCENE_MAIN;
     saveload_state->setMode(SaveloadState::MODE_LOAD);
     prev_scene = scene;
     next_scene = scene;

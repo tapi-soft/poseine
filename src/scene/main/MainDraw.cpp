@@ -27,7 +27,7 @@ void MainDraw::loadImage()
     LoadDivGraph("image/main/button_conf.png", 3, 3, 1, 49, 44, image_button_conf);
     LoadDivGraph("image/main/button_save.png", 3, 3, 1, 49, 44, image_button_save);
     LoadDivGraph("image/main/button_load.png", 3, 3, 1, 49, 44, image_button_load);
-
+    LoadDivGraph("image/main/select.png", 2, 1, 2, 800, 80, image_select);
 }
 //---------------------------------------------------------------------
 void MainDraw::update()
@@ -58,6 +58,11 @@ void MainDraw::drawMain()
     // text window
     if (main_state->isDispWindow()) {
         drawTextwindow();
+    }
+
+    // select
+    if (main_state->getNowMode() == MainData::MODE_SELECT) {
+        drawSelect();
     }
 }
 //---------------------------------------------------------------------
@@ -139,4 +144,13 @@ void MainDraw::drawChara(int mode)
         case 9: DrawExtendGraph(690, 200, 990, 800, image_handl, TRUE);    break;
         }
     }
+}
+//---------------------------------------------------------------------
+void MainDraw::drawSelect()
+{
+    DrawGraph(240, 200, image_select[0], TRUE);
+    DrawFormatStringToHandle(340, 225, color_white, font, "%s", "‘I‘ðŽˆ‚P");
+
+    DrawGraph(240, 350, image_select[0], TRUE);
+    DrawFormatStringToHandle(340, 375, color_white, font, "%s", "‘I‘ðŽˆ‚Q");
 }
