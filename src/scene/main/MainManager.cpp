@@ -82,7 +82,7 @@ void MainManager::leftClickProcess()
     else if (mode == MainData::MODE_SELECT) {
         for (int n = 1; n <= main_state->getSelectNum(); n++) {
             if (MainData::isSelectPos(n, mousex, mousey)) {
-                printf("select %d\n", n);
+                main_state->select(n);
             }
         }
     }

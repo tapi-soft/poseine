@@ -31,6 +31,7 @@ public:
     void fullTextOpen();
     void nextScenario();
     void settingScenario(int);
+    void select(int);
 
     int getScenarioNum();
     std::string getName();

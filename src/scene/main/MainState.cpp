@@ -102,6 +102,14 @@ void MainState::settingScenario(int n)
     nextScenario();
 }
 //---------------------------------------------------------------------
+void MainState::select(int n)
+{
+    int num = AllScenarioData::getInstance()->getSelectNext(scenario_num, n);
+    settingScenario(num);
+}
+
+
+//---------------------------------------------------------------------
 int MainState::getScenarioNum()
 {
     return scenario_num;

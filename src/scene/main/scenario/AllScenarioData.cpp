@@ -106,13 +106,13 @@ void AllScenarioData::loadData()
         else if (s == "#SELECT") {
             // 番号
             ss >> s;
-            int num = atoi(s.c_str());
+            int select_num = atoi(s.c_str());
             // ジャンプ先
             ss >> s;
-            scenario_data[num]->setSelectNext(num, atoi(s.c_str()));
+            scenario_data[num]->setSelectNext(select_num, atoi(s.c_str()));
             // テキスト
             ss >> s;
-            scenario_data[num]->setSelectText(num, s);
+            scenario_data[num]->setSelectText(select_num, s);
         }
     }
     FileRead_close(fp);
