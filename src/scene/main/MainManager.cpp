@@ -107,7 +107,7 @@ void MainManager::logButtonClickProcess()
 //---------------------------------------------------------------------
 void MainManager::confButtonClickProcess()
 {
-    puts("confButtonClickProcess");
+    scene_state->changeScene(SceneState::SCENE_SETTING);
 }
 //---------------------------------------------------------------------
 void MainManager::saveButtonClickProcess()
