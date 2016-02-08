@@ -9,6 +9,8 @@ private:
     InputState* input_state;
     SceneState* scene_state;
     SaveloadState* saveload_state;
+
+    void leftClickProcess();
 public:
     SaveloadManager(GameState*);
     ~SaveloadManager();
