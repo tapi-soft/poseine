@@ -88,11 +88,11 @@ void MainState::nextScenario()
     disp_length = 0;
     elapsed_end_flame = 0;
     chara_alpha = 0;
+    if (now_mode == MainData::MODE_SELECT) {
+        now_mode = MainData::MODE_NORMAL;
+    }
     if (getSelectNum() >= 2) {
         now_mode = MainData::MODE_SELECT;
-    }
-    else {
-        now_mode = MainData::MODE_NORMAL;
     }
 }
 //---------------------------------------------------------------------
