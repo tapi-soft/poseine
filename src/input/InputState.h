@@ -33,6 +33,7 @@ public:
     int getPointY();            // 座標yを取得
     int getClick(int);          // クリック情報取得
     int getLeftClick();
+    int getRightClick();
     int getPreClick(int);       // 前フレームクリック情報取得
     bool isRereaseClick(int);   // 指定クリックが離されたか
 };

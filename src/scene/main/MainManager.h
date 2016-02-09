@@ -12,6 +12,7 @@ private:
 
     void updateNormal();
     void leftClickProcess();
+    void rightClickProcess();
     void textClickProcess();
     void autoButtonClickProcess();
     void skipButtonClickProcess();

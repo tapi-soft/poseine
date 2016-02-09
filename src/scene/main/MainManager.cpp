@@ -37,7 +37,10 @@ void MainManager::updateNormal()
     if (input_state->getLeftClick() == 1) {
         leftClickProcess();
     }
-
+    // right click process
+    if (input_state->getRightClick() == 1) {
+        rightClickProcess();
+    }
     // mouse wheel process
     if (input_state->getMouseWheel() < 0) {
         if (mode == MainData::MODE_NORMAL) {
@@ -98,6 +101,17 @@ void MainManager::leftClickProcess()
                 main_state->select(n);
             }
         }
+    }
+}
+//---------------------------------------------------------------------
+void MainManager::rightClickProcess()
+{
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+    int mode = main_state->getNowMode();
+
+    if (mode == MainData::MODE_NORMAL) {
+        printf("right click\n");
     }
 }
 //---------------------------------------------------------------------
