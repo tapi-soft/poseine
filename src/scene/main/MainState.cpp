@@ -108,7 +108,6 @@ void MainState::select(int n)
     settingScenario(num);
 }
 
-
 //---------------------------------------------------------------------
 int MainState::getScenarioNum()
 {
@@ -237,6 +236,8 @@ bool MainState::isTextDisp()
 void MainState::changeMode(int mode)
 {
     now_mode = mode;
+    if (now_mode == MainData::MODE_NORMAL) { is_disp_window = true; }
+    if (now_mode == MainData::MODE_HIDE) { is_disp_window = false; }
 }
 //---------------------------------------------------------------------
 int MainState::getButtonState(int n, int x, int y)

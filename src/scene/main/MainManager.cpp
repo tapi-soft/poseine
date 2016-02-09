@@ -102,6 +102,9 @@ void MainManager::leftClickProcess()
             }
         }
     }
+    else if (mode == MainData::MODE_HIDE) {
+        main_state->changeMode(MainData::MODE_NORMAL);
+    }
 }
 //---------------------------------------------------------------------
 void MainManager::rightClickProcess()
@@ -111,7 +114,10 @@ void MainManager::rightClickProcess()
     int mode = main_state->getNowMode();
 
     if (mode == MainData::MODE_NORMAL) {
-        printf("right click\n");
+        main_state->changeMode(MainData::MODE_HIDE);
+    }
+    else if (mode == MainData::MODE_HIDE) {
+        main_state->changeMode(MainData::MODE_NORMAL);
     }
 }
 //---------------------------------------------------------------------
