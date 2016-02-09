@@ -136,13 +136,15 @@ void SaveloadDraw::drawSavedataText(int savedata_pos)
         font_text,
         "%s",
         text.substr(0, 38).c_str());
-    DrawFormatStringToHandle(
-        SaveloadData::getSavedataPosX(savedata_pos) + 195,
-        SaveloadData::getSavedataPosY(savedata_pos) + 57,
-        color_font,
-        font_text,
-        "%s",
-        text.substr(38, 38).c_str());
+    if (text.length() >= 38) {
+        DrawFormatStringToHandle(
+            SaveloadData::getSavedataPosX(savedata_pos) + 195,
+            SaveloadData::getSavedataPosY(savedata_pos) + 57,
+            color_font,
+            font_text,
+            "%s",
+            text.substr(38, 38).c_str());
+    }
 }
 //---------------------------------------------------------------------
 void SaveloadDraw::drawSavedataThumbnail(int savedata_pos)

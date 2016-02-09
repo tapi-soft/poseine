@@ -89,6 +89,10 @@ void MainManager::leftClickProcess()
         }
     }
     else if (mode == MainData::MODE_SELECT) {
+        if (MainData::isButtonPos(MainData::BUTTON_LOG, mousex, mousey)) { logButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_CONF, mousex, mousey)) { confButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_SAVE, mousex, mousey)) { saveButtonClickProcess(); }
+        else if (MainData::isButtonPos(MainData::BUTTON_LOAD, mousex, mousey)) { loadButtonClickProcess(); }
         for (int n = 1; n <= main_state->getSelectNum(); n++) {
             if (MainData::isSelectPos(n, mousex, mousey)) {
                 main_state->select(n);

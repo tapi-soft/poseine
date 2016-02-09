@@ -243,7 +243,6 @@ int MainState::getButtonState(int n, int x, int y)
 {
     if (now_mode == MainData::MODE_NORMAL) {
         if (MainData::isButtonPos(n, x, y)) { return 1; }
-        return 0;
     }
     if (now_mode == MainData::MODE_AUTO) {
         if (n == MainData::BUTTON_AUTO) { return 1; }
@@ -260,6 +259,11 @@ int MainState::getButtonState(int n, int x, int y)
         if (n == MainData::BUTTON_CONF) { return 2; }
         if (n == MainData::BUTTON_SAVE) { return 2; }
         if (n == MainData::BUTTON_LOAD) { return 2; }
+    }
+    if (now_mode == MainData::MODE_SELECT) {
+        if (n == MainData::BUTTON_AUTO) { return 2; }
+        if (n == MainData::BUTTON_SKIP) { return 2; }
+        if (MainData::isButtonPos(n, x, y)) { return 1; }
     }
     return 0;
 }
