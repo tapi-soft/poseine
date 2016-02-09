@@ -30,6 +30,9 @@ void MainManager::update()
 //---------------------------------------------------------------------
 void MainManager::updateNormal()
 {
+    // 
+    int mode = main_state->getNowMode();
+
     // left click process
     if (input_state->getLeftClick() == 1) {
         leftClickProcess();
@@ -37,15 +40,21 @@ void MainManager::updateNormal()
 
     // mouse wheel process
     if (input_state->getMouseWheel() < 0) {
-        if (main_state->getNowMode() == MainData::MODE_NORMAL) {
+        if (mode == MainData::MODE_NORMAL) {
             textClickProcess();
+        }
+        else if (mode == MainData::MODE_SELECT) {
+
         }
         else {
             main_state->changeMode(MainData::MODE_NORMAL);
         }
     }
     if (input_state->getMouseWheel() > 0) {
-        if (main_state->getNowMode() == MainData::MODE_NORMAL) {
+        if (mode == MainData::MODE_NORMAL) {
+            logButtonClickProcess();
+        }
+        else if (mode == MainData::MODE_SELECT) {
             logButtonClickProcess();
         }
         else {
