@@ -19,7 +19,7 @@ SceneState::SceneState()
     setting_state = new SettingState();
     edit_state = new EditState();
 
-    scene = SCENE_MAIN;
+    scene = SCENE_EDIT;
     saveload_state->setMode(SaveloadState::MODE_LOAD);
     prev_scene = scene;
     next_scene = scene;

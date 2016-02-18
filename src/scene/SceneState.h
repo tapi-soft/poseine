@@ -41,6 +41,6 @@ public:
     MainState* getMainState();
     SaveloadState* getSaveloadState();
     SettingState* getSettingState();
-    SceneState* getSceneState();
+    EditState* getEditState();
     int getAlpha();
 };

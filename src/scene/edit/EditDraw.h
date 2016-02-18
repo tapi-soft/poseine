@@ -4,6 +4,7 @@
 class EditDraw
 {
 private:
+    int image_back;
 public:
     EditDraw(GameState*);
     ~EditDraw();

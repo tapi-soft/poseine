@@ -15,10 +15,10 @@ EditDraw::~EditDraw()
 //---------------------------------------------------------------------
 void EditDraw::loadImage()
 {
-
+    image_back = LoadGraph("image/edit/back.png");
 }
 //---------------------------------------------------------------------
 void EditDraw::update()
 {
-
+    DrawGraph(0, 0, image_back, TRUE);
 }
