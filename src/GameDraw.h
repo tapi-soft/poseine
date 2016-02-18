@@ -5,6 +5,7 @@
 #include "scene/main/MainDraw.h"
 #include "scene/saveload/SaveloadDraw.h"
 #include "scene/setting/SettingDraw.h"
+#include "scene/edit/EditDraw.h"
 
 class GameDraw
 {
@@ -14,6 +15,7 @@ private:
     MainDraw* main_draw;
     SaveloadDraw* saveload_draw;
     SettingDraw* setting_draw;
+    EditDraw* edit_draw;
 
 public:
     GameDraw(GameState*);

@@ -8,6 +8,7 @@ const int SceneState::SCENE_MAIN = 2;
 const int SceneState::SCENE_SAVE = 3;
 const int SceneState::SCENE_LOAD = 4;
 const int SceneState::SCENE_SETTING = 5;
+const int SceneState::SCENE_EDIT = 100;
 
 //---------------------------------------------------------------------
 SceneState::SceneState()
@@ -16,6 +17,7 @@ SceneState::SceneState()
     main_state = new MainState();
     saveload_state = new SaveloadState();
     setting_state = new SettingState();
+    edit_state = new EditState();
 
     scene = SCENE_MAIN;
     saveload_state->setMode(SaveloadState::MODE_LOAD);
@@ -26,6 +28,7 @@ SceneState::SceneState()
 //---------------------------------------------------------------------
 SceneState::~SceneState()
 {
+    delete(edit_state);
     delete(setting_state);
     delete(saveload_state);
     delete(main_state);
@@ -75,4 +78,5 @@ TitleState* SceneState::getTitleState() { return title_state; }
 MainState* SceneState::getMainState() { return main_state; }
 SaveloadState* SceneState::getSaveloadState() { return saveload_state; }
 SettingState* SceneState::getSettingState() { return setting_state; }
+EditState* SceneState::getEditState() { return edit_state; }
 int SceneState::getAlpha() { return alpha; }

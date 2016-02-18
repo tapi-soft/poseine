@@ -9,10 +9,12 @@ GameDraw::GameDraw(GameState* state)
     main_draw = new MainDraw(state);
     saveload_draw = new SaveloadDraw(state);
     setting_draw = new SettingDraw(state);
+    edit_draw = new EditDraw(state);
 }
 //-----------------------------------------------------------
 GameDraw::~GameDraw()
 {
+    delete(edit_draw);
     delete(setting_draw);
     delete(saveload_draw);
     delete(main_draw);
@@ -28,6 +30,7 @@ void GameDraw::update()
     else if (scene == SceneState::SCENE_SAVE) { saveload_draw->update(); }
     else if (scene == SceneState::SCENE_LOAD) { saveload_draw->update(); }
     else if (scene == SceneState::SCENE_SETTING) { setting_draw->update(); }
+    else if (scene == SceneState::SCENE_EDIT) { edit_draw->update(); }
 
     //---- fadeout/fadein
     if (scene_state->isFade()) {

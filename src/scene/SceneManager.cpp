@@ -10,10 +10,12 @@ SceneManager::SceneManager(GameState* state)
     main_manager = new MainManager(state);
     saveload_manager = new SaveloadManager(state);
     setting_manager = new SettingManager(state);
+    edit_manager = new EditManager(state);
 }
 //---------------------------------------------------------------------
 SceneManager::~SceneManager()
 {
+    delete(edit_manager);
     delete(setting_manager);
     delete(saveload_manager);
     delete(main_manager);
@@ -32,5 +34,6 @@ void SceneManager::update()
         else if (scene == SceneState::SCENE_SAVE) { saveload_manager->update(); }
         else if (scene == SceneState::SCENE_LOAD) { saveload_manager->update(); }
         else if (scene == SceneState::SCENE_SETTING) { setting_manager->update(); }
+        else if (scene == SceneState::SCENE_EDIT) { edit_manager->update(); }
     }
 }

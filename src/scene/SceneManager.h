@@ -4,6 +4,7 @@
 #include "main/MainManager.h"
 #include "saveload/SaveloadManager.h"
 #include "setting/SettingManager.h"
+#include "edit/EditManager.h"
 
 class SceneManager
 {
@@ -13,6 +14,8 @@ private:
     MainManager* main_manager;
     SaveloadManager* saveload_manager;
     SettingManager* setting_manager;
+    EditManager* edit_manager;
+
 public:
     SceneManager(GameState*);
     ~SceneManager();
