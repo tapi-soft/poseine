@@ -69,7 +69,7 @@ void MainDraw::drawMain()
 void MainDraw::drawTextwindow()
 {
     // window
-    DrawGraph(0, SystemData::getWindowHeight() - 200, image_textbar, TRUE);
+    DrawGraph(0, SystemData::getInstance()->getWindowHeight() - 200, image_textbar, TRUE);
 
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
@@ -113,11 +113,11 @@ void MainDraw::drawTextwindow()
 
     // font
     if (main_state->getName() != "") {
-        DrawFormatStringToHandle(250, SystemData::getWindowHeight() - 200 + 30, color_white, font, "y%sz", main_state->getName().c_str());
+        DrawFormatStringToHandle(250, SystemData::getInstance()->getWindowHeight() - 200 + 30, color_white, font, "y%sz", main_state->getName().c_str());
     }
-    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 70, color_white, font, "%s", main_state->getText1().c_str());
-    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 105, color_white, font, "%s", main_state->getText2().c_str());
-    DrawFormatStringToHandle(300, SystemData::getWindowHeight() - 200 + 140, color_white, font, "%s", main_state->getText3().c_str());
+    DrawFormatStringToHandle(300, SystemData::getInstance()->getWindowHeight() - 200 + 70, color_white, font, "%s", main_state->getText1().c_str());
+    DrawFormatStringToHandle(300, SystemData::getInstance()->getWindowHeight() - 200 + 105, color_white, font, "%s", main_state->getText2().c_str());
+    DrawFormatStringToHandle(300, SystemData::getInstance()->getWindowHeight() - 200 + 140, color_white, font, "%s", main_state->getText3().c_str());
 }
 //---------------------------------------------------------------------
 void MainDraw::drawChara(int mode)

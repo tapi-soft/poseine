@@ -33,8 +33,8 @@ void GameDraw::update()
     if (scene_state->isFade()) {
         SetDrawBlendMode(DX_BLENDMODE_ALPHA, scene_state->getAlpha());
         DrawBox(0, 0,
-            SystemData::getWindowWidth(),
-            SystemData::getWindowHeight(),
+            SystemData::getInstance()->getWindowWidth(),
+            SystemData::getInstance()->getWindowHeight(),
             GetColor(0, 0, 0), TRUE);
         SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
     }

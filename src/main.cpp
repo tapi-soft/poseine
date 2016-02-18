@@ -6,9 +6,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
     //---- Initial processing
     SetGraphMode(
-        SystemData::getWindowWidth(),
-        SystemData::getWindowHeight(),
-        SystemData::getWindowColor());
+        SystemData::getInstance()->getWindowWidth(),
+        SystemData::getInstance()->getWindowHeight(),
+        SystemData::getInstance()->getWindowColor());
     ChangeWindowMode(TRUE);
     SetWindowText("GameName");
 

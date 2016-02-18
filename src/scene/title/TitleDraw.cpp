@@ -38,8 +38,8 @@ void TitleDraw::update()
     //---- fadeout/fadein
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, title_state->getAlpha());
     DrawBox(0, 0,
-        SystemData::getWindowWidth(),
-        SystemData::getWindowHeight(),
+        SystemData::getInstance()->getWindowWidth(),
+        SystemData::getInstance()->getWindowHeight(),
         GetColor(0, 0, 0), TRUE);
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
@@ -48,14 +48,14 @@ void TitleDraw::drawCircle()
 {
     // background
     DrawBox(0, 0,
-        SystemData::getWindowWidth(),
-        SystemData::getWindowHeight(),
+        SystemData::getInstance()->getWindowWidth(),
+        SystemData::getInstance()->getWindowHeight(),
         GetColor(255, 255, 255), TRUE);
 
     // circle logo
     DrawGraph(
-        SystemData::getWindowWidth() / 2 - 600 / 2,
-        SystemData::getWindowHeight() / 2 - 600 / 2,
+        SystemData::getInstance()->getWindowWidth() / 2 - 600 / 2,
+        SystemData::getInstance()->getWindowHeight() / 2 - 600 / 2,
         image_circle_logo, TRUE);
 }
 //---------------------------------------------------------------------

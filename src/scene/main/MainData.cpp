@@ -16,8 +16,8 @@ const int MainData::MODE_SKIP = 2;
 const int MainData::MODE_SELECT = 3;
 const int MainData::MODE_HIDE = 4;
 
-const int MainData::BUTTON_POS_X = SystemData::getWindowWidth() - 130;
-const int MainData::BUTTON_POS_Y = SystemData::getWindowHeight() - 160;
+const int MainData::BUTTON_POS_X = SystemData::getInstance()->getWindowWidth() - 130;
+const int MainData::BUTTON_POS_Y = SystemData::getInstance()->getWindowHeight() - 160;
 const int MainData::BUTTON_SIZE_X = 49;
 const int MainData::BUTTON_SIZE_Y = 44;
 const int MainData::BUTTON_MARGIN_X = 5;
