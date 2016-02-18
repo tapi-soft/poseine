@@ -17,6 +17,5 @@ EditManager::~EditManager()
 void EditManager::update()
 {
     if (input_state->getLeftClick()) {
-        scene_state->backScene();
     }
 }

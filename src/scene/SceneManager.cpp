@@ -41,7 +41,12 @@ void SceneManager::update()
     // debug mode
     if (SystemData::getInstance()->getDebugMode()) {
         if (input_state->getKey(KEY_INPUT_F1)) {
-            scene_state->changeScene(SceneState::SCENE_EDIT);
+            if (scene_state->getScene() == SceneState::SCENE_EDIT) {
+                scene_state->backScene();
+            }
+            else {
+                scene_state->changeScene(SceneState::SCENE_EDIT);
+            }
         }
     }
 }
