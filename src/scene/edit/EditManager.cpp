@@ -4,6 +4,9 @@
 //---------------------------------------------------------------------
 EditManager::EditManager(GameState* state)
 {
+    edit_state = state->getSceneState()->getEditState();
+    input_state = state->getInputState();
+    scene_state = state->getSceneState();
 }
 //---------------------------------------------------------------------
 EditManager::~EditManager()
@@ -13,5 +16,7 @@ EditManager::~EditManager()
 //---------------------------------------------------------------------
 void EditManager::update()
 {
-
+    if (input_state->getLeftClick()) {
+        scene_state->backScene();
+    }
 }

@@ -5,7 +5,9 @@
 //---------------------------------------------------------------------
 SceneManager::SceneManager(GameState* state)
 {
+    input_state = state->getInputState();
     scene_state = state->getSceneState();
+
     title_manager = new TitleManager(state);
     main_manager = new MainManager(state);
     saveload_manager = new SaveloadManager(state);
@@ -35,5 +37,11 @@ void SceneManager::update()
         else if (scene == SceneState::SCENE_LOAD) { saveload_manager->update(); }
         else if (scene == SceneState::SCENE_SETTING) { setting_manager->update(); }
         else if (scene == SceneState::SCENE_EDIT) { edit_manager->update(); }
+    }
+    // debug mode
+    if (SystemData::getInstance()->getDebugMode()) {
+        if (input_state->getKey(KEY_INPUT_F1)) {
+            scene_state->changeScene(SceneState::SCENE_EDIT);
+        }
     }
 }
