@@ -104,8 +104,8 @@
     <ClCompile Include="src\scene\main\MainDraw.cpp" />
     <ClCompile Include="src\scene\main\MainManager.cpp" />
     <ClCompile Include="src\scene\main\MainState.cpp" />
-    <ClCompile Include="src\scene\main\scenario\AllScenarioData.cpp" />
-    <ClCompile Include="src\scene\main\scenario\ScenarioData.cpp" />
+    <ClCompile Include="src\data\scenario\AllScenarioData.cpp" />
+    <ClCompile Include="src\data\scenario\ScenarioData.cpp" />
     <ClCompile Include="src\scene\saveload\SaveData.cpp" />
     <ClCompile Include="src\scene\saveload\SaveloadData.cpp" />
     <ClCompile Include="src\scene\saveload\SaveloadDraw.cpp" />
@@ -142,8 +142,8 @@
     <ClInclude Include="src\scene\main\MainDraw.h" />
     <ClInclude Include="src\scene\main\MainManager.h" />
     <ClInclude Include="src\scene\main\MainState.h" />
-    <ClInclude Include="src\scene\main\scenario\AllScenarioData.h" />
-    <ClInclude Include="src\scene\main\scenario\ScenarioData.h" />
+    <ClInclude Include="src\data\scenario\AllScenarioData.h" />
+    <ClInclude Include="src\data\scenario\ScenarioData.h" />
     <ClInclude Include="src\scene\saveload\SaveData.h" />
     <ClInclude Include="src\scene\saveload\SaveloadData.h" />
     <ClInclude Include="src\scene\saveload\SaveloadDraw.h" />
