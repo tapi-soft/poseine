@@ -12,11 +12,16 @@ private:
     int image_back;
     int image_textbar;
     int font;
+    int font_edit;
     int color_white;
+    int color_black;
+
+    void drawEdit();
+    void drawTextwindow(int, int, double);
 public:
     EditDraw(GameState*);
     ~EditDraw();
     void loadImage();
     void update();
-    void drawTextwindow(int, int, double);
+
 };

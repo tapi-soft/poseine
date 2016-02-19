@@ -8,7 +8,10 @@ EditDraw::EditDraw(GameState* state)
     edit_state = state->getSceneState()->getEditState();
 
     font = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 19, 5, DX_FONTTYPE_ANTIALIASING_EDGE);
+    font_edit = CreateFontToHandle("‚l‚r ƒSƒVƒbƒN", 12, -1, DX_FONTTYPE_NORMAL);
+    
     color_white = GetColor(255, 255, 255);
+    color_black = GetColor(0, 0, 0);
     loadImage();
 }
 //---------------------------------------------------------------------
@@ -28,6 +31,8 @@ void EditDraw::update()
     DrawGraph(0, 0, image_back, TRUE);
 
     //---- edit
+    drawEdit();
+
     //---- preview
     ScenarioDraw::drawImage(edit_state->getScenarioNum(), 428, 0, 0.665625);
     drawTextwindow(428, 0, 0.665625);
@@ -47,6 +52,21 @@ void EditDraw::update()
     if (num != 0)   { ScenarioDraw::drawImage(num, EditData::getThumbnailPosX(0), EditData::getThumbnailPosY(0), 0.1); }
     if (next1 != 0) { ScenarioDraw::drawImage(next1, EditData::getThumbnailPosX(1), EditData::getThumbnailPosY(1), 0.1); }
     if (next2 != 0) { ScenarioDraw::drawImage(next2, EditData::getThumbnailPosX(2), EditData::getThumbnailPosY(2), 0.1); }
+}
+//---------------------------------------------------------------------
+void EditDraw::drawEdit()
+{
+    int num = edit_state->getScenarioNum();
+
+    //----
+    DrawFormatStringToHandle(95, 20, color_black, font_edit, "%d", num);
+    DrawFormatStringToHandle(235, 20, color_black, font_edit, "%d", AllScenarioData::getInstance()->getNext(num));
+    DrawFormatStringToHandle(375, 20, color_black, font_edit, "%d", AllScenarioData::getInstance()->getPrev(num));
+    //----
+    DrawFormatStringToHandle(90, 65, color_black, font_edit, "%s", AllScenarioData::getInstance()->getName(num).c_str());
+    DrawFormatStringToHandle(90, 95, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText1(num).c_str());
+    DrawFormatStringToHandle(90, 123, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText2(num).c_str());
+    DrawFormatStringToHandle(90, 152, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText3(num).c_str());
 }
 //---------------------------------------------------------------------
 void EditDraw::drawTextwindow(int x, int y, double rate)
