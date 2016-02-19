@@ -1,5 +1,7 @@
 #pragma once
 #include "../../GameState.h"
+#include "../../data/ImageData.h"
+#include "../../draw/ScenarioDraw.h"
 
 class EditDraw
 {

@@ -21,4 +21,10 @@ void EditDraw::loadImage()
 void EditDraw::update()
 {
     DrawGraph(0, 0, image_back, TRUE);
+
+    // edit
+    // preview
+    ScenarioDraw::draw(1, 428, 0, 0.665625);
+    // timeline
+    // scenario select
 }
