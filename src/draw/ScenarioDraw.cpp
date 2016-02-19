@@ -37,13 +37,14 @@ void ScenarioDraw::drawBack(int n, int x, int y, double rate)
         TRUE);
 }
 //---------------------------------------------------------------------
-void ScenarioDraw::drawChara(int n, int x, int y, double rate)
+void ScenarioDraw::drawChara(int num, int x, int y, double rate)
 {
-    for (int n = 1; n <= 1; n++) {
-        int image = ImageData::getInstance()->getImageChara(1);
-        int pos = 3;
+    for (int n = 1; n <= AllScenarioData::getInstance()->getCharaNum(num); n++) {
+        int chara_image = AllScenarioData::getInstance()->getCharaImage(num, n);
+        int chara_pos = AllScenarioData::getInstance()->getCharaPos(num, n);
+        int image = ImageData::getInstance()->getImageChara(chara_image);
 
-        switch (pos) {
+        switch (chara_pos) {
         case 1: DrawExtendGraph((int)(x + 240 * rate), (int)(y - 100 * rate), (int)(x + 1040 * rate), (int)(y + 1550 * rate), image, TRUE); break;
         case 2: DrawExtendGraph((int)(x + 390 * rate), (int)(y + 100 * rate), (int)(x + 890 * rate),  (int)(y + 1100 * rate), image, TRUE); break;
         case 3: DrawExtendGraph((int)(x + 90 * rate),  (int)(y + 100 * rate), (int)(x + 590 * rate),  (int)(y + 1100 * rate), image, TRUE); break;

@@ -5,6 +5,8 @@
 //---------------------------------------------------------------------
 EditDraw::EditDraw(GameState* state)
 {
+    edit_state = state->getSceneState()->getEditState();
+
     loadImage();
 }
 //---------------------------------------------------------------------
@@ -24,7 +26,8 @@ void EditDraw::update()
 
     // edit
     // preview
-    ScenarioDraw::draw(1, 428, 0, 0.665625);
+    ScenarioDraw::draw(edit_state->getScenarioNum(), 428, 0, 0.665625);
+
     // timeline
     // scenario select
 }
