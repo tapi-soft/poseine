@@ -16,6 +16,14 @@ EditManager::~EditManager()
 //---------------------------------------------------------------------
 void EditManager::update()
 {
-    if (input_state->getLeftClick()) {
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+
+    if (input_state->getLeftClick() == 1) {
+        for (int n = -2; n <= 2; n++) {
+            if (EditData::isThumbnailPos(n, mousex, mousey)) {
+                edit_state->selectThumbnail(n);
+            }
+        }
     }
 }

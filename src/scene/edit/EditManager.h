@@ -1,6 +1,7 @@
 #pragma once
 #include "../../GameState.h"
 #include "EditState.h"
+#include "EditData.h"
 
 class EditManager
 {

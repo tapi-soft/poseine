@@ -1,4 +1,5 @@
 #pragma once
+#include "../../data/scenario/AllScenarioData.h"
 
 class EditState
 {
@@ -8,6 +9,7 @@ public:
     EditState();
     ~EditState();
     void update();
+    void selectThumbnail(int);
 
     int getScenarioNum();
 };

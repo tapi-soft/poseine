@@ -2,6 +2,7 @@
 #include "../../GameState.h"
 #include "../../data/ImageData.h"
 #include "../../draw/ScenarioDraw.h"
+#include "EditData.h"
 
 class EditDraw
 {
