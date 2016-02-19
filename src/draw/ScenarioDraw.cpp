@@ -15,7 +15,15 @@ ScenarioDraw::~ScenarioDraw()
 //---------------------------------------------------------------------
 void ScenarioDraw::draw(int n, int x, int y, double rate)
 {
+    int width = SystemData::getInstance()->getWindowWidth();
+    int height = SystemData::getInstance()->getWindowHeight();
+
+    SetDrawMode(DX_DRAWMODE_BILINEAR);
+    SetDrawArea(x, y, (int)(x + width * rate), (int)(y + height * rate));
     drawBack(n, x, y, rate);
+    drawChara(n, x, y, rate);
+    SetDrawArea(0, 0, width, height);
+    SetDrawMode(DX_DRAWMODE_NEAREST);
 }
 //---------------------------------------------------------------------
 void ScenarioDraw::drawBack(int n, int x, int y, double rate)
@@ -27,4 +35,24 @@ void ScenarioDraw::drawBack(int n, int x, int y, double rate)
         (int)(y + 720 * rate),
         ImageData::getInstance()->getImageBack(1),
         TRUE);
+}
+//---------------------------------------------------------------------
+void ScenarioDraw::drawChara(int n, int x, int y, double rate)
+{
+    for (int n = 1; n <= 1; n++) {
+        int image = ImageData::getInstance()->getImageChara(1);
+        int pos = 3;
+
+        switch (pos) {
+        case 1: DrawExtendGraph((int)(x + 240 * rate), (int)(y - 100 * rate), (int)(x + 1040 * rate), (int)(y + 1550 * rate), image, TRUE); break;
+        case 2: DrawExtendGraph((int)(x + 390 * rate), (int)(y + 100 * rate), (int)(x + 890 * rate),  (int)(y + 1100 * rate), image, TRUE); break;
+        case 3: DrawExtendGraph((int)(x + 90 * rate),  (int)(y + 100 * rate), (int)(x + 590 * rate),  (int)(y + 1100 * rate), image, TRUE); break;
+        case 4: DrawExtendGraph((int)(x + 690 * rate), (int)(y + 100 * rate), (int)(x + 1190 * rate), (int)(y + 1100 * rate), image, TRUE); break;
+        case 5: DrawExtendGraph((int)(x + 490 * rate), (int)(y + 200 * rate), (int)(x + 790 * rate),  (int)(y + 800 * rate),  image, TRUE); break;
+        case 6: DrawExtendGraph((int)(x + 90 * rate),  (int)(y + 200 * rate), (int)(x + 390 * rate),  (int)(y + 800 * rate),  image, TRUE); break;
+        case 7: DrawExtendGraph((int)(x + 890 * rate), (int)(y + 200 * rate), (int)(x + 1190 * rate), (int)(y + 800 * rate),  image, TRUE); break;
+        case 8: DrawExtendGraph((int)(x + 290 * rate), (int)(y + 200 * rate), (int)(x + 590 * rate),  (int)(y + 800 * rate),  image, TRUE); break;
+        case 9: DrawExtendGraph((int)(x + 690 * rate), (int)(y + 200 * rate), (int)(x + 990 * rate),  (int)(y + 800 * rate),  image, TRUE); break;
+        }
+    }
 }
