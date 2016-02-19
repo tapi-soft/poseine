@@ -13,7 +13,7 @@ ScenarioDraw::~ScenarioDraw()
 
 }
 //---------------------------------------------------------------------
-void ScenarioDraw::draw(int n, int x, int y, double rate)
+void ScenarioDraw::drawImage(int n, int x, int y, double rate)
 {
     int width = SystemData::getInstance()->getWindowWidth();
     int height = SystemData::getInstance()->getWindowHeight();

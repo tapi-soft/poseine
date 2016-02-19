@@ -9,7 +9,7 @@ private:
     ScenarioDraw();
     ~ScenarioDraw();
 public:
-    static void draw(int, int, int, double);
+    static void drawImage(int, int, int, double);
     static void drawBack(int, int, int, double);
     static void drawChara(int, int, int, double);
 };
