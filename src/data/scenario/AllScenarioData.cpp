@@ -160,7 +160,8 @@ void AllScenarioData::saveData()
         fprintf(fp, "#FADE %d\r\n", scenario_data[num]->getFade());
         fprintf(fp, "#SELECTNUM %d\r\n", scenario_data[num]->getSelectNum());
         for (int i = 1; i <= scenario_data[num]->getSelectNum(); i++) {
-            fprintf(fp, "#SELECT %d %s\r\n",
+            fprintf(fp, "#SELECT %d %d %s\r\n",
+                i,
                 scenario_data[num]->getSelectNext(i),
                 scenario_data[num]->getSelectText(i).c_str());
         }

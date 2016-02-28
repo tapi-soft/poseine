@@ -21,7 +21,7 @@
 #BACK 1
 #CHARA 1 1 1
 #TEXT1 ÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQ
-#TEXT2 ÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQ
+#TEXT2 ÇQÇQÇQÇQÇQÇQÇQÇQÇQÇQ
 #TEXT3 Ç‚Ç¡Ç”Å[
 #FADE 0
 #SELECTNUM 0
@@ -58,8 +58,8 @@
 #CHARA 5 1 1
 #FADE 0
 #SELECTNUM 2
-#SELECT 6 ÇUÇ÷îÚÇ‘
-#SELECT 8 ÇWÇ÷îÚÇ‘
+#SELECT 1 6 ÇUÇ÷îÚÇ‘
+#SELECT 2 8 ÇWÇ÷îÚÇ‘
 #NEXT 6
 #PRE 4
 

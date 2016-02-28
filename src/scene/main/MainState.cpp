@@ -105,6 +105,7 @@ void MainState::settingScenario(int n)
 void MainState::select(int n)
 {
     int num = AllScenarioData::getInstance()->getSelectNext(scenario_num, n);
+    printf("%d\n", num);
     settingScenario(num);
 }
 
