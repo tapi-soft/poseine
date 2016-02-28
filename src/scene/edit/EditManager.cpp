@@ -45,5 +45,6 @@ void EditManager::update()
     }
     if (input_state->getKey(KEY_INPUT_RETURN)) {
         edit_state->offInputActive();
+        AllScenarioData::getInstance()->saveData();
     }
 }

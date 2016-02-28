@@ -119,6 +119,59 @@ void AllScenarioData::loadData()
     puts("シナリオデータの読み込みに成功しました");
 }
 //---------------------------------------------------------------------
+void AllScenarioData::saveData()
+{
+    FILE *fp;
+    errno_t error = fopen_s(&fp, "scenario/scenario_1.dat", "wb");
+
+    // ファイル読み込み失敗
+    if (fp == 0) {
+        puts("シナリオデータの読み込みに失敗しました");
+        return;
+    }
+
+    fprintf(fp, "#NUM 0\r\n");
+    fprintf(fp, "#BACK 0\r\n");
+    fprintf(fp, "#NEXT 1\r\n");
+    fprintf(fp, "#PRE 0\r\n");
+    fprintf(fp, "\r\n");
+
+    for (int num = 1; num < 10000; num++) {
+        fprintf(fp, "#NUM %d\r\n", num);
+        fprintf(fp, "#BACK %d\r\n", scenario_data[num]->getBackimage());
+        for (int i = 1; i <= scenario_data[num]->getCharaNum(); i++) {
+            fprintf(fp, "#CHARA %d %d %d\r\n",
+                scenario_data[num]->getCharaPos(i),
+                scenario_data[num]->getCharaImage(i),
+                scenario_data[num]->getCharaFace(i));
+        }
+        if (scenario_data[num]->getName() != "") {
+            fprintf(fp, "#NAME %s\r\n", scenario_data[num]->getName().c_str());
+        }
+        if (scenario_data[num]->getText1() != "") {
+            fprintf(fp, "#TEXT1 %s\r\n", scenario_data[num]->getText1().c_str());
+        }
+        if (scenario_data[num]->getText2() != "") {
+            fprintf(fp, "#TEXT2 %s\r\n", scenario_data[num]->getText2().c_str());
+        }
+        if (scenario_data[num]->getText3() != "") {
+            fprintf(fp, "#TEXT3 %s\r\n", scenario_data[num]->getText3().c_str());
+        }
+        fprintf(fp, "#FADE %d\r\n", scenario_data[num]->getFade());
+        fprintf(fp, "#SELECTNUM %d\r\n", scenario_data[num]->getSelectNum());
+        for (int i = 1; i <= scenario_data[num]->getSelectNum(); i++) {
+            fprintf(fp, "#SELECT %d %s\r\n",
+                scenario_data[num]->getSelectNext(i),
+                scenario_data[num]->getSelectText(i).c_str());
+        }
+        fprintf(fp, "#NEXT %d\r\n", scenario_data[num]->getNext());
+        fprintf(fp, "#PRE %d\r\n", scenario_data[num]->getPrev());
+        fprintf(fp, "\r\n");
+    }
+    fclose(fp);
+    puts("Success data save");
+}
+//---------------------------------------------------------------------
 AllScenarioData* AllScenarioData::getInstance()
 {
     static AllScenarioData instance;

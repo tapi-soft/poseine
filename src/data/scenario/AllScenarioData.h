@@ -14,7 +14,7 @@ private:
     ~AllScenarioData();
 public:
     void loadData();
-
+    void saveData();
 
     static AllScenarioData* getInstance();
     std::string getName(int);
