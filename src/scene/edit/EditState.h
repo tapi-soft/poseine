@@ -20,6 +20,8 @@ public:
     void offInputActive();
     void onInputActive(std::string);
 
+    void setSelectChara(int);
+
     int getScenarioNum();
     int getInputHandl();
     int getInputActive();

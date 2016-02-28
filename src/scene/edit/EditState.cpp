@@ -53,6 +53,8 @@ void EditState::selectThumbnail(int n)
     if (n == -2 && prev2 != 0) { scenario_num = prev2; }
     if (n == 1 && next1 != 0) { scenario_num = next1; }
     if (n == 2 && next2 != 0) { scenario_num = next2; }
+
+    setSelectChara(0);
 }
 //---------------------------------------------------------------------
 void EditState::offInputActive() {
@@ -93,6 +95,8 @@ void EditState::onInputActive(std::string str) {
         SetKeyInputString(AllScenarioData::getInstance()->getText3(scenario_num).c_str(), input_handl);
     }
 }
+//---------------------------------------------------------------------
+void EditState::setSelectChara(int n) { select_chara = n; }
 //---------------------------------------------------------------------
 int EditState::getScenarioNum() { return scenario_num; }
 int EditState::getInputHandl() { return input_handl; }

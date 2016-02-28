@@ -53,6 +53,12 @@ void EditManager::leftClickProcess()
         edit_state->onInputActive("text3");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
+
+    for (int i = 0; i < AllScenarioData::getInstance()->getCharaNum(edit_state->getScenarioNum()); i++) {
+        if (EditData::isEditCharaButtonPos(i, mousex, mousey)) {
+            edit_state->setSelectChara(i);
+        }
+    }
 }
 //---------------------------------------------------------------------
 void EditManager::rightClickProcess()
