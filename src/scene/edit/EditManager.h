@@ -14,4 +14,6 @@ public:
     EditManager(GameState*);
     ~EditManager();
     void update();
+    void leftClickProcess();
+    void rightClickProcess();
 };
