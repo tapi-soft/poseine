@@ -17,4 +17,10 @@ public:
     static int getEditNameSizeX();
     static int getEditNameSizeY();
     static bool isEditNamePos(int, int);
+
+    static int getEditTextPosX(int);
+    static int getEditTextPosY(int);
+    static int getEditTextSizeX(int);
+    static int getEditTextSizeY(int);
+    static bool isEditTextPos(int, int, int);
 };

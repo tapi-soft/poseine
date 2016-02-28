@@ -30,8 +30,20 @@ void EditManager::update()
             edit_state->onInputActive("name");
             SetActiveKeyInput(edit_state->getInputHandl());
         }
+        if (EditData::isEditTextPos(1, mousex, mousey)) {
+            edit_state->onInputActive("text1");
+            SetActiveKeyInput(edit_state->getInputHandl());
+        }
+        if (EditData::isEditTextPos(2, mousex, mousey)) {
+            edit_state->onInputActive("text2");
+            SetActiveKeyInput(edit_state->getInputHandl());
+        }
+        if (EditData::isEditTextPos(3, mousex, mousey)) {
+            edit_state->onInputActive("text3");
+            SetActiveKeyInput(edit_state->getInputHandl());
+        }
     }
     if (input_state->getKey(KEY_INPUT_RETURN)) {
-        edit_state->offInputActive("name");
+        edit_state->offInputActive();
     }
 }

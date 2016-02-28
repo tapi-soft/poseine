@@ -30,9 +30,6 @@ void EditDraw::update()
 {
     DrawGraph(0, 0, image_back, TRUE);
 
-    //---- edit
-    drawEdit();
-
     //---- preview
     ScenarioDraw::drawImage(edit_state->getScenarioNum(), 428, 0, 0.665625);
     drawTextwindow(428, 0, 0.665625);
@@ -52,6 +49,10 @@ void EditDraw::update()
     if (num != 0)   { ScenarioDraw::drawImage(num, EditData::getThumbnailPosX(0), EditData::getThumbnailPosY(0), 0.1); }
     if (next1 != 0) { ScenarioDraw::drawImage(next1, EditData::getThumbnailPosX(1), EditData::getThumbnailPosY(1), 0.1); }
     if (next2 != 0) { ScenarioDraw::drawImage(next2, EditData::getThumbnailPosX(2), EditData::getThumbnailPosY(2), 0.1); }
+
+    //---- edit
+    drawEdit();
+
 }
 //---------------------------------------------------------------------
 void EditDraw::drawEdit()
@@ -62,19 +63,34 @@ void EditDraw::drawEdit()
     DrawFormatStringToHandle(95, 20, color_black, font_edit, "%d", num);
     DrawFormatStringToHandle(235, 20, color_black, font_edit, "%d", AllScenarioData::getInstance()->getNext(num));
     DrawFormatStringToHandle(375, 20, color_black, font_edit, "%d", AllScenarioData::getInstance()->getPrev(num));
-    //----
-    if (edit_state->getInputActive()) {
-        DrawKeyInputString(
-            EditData::getEditNamePosX(),
-            EditData::getEditNamePosY(),
-            edit_state->getInputHandl());
+    //---- name
+    if (edit_state->getInputActive() && edit_state->getInputStr() == "name") {
+        DrawKeyInputString(EditData::getEditNamePosX(), EditData::getEditNamePosY(), edit_state->getInputHandl());
     }
     else {
         DrawFormatStringToHandle(90, 65, color_black, font_edit, "%s", AllScenarioData::getInstance()->getName(num).c_str());
     }
-    DrawFormatStringToHandle(90, 95, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText1(num).c_str());
-    DrawFormatStringToHandle(90, 123, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText2(num).c_str());
-    DrawFormatStringToHandle(90, 152, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText3(num).c_str());
+    //---- text1
+    if (edit_state->getInputActive() && edit_state->getInputStr() == "text1") {
+        DrawKeyInputString(EditData::getEditTextPosX(1), EditData::getEditTextPosY(1), edit_state->getInputHandl());
+    }
+    else {
+        DrawFormatStringToHandle(90, 95, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText1(num).c_str());
+    }
+    //---- text2
+    if (edit_state->getInputActive() && edit_state->getInputStr() == "text2") {
+        DrawKeyInputString(EditData::getEditTextPosX(2), EditData::getEditTextPosY(2), edit_state->getInputHandl());
+    }
+    else {
+        DrawFormatStringToHandle(90, 123, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText2(num).c_str());
+    }
+    //---- text3
+    if (edit_state->getInputActive() && edit_state->getInputStr() == "text3") {
+        DrawKeyInputString(EditData::getEditTextPosX(3), EditData::getEditTextPosY(3), edit_state->getInputHandl());
+    }
+    else {
+        DrawFormatStringToHandle(90, 152, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText3(num).c_str());
+    }
 }
 //---------------------------------------------------------------------
 void EditDraw::drawTextwindow(int x, int y, double rate)

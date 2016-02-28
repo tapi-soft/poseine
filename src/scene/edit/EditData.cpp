@@ -39,3 +39,22 @@ bool EditData::isEditNamePos(int x, int y)
     if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
     return true;
 }
+//---------------------------------------------------------------------
+int EditData::getEditTextPosX(int n) { return 72; }
+int EditData::getEditTextPosY(int n) {
+    if (n == 1) { return 85; }
+    if (n == 2) { return 114; }
+    if (n == 3) { return 143; }
+}
+int EditData::getEditTextSizeX(int n) { return 355; }
+int EditData::getEditTextSizeY(int n) { return 28; }
+bool EditData::isEditTextPos(int n, int x, int y)
+{
+    int px1 = getEditTextPosX(n);
+    int py1 = getEditTextPosY(n);
+    int px2 = px1 + getEditTextSizeX(n);
+    int py2 = py1 + getEditTextSizeY(n);
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------

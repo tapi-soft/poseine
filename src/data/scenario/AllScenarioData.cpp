@@ -218,3 +218,12 @@ std::string AllScenarioData::getSelectText(int scenario_num, int select_num)
 void AllScenarioData::setName(int scenario_num, std::string str) {
     scenario_data[scenario_num]->setName(str);
 }
+void AllScenarioData::setText1(int scenario_num, std::string str) {
+    scenario_data[scenario_num]->setText1(str);
+}
+void AllScenarioData::setText2(int scenario_num, std::string str) {
+    scenario_data[scenario_num]->setText2(str);
+}
+void AllScenarioData::setText3(int scenario_num, std::string str) {
+    scenario_data[scenario_num]->setText3(str);
+}

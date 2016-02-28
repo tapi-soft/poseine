@@ -9,16 +9,18 @@ private:
     int input_active;
     int input_pos_x;
     int input_pos_y;
+    std::string input_str;
 
 public:
     EditState();
     ~EditState();
     void update();
     void selectThumbnail(int);
-    void offInputActive(std::string);
+    void offInputActive();
     void onInputActive(std::string);
 
     int getScenarioNum();
     int getInputHandl();
     int getInputActive();
+    std::string getInputStr();
 };

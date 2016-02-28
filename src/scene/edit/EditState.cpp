@@ -54,26 +54,46 @@ void EditState::selectThumbnail(int n)
     if (n == 2 && next2 != 0) { scenario_num = next2; }
 }
 //---------------------------------------------------------------------
-void EditState::offInputActive(std::string str) {
+void EditState::offInputActive() {
     if (input_active == 0) return;
     char name[256];
     GetKeyInputString(name, input_handl);
     DeleteKeyInput(input_handl);
     input_active = 0;
 
-    if (str == "name") {
+    if (input_str == "name") {
         AllScenarioData::getInstance()->setName(scenario_num, name);
+    }
+    if (input_str == "text1") {
+        AllScenarioData::getInstance()->setText1(scenario_num, name);
+    }
+    if (input_str == "text2") {
+        AllScenarioData::getInstance()->setText2(scenario_num, name);
+    }
+    if (input_str == "text3") {
+        AllScenarioData::getInstance()->setText3(scenario_num, name);
     }
 }
 //---------------------------------------------------------------------
 void EditState::onInputActive(std::string str) {
-    input_handl = MakeKeyInput(24, TRUE, FALSE, FALSE);
+    input_handl = MakeKeyInput(100, TRUE, FALSE, FALSE);
     input_active = 1;
+    input_str = str;
     if (str == "name") {
         SetKeyInputString(AllScenarioData::getInstance()->getName(scenario_num).c_str(), input_handl);
+    }
+    if (str == "text1") {
+        SetKeyInputString(AllScenarioData::getInstance()->getText1(scenario_num).c_str(), input_handl);
+    }
+    if (str == "text2") {
+        SetKeyInputString(AllScenarioData::getInstance()->getText2(scenario_num).c_str(), input_handl);
+    }
+    if (str == "text3") {
+        SetKeyInputString(AllScenarioData::getInstance()->getText3(scenario_num).c_str(), input_handl);
     }
 }
 //---------------------------------------------------------------------
 int EditState::getScenarioNum() { return scenario_num; }
 int EditState::getInputHandl() { return input_handl; }
 int EditState::getInputActive() { return input_active; }
+std::string EditState::getInputStr() { return input_str; }
