@@ -214,3 +214,7 @@ std::string AllScenarioData::getSelectText(int scenario_num, int select_num)
 {
     return scenario_data[scenario_num]->getSelectText(select_num);
 }
+//---------------------------------------------------------------------
+void AllScenarioData::setName(int scenario_num, std::string str) {
+    scenario_data[scenario_num]->setName(str);
+}

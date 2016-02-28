@@ -1,5 +1,6 @@
 //---------------------------------------------------------------------
 #include "EditManager.h"
+#include "DxLib.h"
 
 //---------------------------------------------------------------------
 EditManager::EditManager(GameState* state)
@@ -25,5 +26,12 @@ void EditManager::update()
                 edit_state->selectThumbnail(n);
             }
         }
+        if (EditData::isEditNamePos(mousex, mousey)) {
+            edit_state->onInputActive("name");
+            SetActiveKeyInput(edit_state->getInputHandl());
+        }
+    }
+    if (input_state->getKey(KEY_INPUT_RETURN)) {
+        edit_state->offInputActive("name");
     }
 }

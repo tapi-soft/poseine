@@ -14,6 +14,8 @@ private:
     ~AllScenarioData();
 public:
     void loadData();
+
+
     static AllScenarioData* getInstance();
     std::string getName(int);
     std::string getText(int);
@@ -33,4 +35,6 @@ public:
     int getSelectNum(int);
     int getSelectNext(int, int);
     std::string getSelectText(int, int);
+
+    void setName(int, std::string);
 };

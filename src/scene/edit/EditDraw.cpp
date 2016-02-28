@@ -63,7 +63,15 @@ void EditDraw::drawEdit()
     DrawFormatStringToHandle(235, 20, color_black, font_edit, "%d", AllScenarioData::getInstance()->getNext(num));
     DrawFormatStringToHandle(375, 20, color_black, font_edit, "%d", AllScenarioData::getInstance()->getPrev(num));
     //----
-    DrawFormatStringToHandle(90, 65, color_black, font_edit, "%s", AllScenarioData::getInstance()->getName(num).c_str());
+    if (edit_state->getInputActive()) {
+        DrawKeyInputString(
+            EditData::getEditNamePosX(),
+            EditData::getEditNamePosY(),
+            edit_state->getInputHandl());
+    }
+    else {
+        DrawFormatStringToHandle(90, 65, color_black, font_edit, "%s", AllScenarioData::getInstance()->getName(num).c_str());
+    }
     DrawFormatStringToHandle(90, 95, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText1(num).c_str());
     DrawFormatStringToHandle(90, 123, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText2(num).c_str());
     DrawFormatStringToHandle(90, 152, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText3(num).c_str());
