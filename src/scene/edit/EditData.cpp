@@ -41,7 +41,8 @@ bool EditData::isEditNamePos(int x, int y)
 }
 //---------------------------------------------------------------------
 int EditData::getEditTextPosX(int n) { return 72; }
-int EditData::getEditTextPosY(int n) {
+int EditData::getEditTextPosY(int n)
+{
     if (n == 1) { return 85; }
     if (n == 2) { return 114; }
     if (n == 3) { return 143; }
@@ -58,3 +59,16 @@ bool EditData::isEditTextPos(int n, int x, int y)
     return true;
 }
 //---------------------------------------------------------------------
+int EditData::getEditCharaButtonPosX(int n) { return 1 + getEditCharaButtonSizeX(n) * n; }
+int EditData::getEditCharaButtonPosY(int n) { return 185; }
+int EditData::getEditCharaButtonSizeX(int n) { return 28; }
+int EditData::getEditCharaButtonSizeY(int n) { return 28; }
+bool EditData::isEditCharaButtonPos(int n, int x, int y)
+{
+    int px1 = getEditCharaButtonPosX(n);
+    int py1 = getEditCharaButtonPosY(n);
+    int px2 = px1 + getEditCharaButtonSizeX(n);
+    int py2 = py1 + getEditCharaButtonSizeY(n);
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}

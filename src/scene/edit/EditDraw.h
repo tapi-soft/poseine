@@ -11,6 +11,7 @@ private:
 
     int image_back;
     int image_textbar;
+    int image_chara_button[20];
     int font;
     int font_edit;
     int color_white;

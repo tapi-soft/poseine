@@ -24,6 +24,8 @@ void EditDraw::loadImage()
 {
     image_back = LoadGraph("image/edit/back.png");
     image_textbar = LoadGraph("image/main/textbar.png");
+    LoadDivGraph("image/edit/chara_button.png", 20, 10, 2,
+        EditData::getEditCharaButtonSizeX(0), EditData::getEditCharaButtonSizeY(0), image_chara_button);
 }
 //---------------------------------------------------------------------
 void EditDraw::update()
@@ -90,6 +92,13 @@ void EditDraw::drawEdit()
     }
     else {
         DrawFormatStringToHandle(90, 152, color_black, font_edit, "%s", AllScenarioData::getInstance()->getText3(num).c_str());
+    }
+    //---- chara button
+    for (int i = 0; i < AllScenarioData::getInstance()->getCharaNum(num); i++) {
+        DrawGraph(
+            EditData::getEditCharaButtonPosX(i),
+            EditData::getEditCharaButtonPosY(i),
+            image_chara_button[i], TRUE);
     }
 }
 //---------------------------------------------------------------------

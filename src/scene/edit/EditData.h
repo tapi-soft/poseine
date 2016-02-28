@@ -23,4 +23,10 @@ public:
     static int getEditTextSizeX(int);
     static int getEditTextSizeY(int);
     static bool isEditTextPos(int, int, int);
+
+    static int getEditCharaButtonPosX(int);
+    static int getEditCharaButtonPosY(int);
+    static int getEditCharaButtonSizeX(int);
+    static int getEditCharaButtonSizeY(int);
+    static bool isEditCharaButtonPos(int, int, int);
 };
