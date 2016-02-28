@@ -98,7 +98,7 @@ void EditDraw::drawEdit()
         DrawGraph(
             EditData::getEditCharaButtonPosX(i),
             EditData::getEditCharaButtonPosY(i),
-            image_chara_button[i], TRUE);
+            image_chara_button[((edit_state->getSelectChara() == i) ? i + 10 : i)], TRUE);
     }
 }
 //---------------------------------------------------------------------

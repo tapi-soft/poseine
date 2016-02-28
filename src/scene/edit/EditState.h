@@ -10,6 +10,7 @@ private:
     int input_pos_x;
     int input_pos_y;
     std::string input_str;
+    int select_chara;
 
 public:
     EditState();
@@ -23,4 +24,5 @@ public:
     int getInputHandl();
     int getInputActive();
     std::string getInputStr();
+    int getSelectChara();
 };

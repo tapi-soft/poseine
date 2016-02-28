@@ -6,6 +6,7 @@ EditState::EditState()
 {
     scenario_num = 3;
     input_active = 0;
+    select_chara = 0;
 
     SetKeyInputStringColor(
         GetColor(0, 0, 0),       // “ü—Í•¶š—ñ‚ÌF
@@ -97,3 +98,4 @@ int EditState::getScenarioNum() { return scenario_num; }
 int EditState::getInputHandl() { return input_handl; }
 int EditState::getInputActive() { return input_active; }
 std::string EditState::getInputStr() { return input_str; }
+int EditState::getSelectChara() { return select_chara; }
