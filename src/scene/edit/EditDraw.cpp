@@ -107,16 +107,34 @@ void EditDraw::drawEdit()
     if (chara_num <= AllScenarioData::getInstance()->getCharaNum(num)) {
         //---- chara pos
         DrawFormatStringToHandle(90, 220, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaPos(num, chara_num));
-        DrawGraph(371, 214, image_button_prev[0], TRUE);
-        DrawGraph(399, 214, image_button_next[0], TRUE);
+        DrawGraph(
+            EditData::getEditButtonPrevCharaPosPosX(),
+            EditData::getEditButtonPrevCharaPosPosY(),
+            image_button_prev[0], TRUE);
+        DrawGraph(
+            EditData::getEditButtonNextCharaPosPosX(),
+            EditData::getEditButtonNextCharaPosPosY(),
+            image_button_next[0], TRUE);
         //---- chara image
         DrawFormatStringToHandle(90, 250, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaImage(num, chara_num));
-        DrawGraph(371, 243, image_button_prev[0], TRUE);
-        DrawGraph(399, 243, image_button_next[0], TRUE);
+        DrawGraph(
+            EditData::getEditButtonPrevCharaImagePosX(),
+            EditData::getEditButtonPrevCharaImagePosY(),
+            image_button_prev[0], TRUE);
+        DrawGraph(
+            EditData::getEditButtonNextCharaImagePosX(),
+            EditData::getEditButtonNextCharaImagePosY(),
+            image_button_next[0], TRUE);
         //---- chara face
         DrawFormatStringToHandle(90, 280, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaFace(num, chara_num));
-        DrawGraph(371, 272, image_button_prev[0], TRUE);
-        DrawGraph(399, 272, image_button_next[0], TRUE);
+        DrawGraph(
+            EditData::getEditButtonPrevCharaFacePosX(),
+            EditData::getEditButtonPrevCharaFacePosY(),
+            image_button_prev[0], TRUE);
+        DrawGraph(
+            EditData::getEditButtonNextCharaFacePosX(),
+            EditData::getEditButtonNextCharaFacePosY(),
+            image_button_next[0], TRUE);
     }
     //---- back
     DrawFormatStringToHandle(90, 325, color_black, font_edit, "%d", AllScenarioData::getInstance()->getBackimage(num));
