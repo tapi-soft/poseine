@@ -43,6 +43,8 @@ void SceneManager::update()
         if (input_state->getKey(KEY_INPUT_F1)) {
             if (scene_state->getScene() == SceneState::SCENE_EDIT) {
                 scene_state->backScene();
+                scene_state->getMainState()->settingScenario(
+                    scene_state->getEditState()->getScenarioNum());
             }
             else {
                 scene_state->changeScene(SceneState::SCENE_EDIT);
