@@ -16,6 +16,9 @@ private:
     int image_button_prev[2];
     int image_button_add[2];
     int image_button_del[2];
+    int image_button_plus[2];
+    int image_button_minus[2];
+
     int font;
     int font_edit;
     int color_white;

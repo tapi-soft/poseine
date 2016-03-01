@@ -30,6 +30,8 @@ void EditDraw::loadImage()
     LoadDivGraph("image/edit/button_next.png", 2, 2, 1, 28, 28, image_button_next);
     LoadDivGraph("image/edit/button_add.png", 2, 2, 1, 30, 20, image_button_add);
     LoadDivGraph("image/edit/button_del.png", 2, 2, 1, 30, 20, image_button_del);
+    LoadDivGraph("image/edit/button_plus.png", 2, 2, 1, 28, 28, image_button_plus);
+    LoadDivGraph("image/edit/button_minus.png", 2, 2, 1, 28, 28, image_button_minus);
 }
 //---------------------------------------------------------------------
 void EditDraw::update()
@@ -113,6 +115,16 @@ void EditDraw::drawEdit()
             EditData::getEditCharaButtonPosY(i),
             image_chara_button[((edit_state->getSelectChara() == i) ? i + 10 : i)], TRUE);
     }
+    //---- chara plus/minus
+    DrawGraph(
+        EditData::getEditButtonPlusCharaPosX(),
+        EditData::getEditButtonPlusCharaPosY(),
+        image_button_plus[0], TRUE);
+    DrawGraph(
+        EditData::getEditButtonMinusCharaPosX(),
+        EditData::getEditButtonMinusCharaPosY(),
+        image_button_minus[0], TRUE);
+
     //---- chara
     int chara_num = edit_state->getSelectChara() + 1;
     if (chara_num <= AllScenarioData::getInstance()->getCharaNum(num)) {

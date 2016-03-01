@@ -33,6 +33,13 @@ public:
     static int getEditButtonSizeX();
     static int getEditButtonSizeY();
 
+    static int getEditButtonPlusCharaPosX();
+    static int getEditButtonPlusCharaPosY();
+    static bool isEditButtonPlusCharaPos(int, int);
+    static int getEditButtonMinusCharaPosX();
+    static int getEditButtonMinusCharaPosY();
+    static bool isEditButtonMinusCharaPos(int, int);
+
     static int getEditButtonPrevCharaPosPosX();
     static int getEditButtonPrevCharaPosPosY();
     static bool isEditButtonPrevCharaPosPos(int, int);
