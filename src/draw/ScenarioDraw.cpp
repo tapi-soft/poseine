@@ -28,12 +28,14 @@ void ScenarioDraw::drawImage(int n, int x, int y, double rate)
 //---------------------------------------------------------------------
 void ScenarioDraw::drawBack(int n, int x, int y, double rate)
 {
+    int image = AllScenarioData::getInstance()->getBackimage(n);
+
     DrawExtendGraph(
         x,
         y,
         (int)(x + 1280 * rate),
         (int)(y + 720 * rate),
-        ImageData::getInstance()->getImageBack(1),
+        ImageData::getInstance()->getImageBack(image),
         TRUE);
 }
 //---------------------------------------------------------------------
