@@ -5,6 +5,7 @@ class ScenarioData
 {
 public:
     static const int CHARA_NUM_MAX = 10;
+    static const int CHARA_POS_MAX = 9;
 private:
     int num;               // scenario number
     std::string name;      // character name

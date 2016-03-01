@@ -58,14 +58,16 @@ void MainDraw::drawMain()
     SetDrawMode(DX_DRAWMODE_BILINEAR);
     int scenario_num = main_state->getScenarioNum();
     int prev_scenario_num = AllScenarioData::getInstance()->getPrev(scenario_num);
-    if (AllScenarioData::getInstance()->getFade(prev_scenario_num) == 0) {
-        SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255 - main_state->getCharaAlpha());
-        drawChara(1);   // pre
+    for (int priority = ScenarioData::CHARA_POS_MAX; priority >= 1; priority--) {
+        if (AllScenarioData::getInstance()->getFade(prev_scenario_num) == 0) {
+            SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255 - main_state->getCharaAlpha());
+            drawChara(1, priority);   // pre
+        }
+        SetDrawBlendMode(DX_BLENDMODE_ALPHA, main_state->getCharaAlpha());
+        drawChara(2, priority);   // next
+        SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+        drawChara(0, priority);   //
     }
-    SetDrawBlendMode(DX_BLENDMODE_ALPHA, main_state->getCharaAlpha());
-    drawChara(2);   // next
-    SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-    drawChara(0);   // 
     SetDrawMode(DX_DRAWMODE_NEAREST);
 
     // text window
@@ -133,17 +135,18 @@ void MainDraw::drawTextwindow()
     DrawFormatStringToHandle(300, SystemData::getInstance()->getWindowHeight() - 200 + 140, color_white, font, "%s", main_state->getText3().c_str());
 }
 //---------------------------------------------------------------------
-void MainDraw::drawChara(int mode)
+void MainDraw::drawChara(int mode, int priority)
 {
     for (int n = 1; n <= ((mode == 1) ? main_state->getPreCharaNum() : main_state->getCharaNum()); n++) {
-        int pos =   ((mode == 1) ? main_state->getPreCharaPos(n)   : main_state->getCharaPos(n));
+        int pos = ((mode == 1) ? main_state->getPreCharaPos(n) : main_state->getCharaPos(n));
         int image = ((mode == 1) ? main_state->getPreCharaImage(n) : main_state->getCharaImage(n));
-        int face =  ((mode == 1) ? main_state->getPreCharaFace(n)  : main_state->getCharaFace(n));
+        int face = ((mode == 1) ? main_state->getPreCharaFace(n) : main_state->getCharaFace(n));
         int image_handl = ImageData::getInstance()->getImageChara(image);
 
         if (mode == 0 && !main_state->isPreCharaEqual(pos, image))  { continue; }
         if (mode == 1 && main_state->isNextCharaEqual(pos, image)) { continue; }
         if (mode == 2 && main_state->isPreCharaEqual(pos, image))  { continue; }
+        if (pos != priority) { continue; }
 
         switch (pos) {
         case 1: DrawExtendGraph(240, -100, 1040, 1550, image_handl, TRUE); break;

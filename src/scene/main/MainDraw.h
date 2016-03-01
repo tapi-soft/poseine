@@ -28,7 +28,7 @@ private:
 
     void drawMain();
     void drawTextwindow();
-    void drawChara(int);
+    void drawChara(int, int);
     void drawSelect();
 public:
     MainDraw(GameState*);
