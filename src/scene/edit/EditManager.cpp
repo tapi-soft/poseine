@@ -99,7 +99,19 @@ void EditManager::leftClickProcess()
         edit_state->selectThumbnail(1);
     }
     if (EditData::isThumbnailButtonDelPos(mousex, mousey)) {
-        puts("del");
+        int scenario_num = edit_state->getScenarioNum();
+        int prev_scenario_num = AllScenarioData::getInstance()->getPrev(scenario_num);
+        int next_scenario_num = AllScenarioData::getInstance()->getNext(scenario_num);
+
+        if (prev_scenario_num == 0) {
+            edit_state->selectThumbnail(1);
+        }
+        else {
+            edit_state->selectThumbnail(-1);
+        }
+        AllScenarioData::getInstance()->setPrev(next_scenario_num, prev_scenario_num);
+        AllScenarioData::getInstance()->setNext(prev_scenario_num, next_scenario_num);
+        AllScenarioData::getInstance()->deleteData(scenario_num);
     }
 }
 //---------------------------------------------------------------------
