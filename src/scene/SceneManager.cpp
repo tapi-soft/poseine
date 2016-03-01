@@ -46,6 +46,8 @@ void SceneManager::update()
             }
             else {
                 scene_state->changeScene(SceneState::SCENE_EDIT);
+                scene_state->getEditState()->jumpThumbnail(
+                    scene_state->getMainState()->getScenarioNum());
             }
         }
     }
