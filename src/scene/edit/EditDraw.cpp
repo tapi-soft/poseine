@@ -118,6 +118,10 @@ void EditDraw::drawEdit()
         DrawGraph(371, 272, image_button_prev[0], TRUE);
         DrawGraph(399, 272, image_button_next[0], TRUE);
     }
+    //---- back
+    DrawFormatStringToHandle(90, 325, color_black, font_edit, "%d", AllScenarioData::getInstance()->getBackimage(num));
+    DrawGraph(371, 314, image_button_prev[0], TRUE);
+    DrawGraph(399, 314, image_button_next[0], TRUE);
 }
 //---------------------------------------------------------------------
 void EditDraw::drawTextwindow(int x, int y, double rate)
