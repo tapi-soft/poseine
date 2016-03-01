@@ -17,6 +17,7 @@ public:
     void leftClickProcess();
     void rightClickProcess();
 
+    void thumbnailLeftClickProcess();
     void charaPosButtonPrevClickProcess();
     void charaPosButtonNextClickProcess();
     void charaImageButtonPrevClickProcess();

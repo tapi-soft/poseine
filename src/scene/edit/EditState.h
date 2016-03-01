@@ -19,6 +19,7 @@ public:
     void selectThumbnail(int);
     void offInputActive();
     void onInputActive(std::string);
+    void jumpThumbnail(int);
 
     void setSelectChara(int);
 

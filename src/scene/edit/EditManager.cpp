@@ -32,11 +32,10 @@ void EditManager::leftClickProcess()
     int mousex = input_state->getPointX();
     int mousey = input_state->getPointY();
 
-    for (int n = -2; n <= 2; n++) {
-        if (EditData::isThumbnailPos(n, mousex, mousey)) {
-            edit_state->selectThumbnail(n);
-        }
-    }
+    //---- Thumbnail
+    thumbnailLeftClickProcess();
+
+    //---- 
     if (EditData::isEditNamePos(mousex, mousey)) {
         edit_state->onInputActive("name");
         SetActiveKeyInput(edit_state->getInputHandl());
@@ -136,6 +135,51 @@ void EditManager::rightClickProcess()
 {
 
 }
+//---------------------------------------------------------------------
+void EditManager::thumbnailLeftClickProcess()
+{
+    int mousex = input_state->getPointX();
+    int mousey = input_state->getPointY();
+    int num = edit_state->getScenarioNum();
+    int next1 = AllScenarioData::getInstance()->getNext(num);
+    int next2 = AllScenarioData::getInstance()->getNext(next1);
+
+    for (int n = -2; n <= 2; n++) {
+        // select1
+        if (n == 1 && AllScenarioData::getInstance()->getSelectNum(num) == 2) {
+            int select1_num = AllScenarioData::getInstance()->getSelectNext(num, 1);
+            int select2_num = AllScenarioData::getInstance()->getSelectNext(num, 2);
+
+            if (EditData::isThumbnailSelectPos(n, 1, mousex, mousey)) {
+                edit_state->jumpThumbnail(select1_num);
+            }
+            if (EditData::isThumbnailSelectPos(n, 2, mousex, mousey)) {
+                edit_state->jumpThumbnail(select2_num);
+            }
+        }
+        // select2
+        else if (n == 2 && AllScenarioData::getInstance()->getSelectNum(next1) == 2) {
+            int select1_num = AllScenarioData::getInstance()->getSelectNext(next1, 1);
+            int select2_num = AllScenarioData::getInstance()->getSelectNext(next1, 2);
+
+            if (EditData::isThumbnailSelectPos(n, 1, mousex, mousey)) {
+                edit_state->jumpThumbnail(select1_num);
+            }
+            if (EditData::isThumbnailSelectPos(n, 2, mousex, mousey)) {
+                edit_state->jumpThumbnail(select2_num);
+            }
+        }
+        else if (n == 2 && AllScenarioData::getInstance()->getSelectNum(num) == 2) {
+
+        }
+        else {
+            if (EditData::isThumbnailPos(n, mousex, mousey)) {
+                edit_state->selectThumbnail(n);
+            }
+        }
+    }
+}
+
 //---------------------------------------------------------------------
 void EditManager::charaPosButtonPrevClickProcess()
 {
