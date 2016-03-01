@@ -78,6 +78,12 @@ void EditManager::leftClickProcess()
     if (EditData::isEditButtonNextCharaFacePos(mousex, mousey)) {
         charaFaceButtonNextClickProcess();
     }
+    if (EditData::isEditButtonPrevBackimagePos(mousex, mousey)) {
+        backimageButtonPrevClickProcess();
+    }
+    if (EditData::isEditButtonNextBackimagePos(mousex, mousey)) {
+        backimageButtonNextClickProcess();
+    }
 }
 //---------------------------------------------------------------------
 void EditManager::rightClickProcess()
@@ -175,3 +181,30 @@ void EditManager::charaFaceButtonNextClickProcess()
     }
 }
 //---------------------------------------------------------------------
+void EditManager::backimageButtonPrevClickProcess()
+{
+    int scenario_num = edit_state->getScenarioNum();
+    int image = AllScenarioData::getInstance()->getBackimage(scenario_num);
+    int image_max = AllScenarioData::getInstance()->getBackimageMax();
+
+    if (image == 1) {
+        AllScenarioData::getInstance()->setBackimage(scenario_num, image_max);
+    }
+    else {
+        AllScenarioData::getInstance()->setBackimage(scenario_num, image - 1);
+    }
+}
+//---------------------------------------------------------------------
+void EditManager::backimageButtonNextClickProcess()
+{
+    int scenario_num = edit_state->getScenarioNum();
+    int image = AllScenarioData::getInstance()->getBackimage(scenario_num);
+    int image_max = AllScenarioData::getInstance()->getBackimageMax();
+
+    if (image == image_max) {
+        AllScenarioData::getInstance()->setBackimage(scenario_num, 1);
+    }
+    else {
+        AllScenarioData::getInstance()->setBackimage(scenario_num, image + 1);
+    }
+}

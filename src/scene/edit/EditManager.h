@@ -23,4 +23,6 @@ public:
     void charaImageButtonNextClickProcess();
     void charaFaceButtonPrevClickProcess();
     void charaFaceButtonNextClickProcess();
+    void backimageButtonPrevClickProcess();
+    void backimageButtonNextClickProcess();
 };
