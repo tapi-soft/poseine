@@ -84,7 +84,7 @@ void EditManager::rightClickProcess()
 {
 
 }
-
+//---------------------------------------------------------------------
 void EditManager::charaPosButtonPrevClickProcess()
 {
     int scenario_num = edit_state->getScenarioNum();
@@ -99,6 +99,7 @@ void EditManager::charaPosButtonPrevClickProcess()
         AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, pos - 1);
     }
 }
+//---------------------------------------------------------------------
 void EditManager::charaPosButtonNextClickProcess()
 {
     int scenario_num = edit_state->getScenarioNum();
@@ -113,6 +114,7 @@ void EditManager::charaPosButtonNextClickProcess()
         AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, pos + 1);
     }
 }
+//---------------------------------------------------------------------
 void EditManager::charaImageButtonPrevClickProcess()
 {
     int scenario_num = edit_state->getScenarioNum();
@@ -127,6 +129,7 @@ void EditManager::charaImageButtonPrevClickProcess()
         AllScenarioData::getInstance()->setCharaImage(scenario_num, chara_num, image - 1);
     }
 }
+//---------------------------------------------------------------------
 void EditManager::charaImageButtonNextClickProcess()
 {
     int scenario_num = edit_state->getScenarioNum();
@@ -141,6 +144,7 @@ void EditManager::charaImageButtonNextClickProcess()
         AllScenarioData::getInstance()->setCharaImage(scenario_num, chara_num, image + 1);
     }
 }
+//---------------------------------------------------------------------
 void EditManager::charaFaceButtonPrevClickProcess()
 {
     int scenario_num = edit_state->getScenarioNum();
@@ -155,6 +159,7 @@ void EditManager::charaFaceButtonPrevClickProcess()
         AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, face - 1);
     }
 }
+//---------------------------------------------------------------------
 void EditManager::charaFaceButtonNextClickProcess()
 {
     int scenario_num = edit_state->getScenarioNum();
@@ -169,3 +174,4 @@ void EditManager::charaFaceButtonNextClickProcess()
         AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, face + 1);
     }
 }
+//---------------------------------------------------------------------

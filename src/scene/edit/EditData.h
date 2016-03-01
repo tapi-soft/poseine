@@ -53,4 +53,11 @@ public:
     static int getEditButtonNextCharaFacePosX();
     static int getEditButtonNextCharaFacePosY();
     static bool isEditButtonNextCharaFacePos(int, int);
+
+    static int getEditButtonPrevBackimagePosX();
+    static int getEditButtonPrevBackimagePosY();
+    static bool isEditButtonPrevBackimagePos(int, int);
+    static int getEditButtonNextBackimagePosX();
+    static int getEditButtonNextBackimagePosY();
+    static bool isEditButtonNextBackimagePos(int, int);
 };
