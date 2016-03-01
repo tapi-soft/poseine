@@ -168,3 +168,31 @@ bool EditData::isEditButtonNextBackimagePos(int x, int y)
     if (x < px1 || x >= px2 || y < py1 || y >= py2) { return false; }
     return true;
 }
+//---------------------------------------------------------------------
+int EditData::getThumbnailButtonAddPosX() { return 435; }
+int EditData::getThumbnailButtonAddPosY() { return 595; }
+int EditData::getThumbnailButtonAddSizeX() { return 30; }
+int EditData::getThumbnailButtonAddSizeY() { return 20; }
+bool EditData::isThumbnailButtonAddPos(int x, int y)
+{
+    int px1 = getThumbnailButtonAddPosX();
+    int py1 = getThumbnailButtonAddPosY();
+    int px2 = px1 + getThumbnailButtonAddSizeX();
+    int py2 = py1 + getThumbnailButtonAddSizeY();
+    if (x < px1 || x >= px2 || y < py1 || y >= py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
+int EditData::getThumbnailButtonDelPosX() { return 470; }
+int EditData::getThumbnailButtonDelPosY() { return 595; }
+int EditData::getThumbnailButtonDelSizeX() { return 30; }
+int EditData::getThumbnailButtonDelSizeY() { return 20; }
+bool EditData::isThumbnailButtonDelPos(int x, int y)
+{
+    int px1 = getThumbnailButtonDelPosX();
+    int py1 = getThumbnailButtonDelPosY();
+    int px2 = px1 + getThumbnailButtonDelSizeX();
+    int py2 = py1 + getThumbnailButtonDelSizeY();
+    if (x < px1 || x >= px2 || y < py1 || y >= py2) { return false; }
+    return true;
+}

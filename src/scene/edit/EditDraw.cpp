@@ -27,7 +27,8 @@ void EditDraw::loadImage()
     LoadDivGraph("image/edit/chara_button.png", 20, 10, 2,
         EditData::getEditCharaButtonSizeX(0), EditData::getEditCharaButtonSizeY(0), image_chara_button);
     LoadDivGraph("image/edit/button_next.png", 2, 2, 1, 28, 28, image_button_next);
-    LoadDivGraph("image/edit/button_prev.png", 2, 2, 1, 28, 28, image_button_prev);
+    LoadDivGraph("image/edit/button_add.png", 2, 2, 1, 30, 20, image_button_add);
+    LoadDivGraph("image/edit/button_del.png", 2, 2, 1, 30, 20, image_button_del);
 }
 //---------------------------------------------------------------------
 void EditDraw::update()
@@ -53,6 +54,15 @@ void EditDraw::update()
     if (num != 0)   { ScenarioDraw::drawImage(num, EditData::getThumbnailPosX(0), EditData::getThumbnailPosY(0), 0.1); }
     if (next1 != 0) { ScenarioDraw::drawImage(next1, EditData::getThumbnailPosX(1), EditData::getThumbnailPosY(1), 0.1); }
     if (next2 != 0) { ScenarioDraw::drawImage(next2, EditData::getThumbnailPosX(2), EditData::getThumbnailPosY(2), 0.1); }
+
+    DrawGraph(
+        EditData::getThumbnailButtonAddPosX(),
+        EditData::getThumbnailButtonAddPosY(),
+        image_button_add[0], TRUE);
+    DrawGraph(
+        EditData::getThumbnailButtonDelPosX(),
+        EditData::getThumbnailButtonDelPosY(),
+        image_button_del[0], TRUE);
 
     //---- edit
     drawEdit();
@@ -146,6 +156,7 @@ void EditDraw::drawEdit()
         EditData::getEditButtonNextBackimagePosX(),
         EditData::getEditButtonNextBackimagePosY(),
         image_button_next[0], TRUE);
+
 }
 //---------------------------------------------------------------------
 void EditDraw::drawTextwindow(int x, int y, double rate)

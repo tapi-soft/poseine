@@ -60,4 +60,16 @@ public:
     static int getEditButtonNextBackimagePosX();
     static int getEditButtonNextBackimagePosY();
     static bool isEditButtonNextBackimagePos(int, int);
+
+    static int getThumbnailButtonAddPosX();
+    static int getThumbnailButtonAddPosY();
+    static int getThumbnailButtonAddSizeX();
+    static int getThumbnailButtonAddSizeY();
+    static bool isThumbnailButtonAddPos(int, int);
+
+    static int getThumbnailButtonDelPosX();
+    static int getThumbnailButtonDelPosY();
+    static int getThumbnailButtonDelSizeX();
+    static int getThumbnailButtonDelSizeY();
+    static bool isThumbnailButtonDelPos(int, int);
 };
