@@ -117,7 +117,13 @@ void EditManager::leftClickProcess()
             AllScenarioData::getInstance()->setPrev(AllScenarioData::getInstance()->getNext(scenario_num), new_scenario_num);
         }
         AllScenarioData::getInstance()->setNext(scenario_num, new_scenario_num);
-        AllScenarioData::getInstance()->setBackimage(new_scenario_num, 1);
+        AllScenarioData::getInstance()->setBackimage(new_scenario_num, AllScenarioData::getInstance()->getBackimage(scenario_num));
+        AllScenarioData::getInstance()->setCharaNum(new_scenario_num, AllScenarioData::getInstance()->getCharaNum(scenario_num));
+        for (int i = 1; i <= AllScenarioData::getInstance()->getCharaNum(scenario_num); i++) {
+            AllScenarioData::getInstance()->setCharaPos(new_scenario_num, i, AllScenarioData::getInstance()->getCharaPos(scenario_num, i));
+            AllScenarioData::getInstance()->setCharaImage(new_scenario_num, i, AllScenarioData::getInstance()->getCharaImage(scenario_num, i));
+            AllScenarioData::getInstance()->setCharaFace(new_scenario_num, i, AllScenarioData::getInstance()->getCharaFace(scenario_num, i));
+        }
         edit_state->selectThumbnail(1);
     }
     if (EditData::isThumbnailButtonDelPos(mousex, mousey)) {
