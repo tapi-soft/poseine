@@ -59,6 +59,19 @@ void EditManager::leftClickProcess()
             edit_state->setSelectChara(i);
         }
     }
+    if (EditData::isEditButtonPlusCharaPos(mousex, mousey)) {
+        int scenario_num = edit_state->getScenarioNum();
+        int num = AllScenarioData::getInstance()->getCharaNum(scenario_num);
+        if (num < ScenarioData::CHARA_NUM_MAX) {
+            AllScenarioData::getInstance()->setCharaNum(scenario_num, num + 1);
+            AllScenarioData::getInstance()->setCharaImage(scenario_num, num + 1, 1);
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, num + 1, 5);
+            AllScenarioData::getInstance()->setCharaFace(scenario_num, num + 1, 1);
+        }
+    }
+    if (EditData::isEditButtonMinusCharaPos(mousex, mousey)) {
+        puts("minus");
+    }
 
     if (EditData::isEditButtonPrevCharaPosPos(mousex, mousey)) {
         charaPosButtonPrevClickProcess();
