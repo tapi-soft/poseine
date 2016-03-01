@@ -15,6 +15,8 @@ private:
 public:
     void loadData();
     void saveData();
+    int searchEmptyPos();
+    void deleteData(int);
 
     static AllScenarioData* getInstance();
     std::string getName(int);
@@ -36,6 +38,8 @@ public:
     int getSelectNext(int, int);
     std::string getSelectText(int, int);
 
+    void setNext(int, int);
+    void setPrev(int, int);
     void setName(int, std::string);
     void setText1(int, std::string);
     void setText2(int, std::string);

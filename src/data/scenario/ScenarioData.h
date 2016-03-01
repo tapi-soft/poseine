@@ -25,6 +25,7 @@ private:
 public:
     ScenarioData();
     ~ScenarioData();
+    void initData();
 
     // setter
     void setNum(int);

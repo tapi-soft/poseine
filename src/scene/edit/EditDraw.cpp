@@ -26,6 +26,7 @@ void EditDraw::loadImage()
     image_textbar = LoadGraph("image/main/textbar.png");
     LoadDivGraph("image/edit/chara_button.png", 20, 10, 2,
         EditData::getEditCharaButtonSizeX(0), EditData::getEditCharaButtonSizeY(0), image_chara_button);
+    LoadDivGraph("image/edit/button_prev.png", 2, 2, 1, 28, 28, image_button_prev);
     LoadDivGraph("image/edit/button_next.png", 2, 2, 1, 28, 28, image_button_next);
     LoadDivGraph("image/edit/button_add.png", 2, 2, 1, 30, 20, image_button_add);
     LoadDivGraph("image/edit/button_del.png", 2, 2, 1, 30, 20, image_button_del);

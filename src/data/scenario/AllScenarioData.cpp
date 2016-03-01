@@ -173,6 +173,23 @@ void AllScenarioData::saveData()
     puts("Success data save");
 }
 //---------------------------------------------------------------------
+int AllScenarioData::searchEmptyPos()
+{
+    for (int n = 1; n < 10000; n++) {
+        if (scenario_data[n]->getPrev() == 0 && scenario_data[n]->getNext() == 1) {
+            return n;
+        }
+    }
+    return -1;
+}
+//---------------------------------------------------------------------
+void AllScenarioData::deleteData(int n)
+{
+    scenario_data[n]->initData();
+}
+
+
+//---------------------------------------------------------------------
 AllScenarioData* AllScenarioData::getInstance()
 {
     static AllScenarioData instance;
@@ -269,6 +286,12 @@ std::string AllScenarioData::getSelectText(int scenario_num, int select_num)
     return scenario_data[scenario_num]->getSelectText(select_num);
 }
 //---------------------------------------------------------------------
+void AllScenarioData::setNext(int scenario_num, int next) {
+    scenario_data[scenario_num]->setNext(next);
+}
+void AllScenarioData::setPrev(int scenario_num, int prev) {
+    scenario_data[scenario_num]->setPrev(prev);
+}
 void AllScenarioData::setName(int scenario_num, std::string str) {
     scenario_data[scenario_num]->setName(str);
 }

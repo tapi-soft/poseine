@@ -21,7 +21,7 @@ void EditManager::update()
     if (input_state->getLeftClick() == 1) {
         leftClickProcess();
     }
-    if (input_state->getKey(KEY_INPUT_RETURN)) {
+    if (input_state->getKey(KEY_INPUT_RETURN) == 1) {
         edit_state->offInputActive();
         AllScenarioData::getInstance()->saveData();
     }
@@ -83,6 +83,23 @@ void EditManager::leftClickProcess()
     }
     if (EditData::isEditButtonNextBackimagePos(mousex, mousey)) {
         backimageButtonNextClickProcess();
+    }
+
+    if (EditData::isThumbnailButtonAddPos(mousex, mousey)) {
+        int new_scenario_num = AllScenarioData::getInstance()->searchEmptyPos();
+        int scenario_num = edit_state->getScenarioNum();
+
+        AllScenarioData::getInstance()->setNext(new_scenario_num, AllScenarioData::getInstance()->getNext(scenario_num));
+        AllScenarioData::getInstance()->setPrev(new_scenario_num, scenario_num);
+        if (AllScenarioData::getInstance()->getNext(scenario_num) != 0) {
+            AllScenarioData::getInstance()->setPrev(AllScenarioData::getInstance()->getNext(scenario_num), new_scenario_num);
+        }
+        AllScenarioData::getInstance()->setNext(scenario_num, new_scenario_num);
+        AllScenarioData::getInstance()->setBackimage(new_scenario_num, 1);
+        edit_state->selectThumbnail(1);
+    }
+    if (EditData::isThumbnailButtonDelPos(mousex, mousey)) {
+        puts("del");
     }
 }
 //---------------------------------------------------------------------
