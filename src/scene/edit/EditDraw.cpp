@@ -186,6 +186,14 @@ void EditDraw::drawEdit()
         image_button_next[0], TRUE);
     //---- fade
     DrawFormatStringToHandle(90, 353, color_black, font_edit, "%d", AllScenarioData::getInstance()->getFade(num));
+    DrawGraph(
+        EditData::getEditButtonPrevFadePosX(),
+        EditData::getEditButtonPrevFadePosY(),
+        image_button_prev[0], TRUE);
+    DrawGraph(
+        EditData::getEditButtonNextFadePosX(),
+        EditData::getEditButtonNextFadePosY(),
+        image_button_next[0], TRUE);
 }
 //---------------------------------------------------------------------
 void EditDraw::drawTextwindow(int x, int y, double rate)

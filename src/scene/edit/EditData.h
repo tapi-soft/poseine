@@ -74,6 +74,13 @@ public:
     static int getEditButtonNextBackimagePosY();
     static bool isEditButtonNextBackimagePos(int, int);
 
+    static int getEditButtonPrevFadePosX();
+    static int getEditButtonPrevFadePosY();
+    static bool isEditButtonPrevFadePos(int, int);
+    static int getEditButtonNextFadePosX();
+    static int getEditButtonNextFadePosY();
+    static bool isEditButtonNextFadePos(int, int);
+
     static int getThumbnailButtonAddPosX();
     static int getThumbnailButtonAddPosY();
     static int getThumbnailButtonAddSizeX();

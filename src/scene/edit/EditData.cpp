@@ -208,6 +208,29 @@ bool EditData::isEditButtonNextBackimagePos(int x, int y)
     return true;
 }
 //---------------------------------------------------------------------
+int EditData::getEditButtonPrevFadePosX() { return 371; }
+int EditData::getEditButtonPrevFadePosY() { return 343; }
+bool EditData::isEditButtonPrevFadePos(int x, int y)
+{
+    int px1 = getEditButtonPrevFadePosX();
+    int py1 = getEditButtonPrevFadePosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x >= px2 || y < py1 || y >= py2) { return false; }
+    return true;
+}
+int EditData::getEditButtonNextFadePosX() { return 399; }
+int EditData::getEditButtonNextFadePosY() { return 343; }
+bool EditData::isEditButtonNextFadePos(int x, int y)
+{
+    int px1 = getEditButtonNextFadePosX();
+    int py1 = getEditButtonNextFadePosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x >= px2 || y < py1 || y >= py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
 int EditData::getThumbnailButtonAddPosX() { return 435; }
 int EditData::getThumbnailButtonAddPosY() { return 595; }
 int EditData::getThumbnailButtonAddSizeX() { return 30; }
