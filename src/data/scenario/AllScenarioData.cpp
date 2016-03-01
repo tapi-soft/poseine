@@ -281,3 +281,8 @@ void AllScenarioData::setText2(int scenario_num, std::string str) {
 void AllScenarioData::setText3(int scenario_num, std::string str) {
     scenario_data[scenario_num]->setText3(str);
 }
+//---------------------------------------------------------------------
+int AllScenarioData::getBackimageMax() { return 2; }
+int AllScenarioData::getCharaImageMax() { return 5; }
+int AllScenarioData::getCharaPosMax() { return 9; }
+int AllScenarioData::getCharaFaceMax() { return 1; }

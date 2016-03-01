@@ -96,6 +96,8 @@ void EditState::onInputActive(std::string str) {
     }
 }
 //---------------------------------------------------------------------
+
+//---------------------------------------------------------------------
 void EditState::setSelectChara(int n) { select_chara = n; }
 //---------------------------------------------------------------------
 int EditState::getScenarioNum() { return scenario_num; }
