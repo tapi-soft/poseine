@@ -60,23 +60,74 @@ void EditManager::leftClickProcess()
         }
     }
 
+    int scenario_num = edit_state->getScenarioNum();
+    int chara_num = edit_state->getSelectChara() + 1;
+
     if (EditData::isEditButtonPrevCharaPosPos(mousex, mousey)) {
-        puts("isEditButtonPrevCharaPosPos");
+        int pos = AllScenarioData::getInstance()->getCharaPos(scenario_num, chara_num);
+        int pos_max = AllScenarioData::getInstance()->getCharaPosMax();
+
+        if (pos == 1) {
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, pos_max);
+        }
+        else {
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, pos - 1);
+        }
     }
     if (EditData::isEditButtonNextCharaPosPos(mousex, mousey)) {
-        puts("isEditButtonNextCharaPosPos");
+        int pos = AllScenarioData::getInstance()->getCharaPos(scenario_num, chara_num);
+        int pos_max = AllScenarioData::getInstance()->getCharaPosMax();
+
+        if (pos == pos_max) {
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, 1);
+        }
+        else {
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, pos + 1);
+        }
     }
     if (EditData::isEditButtonPrevCharaImagePos(mousex, mousey)) {
-        puts("isEditButtonPrevCharaImagePos");
+        int image = AllScenarioData::getInstance()->getCharaImage(scenario_num, chara_num);
+        int image_max = AllScenarioData::getInstance()->getCharaImageMax();
+
+        if (image == 1) {
+            AllScenarioData::getInstance()->setCharaImage(scenario_num, chara_num, image_max);
+        }
+        else {
+            AllScenarioData::getInstance()->setCharaImage(scenario_num, chara_num, image - 1);
+        }
     }
     if (EditData::isEditButtonNextCharaImagePos(mousex, mousey)) {
-        puts("isEditButtonNextCharaImagePos");
+        int image = AllScenarioData::getInstance()->getCharaImage(scenario_num, chara_num);
+        int image_max = AllScenarioData::getInstance()->getCharaImageMax();
+
+        if (image == image_max) {
+            AllScenarioData::getInstance()->setCharaImage(scenario_num, chara_num, 1);
+        }
+        else {
+            AllScenarioData::getInstance()->setCharaImage(scenario_num, chara_num, image + 1);
+        }
     }
     if (EditData::isEditButtonPrevCharaFacePos(mousex, mousey)) {
-        puts("isEditButtonPrevCharaFacePos");
+        int face = AllScenarioData::getInstance()->getCharaFace(scenario_num, chara_num);
+        int face_max = AllScenarioData::getInstance()->getCharaFaceMax();
+
+        if (face == 1) {
+            AllScenarioData::getInstance()->setCharaFace(scenario_num, chara_num, face_max);
+        }
+        else {
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, face - 1);
+        }
     }
     if (EditData::isEditButtonNextCharaFacePos(mousex, mousey)) {
-        puts("isEditButtonNextCharaFacePos");
+        int face = AllScenarioData::getInstance()->getCharaFace(scenario_num, chara_num);
+        int face_max = AllScenarioData::getInstance()->getCharaFaceMax();
+
+        if (face == face_max) {
+            AllScenarioData::getInstance()->setCharaFace(scenario_num, chara_num, 1);
+        }
+        else {
+            AllScenarioData::getInstance()->setCharaPos(scenario_num, chara_num, face + 1);
+        }
     }
 }
 //---------------------------------------------------------------------
