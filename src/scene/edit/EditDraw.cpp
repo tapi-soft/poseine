@@ -55,8 +55,23 @@ void EditDraw::update()
     if (prev2 != 0) { ScenarioDraw::drawImage(prev2, EditData::getThumbnailPosX(-2), EditData::getThumbnailPosY(-2), 0.1); }
     if (prev1 != 0) { ScenarioDraw::drawImage(prev1, EditData::getThumbnailPosX(-1), EditData::getThumbnailPosY(-1), 0.1); }
     if (num != 0)   { ScenarioDraw::drawImage(num, EditData::getThumbnailPosX(0), EditData::getThumbnailPosY(0), 0.1); }
-    if (next1 != 0) { ScenarioDraw::drawImage(next1, EditData::getThumbnailPosX(1), EditData::getThumbnailPosY(1), 0.1); }
-    if (next2 != 0) { ScenarioDraw::drawImage(next2, EditData::getThumbnailPosX(2), EditData::getThumbnailPosY(2), 0.1); }
+    if (AllScenarioData::getInstance()->getSelectNum(num) == 2) {
+        int select1_num = AllScenarioData::getInstance()->getSelectNext(num, 1);
+        int select2_num = AllScenarioData::getInstance()->getSelectNext(num, 2);
+        ScenarioDraw::drawImage(select1_num, EditData::getThumbnailSelectPosX(1, 1), EditData::getThumbnailSelectPosY(1, 1), 0.05);
+        ScenarioDraw::drawImage(select2_num, EditData::getThumbnailSelectPosX(1, 2), EditData::getThumbnailSelectPosY(1, 2), 0.05);
+    }
+    else if (AllScenarioData::getInstance()->getSelectNum(next1) == 2) {
+        int select1_num = AllScenarioData::getInstance()->getSelectNext(next1, 1);
+        int select2_num = AllScenarioData::getInstance()->getSelectNext(next1, 2);
+        ScenarioDraw::drawImage(next1, EditData::getThumbnailPosX(1), EditData::getThumbnailPosY(1), 0.1);
+        ScenarioDraw::drawImage(select1_num, EditData::getThumbnailSelectPosX(2, 1), EditData::getThumbnailSelectPosY(2, 1), 0.05);
+        ScenarioDraw::drawImage(select2_num, EditData::getThumbnailSelectPosX(2, 2), EditData::getThumbnailSelectPosY(2, 2), 0.05);
+    }
+    else {
+        if (next1 != 0) { ScenarioDraw::drawImage(next1, EditData::getThumbnailPosX(1), EditData::getThumbnailPosY(1), 0.1); }
+        if (next2 != 0) { ScenarioDraw::drawImage(next2, EditData::getThumbnailPosX(2), EditData::getThumbnailPosY(2), 0.1); }
+    }
 
     DrawGraph(
         EditData::getThumbnailButtonAddPosX(),

@@ -26,6 +26,22 @@ bool EditData::isThumbnailPos(int n, int x, int y)
     return true;
 }
 //---------------------------------------------------------------------
+int EditData::getThumbnailSelectPosX(int n, int n2) { return getThumbnailPosX(n); }
+int EditData::getThumbnailSelectPosY(int n, int n2) {
+    return EditData::getThumbnailPosY(n) + ((n2 == 2) ? EditData::getThumbnailSizeY() / 2 : 0);
+}
+int EditData::getThumbnailSelectSizeX() { return 64; }
+int EditData::getThumbnailSelectSizeY() { return 36; }
+bool EditData::isThumbnailSelectPos(int n, int n2, int x, int y)
+{
+    int px1 = getThumbnailSelectPosX(n, n2);
+    int py1 = getThumbnailSelectPosY(n, n2);
+    int px2 = px1 + getThumbnailSelectSizeX();
+    int py2 = py1 + getThumbnailSelectSizeY();
+    if (x < px1 || x >= px2 || y < py1 || y >= py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
 int EditData::getEditNamePosX() { return 72; }
 int EditData::getEditNamePosY() { return 56; }
 int EditData::getEditNameSizeX() { return 355; }

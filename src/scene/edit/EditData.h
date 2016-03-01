@@ -12,6 +12,12 @@ public:
     static int getThumbnailSizeY();
     static bool isThumbnailPos(int, int, int);
 
+    static int getThumbnailSelectPosX(int, int);
+    static int getThumbnailSelectPosY(int, int);
+    static int getThumbnailSelectSizeX();
+    static int getThumbnailSelectSizeY();
+    static bool isThumbnailSelectPos(int, int, int, int);
+
     static int getEditNamePosX();
     static int getEditNamePosY();
     static int getEditNameSizeX();
