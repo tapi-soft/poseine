@@ -59,6 +59,25 @@ void EditManager::leftClickProcess()
             edit_state->setSelectChara(i);
         }
     }
+
+    if (EditData::isEditButtonPrevCharaPosPos(mousex, mousey)) {
+        puts("isEditButtonPrevCharaPosPos");
+    }
+    if (EditData::isEditButtonNextCharaPosPos(mousex, mousey)) {
+        puts("isEditButtonNextCharaPosPos");
+    }
+    if (EditData::isEditButtonPrevCharaImagePos(mousex, mousey)) {
+        puts("isEditButtonPrevCharaImagePos");
+    }
+    if (EditData::isEditButtonNextCharaImagePos(mousex, mousey)) {
+        puts("isEditButtonNextCharaImagePos");
+    }
+    if (EditData::isEditButtonPrevCharaFacePos(mousex, mousey)) {
+        puts("isEditButtonPrevCharaFacePos");
+    }
+    if (EditData::isEditButtonNextCharaFacePos(mousex, mousey)) {
+        puts("isEditButtonNextCharaFacePos");
+    }
 }
 //---------------------------------------------------------------------
 void EditManager::rightClickProcess()
