@@ -326,8 +326,12 @@ void AllScenarioData::setCharaPos(int scenario_num, int chara_num, int pos) {
 void AllScenarioData::setCharaFace(int scenario_num, int chara_num, int face) {
     scenario_data[scenario_num]->setCharaFace(chara_num, face);
 }
+void AllScenarioData::setFade(int scenario_num, int fade) {
+    scenario_data[scenario_num]->setFade(fade);
+}
 //---------------------------------------------------------------------
 int AllScenarioData::getBackimageMax() { return 2; }
 int AllScenarioData::getCharaImageMax() { return 5; }
 int AllScenarioData::getCharaPosMax() { return 9; }
 int AllScenarioData::getCharaFaceMax() { return 1; }
+int AllScenarioData::getFadeMax() { return 1; }

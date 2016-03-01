@@ -100,6 +100,12 @@ void EditManager::leftClickProcess()
     if (EditData::isEditButtonNextBackimagePos(mousex, mousey)) {
         backimageButtonNextClickProcess();
     }
+    if (EditData::isEditButtonPrevFadePos(mousex, mousey)) {
+        fadeButtonPrevClickProcess();
+    }
+    if (EditData::isEditButtonNextFadePos(mousex, mousey)) {
+        fadeButtonNextClickProcess();
+    }
 
     if (EditData::isThumbnailButtonAddPos(mousex, mousey)) {
         int new_scenario_num = AllScenarioData::getInstance()->searchEmptyPos();
@@ -296,5 +302,33 @@ void EditManager::backimageButtonNextClickProcess()
     }
     else {
         AllScenarioData::getInstance()->setBackimage(scenario_num, image + 1);
+    }
+}
+//---------------------------------------------------------------------
+void EditManager::fadeButtonPrevClickProcess()
+{
+    int scenario_num = edit_state->getScenarioNum();
+    int fade = AllScenarioData::getInstance()->getFade(scenario_num);
+    int fade_max = AllScenarioData::getInstance()->getFadeMax();
+
+    if (fade == 0) {
+        AllScenarioData::getInstance()->setFade(scenario_num, fade_max);
+    }
+    else {
+        AllScenarioData::getInstance()->setFade(scenario_num, fade - 1);
+    }
+}
+//---------------------------------------------------------------------
+void EditManager::fadeButtonNextClickProcess()
+{
+    int scenario_num = edit_state->getScenarioNum();
+    int fade = AllScenarioData::getInstance()->getFade(scenario_num);
+    int fade_max = AllScenarioData::getInstance()->getFadeMax();
+
+    if (fade == fade_max) {
+        AllScenarioData::getInstance()->setFade(scenario_num, 0);
+    }
+    else {
+        AllScenarioData::getInstance()->setFade(scenario_num, fade + 1);
     }
 }

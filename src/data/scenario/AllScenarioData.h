@@ -50,9 +50,11 @@ public:
     void setCharaImage(int, int, int);
     void setCharaPos(int, int, int);
     void setCharaFace(int, int, int);
+    void setFade(int, int);
 
     int getBackimageMax();
     int getCharaImageMax();
     int getCharaPosMax();
     int getCharaFaceMax();
+    int getFadeMax();
 };
