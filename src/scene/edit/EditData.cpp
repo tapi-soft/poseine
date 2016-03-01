@@ -46,6 +46,7 @@ int EditData::getEditTextPosY(int n)
     if (n == 1) { return 85; }
     if (n == 2) { return 114; }
     if (n == 3) { return 143; }
+    return 0;
 }
 int EditData::getEditTextSizeX(int n) { return 355; }
 int EditData::getEditTextSizeY(int n) { return 28; }
@@ -69,6 +70,78 @@ bool EditData::isEditCharaButtonPos(int n, int x, int y)
     int py1 = getEditCharaButtonPosY(n);
     int px2 = px1 + getEditCharaButtonSizeX(n);
     int py2 = py1 + getEditCharaButtonSizeY(n);
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
+int EditData::getEditButtonSizeX() { return 28; }
+int EditData::getEditButtonSizeY() { return 28; }
+//---------------------------------------------------------------------
+int EditData::getEditButtonPrevCharaPosPosX() { return 371; }
+int EditData::getEditButtonPrevCharaPosPosY() { return 214; }
+bool EditData::isEditButtonPrevCharaPosPos(int x, int y)
+{
+    int px1 = getEditButtonPrevCharaPosPosX();
+    int py1 = getEditButtonPrevCharaPosPosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+int EditData::getEditButtonNextCharaPosPosX() { return 399; }
+int EditData::getEditButtonNextCharaPosPosY() { return 214; }
+bool EditData::isEditButtonNextCharaPosPos(int x, int y)
+{
+    int px1 = getEditButtonNextCharaPosPosX();
+    int py1 = getEditButtonNextCharaPosPosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
+int EditData::getEditButtonPrevCharaImagePosX() { return 371; }
+int EditData::getEditButtonPrevCharaImagePosY() { return 243; }
+bool EditData::isEditButtonPrevCharaImagePos(int x, int y)
+{
+    int px1 = getEditButtonPrevCharaImagePosX();
+    int py1 = getEditButtonPrevCharaImagePosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+int EditData::getEditButtonNextCharaImagePosX() { return 399; }
+int EditData::getEditButtonNextCharaImagePosY() { return 243; }
+bool EditData::isEditButtonNextCharaImagePos(int x, int y)
+{
+    int px1 = getEditButtonNextCharaImagePosX();
+    int py1 = getEditButtonNextCharaImagePosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+//---------------------------------------------------------------------
+int EditData::getEditButtonPrevCharaFacePosX() { return 371; }
+int EditData::getEditButtonPrevCharaFacePosY() { return 272; }
+bool EditData::isEditButtonPrevCharaFacePos(int x, int y)
+{
+    int px1 = getEditButtonPrevCharaFacePosX();
+    int py1 = getEditButtonPrevCharaFacePosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
+    if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
+    return true;
+}
+int EditData::getEditButtonNextCharaFacePosX() { return 399; }
+int EditData::getEditButtonNextCharaFacePosY() { return 272; }
+bool EditData::isEditButtonNextCharaFacePos(int x, int y)
+{
+    int px1 = getEditButtonNextCharaFacePosX();
+    int py1 = getEditButtonNextCharaFacePosY();
+    int px2 = px1 + getEditButtonSizeX();
+    int py2 = py1 + getEditButtonSizeY();
     if (x < px1 || x > px2 || y < py1 || y > py2) { return false; }
     return true;
 }

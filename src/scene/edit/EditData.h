@@ -29,4 +29,28 @@ public:
     static int getEditCharaButtonSizeX(int);
     static int getEditCharaButtonSizeY(int);
     static bool isEditCharaButtonPos(int, int, int);
+
+    static int getEditButtonSizeX();
+    static int getEditButtonSizeY();
+
+    static int getEditButtonPrevCharaPosPosX();
+    static int getEditButtonPrevCharaPosPosY();
+    static bool isEditButtonPrevCharaPosPos(int, int);
+    static int getEditButtonNextCharaPosPosX();
+    static int getEditButtonNextCharaPosPosY();
+    static bool isEditButtonNextCharaPosPos(int, int);
+
+    static int getEditButtonPrevCharaImagePosX();
+    static int getEditButtonPrevCharaImagePosY();
+    static bool isEditButtonPrevCharaImagePos(int, int);
+    static int getEditButtonNextCharaImagePosX();
+    static int getEditButtonNextCharaImagePosY();
+    static bool isEditButtonNextCharaImagePos(int, int);
+
+    static int getEditButtonPrevCharaFacePosX();
+    static int getEditButtonPrevCharaFacePosY();
+    static bool isEditButtonPrevCharaFacePos(int, int);
+    static int getEditButtonNextCharaFacePosX();
+    static int getEditButtonNextCharaFacePosY();
+    static bool isEditButtonNextCharaFacePos(int, int);
 };
