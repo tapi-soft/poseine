@@ -281,6 +281,21 @@ void AllScenarioData::setText2(int scenario_num, std::string str) {
 void AllScenarioData::setText3(int scenario_num, std::string str) {
     scenario_data[scenario_num]->setText3(str);
 }
+void AllScenarioData::setBackimage(int scenario_num, int image) {
+    scenario_data[scenario_num]->setBackimage(image);
+}
+void AllScenarioData::setCharaNum(int scenario_num, int num) {
+    scenario_data[scenario_num]->setCharaNum(num);
+}
+void AllScenarioData::setCharaImage(int scenario_num, int chara_num, int image) {
+    scenario_data[scenario_num]->setCharaImage(chara_num, image);
+}
+void AllScenarioData::setCharaPos(int scenario_num, int chara_num, int pos) {
+    scenario_data[scenario_num]->setCharaPos(chara_num, pos);
+}
+void AllScenarioData::setCharaFace(int scenario_num, int chara_num, int face) {
+    scenario_data[scenario_num]->setCharaFace(chara_num, face);
+}
 //---------------------------------------------------------------------
 int AllScenarioData::getBackimageMax() { return 2; }
 int AllScenarioData::getCharaImageMax() { return 5; }

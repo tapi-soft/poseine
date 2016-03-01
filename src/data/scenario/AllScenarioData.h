@@ -40,6 +40,11 @@ public:
     void setText1(int, std::string);
     void setText2(int, std::string);
     void setText3(int, std::string);
+    void setBackimage(int, int);
+    void setCharaNum(int, int);
+    void setCharaImage(int, int, int);
+    void setCharaPos(int, int, int);
+    void setCharaFace(int, int, int);
 
     int getBackimageMax();
     int getCharaImageMax();
