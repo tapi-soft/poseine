@@ -100,6 +100,16 @@ void EditDraw::drawEdit()
             EditData::getEditCharaButtonPosY(i),
             image_chara_button[((edit_state->getSelectChara() == i) ? i + 10 : i)], TRUE);
     }
+    //---- chara
+    int chara_num = edit_state->getSelectChara() + 1;
+    if (chara_num <= AllScenarioData::getInstance()->getCharaNum(num)) {
+        //---- chara pos
+        DrawFormatStringToHandle(90, 220, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaPos(num, chara_num));
+        //---- chara image
+        DrawFormatStringToHandle(90, 250, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaImage(num, chara_num));
+        //---- chara face
+        DrawFormatStringToHandle(90, 280, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaFace(num, chara_num));
+    }
 }
 //---------------------------------------------------------------------
 void EditDraw::drawTextwindow(int x, int y, double rate)
