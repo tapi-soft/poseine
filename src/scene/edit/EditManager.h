@@ -16,4 +16,11 @@ public:
     void update();
     void leftClickProcess();
     void rightClickProcess();
+
+    void charaPosButtonPrevClickProcess();
+    void charaPosButtonNextClickProcess();
+    void charaImageButtonPrevClickProcess();
+    void charaImageButtonNextClickProcess();
+    void charaFaceButtonPrevClickProcess();
+    void charaFaceButtonNextClickProcess();
 };
