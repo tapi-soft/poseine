@@ -70,7 +70,11 @@ void EditManager::leftClickProcess()
         }
     }
     if (EditData::isEditButtonMinusCharaPos(mousex, mousey)) {
-        puts("minus");
+        int scenario_num = edit_state->getScenarioNum();
+        int num = AllScenarioData::getInstance()->getCharaNum(scenario_num);
+        if (num > 0) {
+            AllScenarioData::getInstance()->setCharaNum(scenario_num, num - 1);
+        }
     }
 
     if (EditData::isEditButtonPrevCharaPosPos(mousex, mousey)) {
