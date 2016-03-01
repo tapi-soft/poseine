@@ -26,6 +26,8 @@ void EditDraw::loadImage()
     image_textbar = LoadGraph("image/main/textbar.png");
     LoadDivGraph("image/edit/chara_button.png", 20, 10, 2,
         EditData::getEditCharaButtonSizeX(0), EditData::getEditCharaButtonSizeY(0), image_chara_button);
+    LoadDivGraph("image/edit/button_next.png", 2, 2, 1, 28, 28, image_button_next);
+    LoadDivGraph("image/edit/button_prev.png", 2, 2, 1, 28, 28, image_button_prev);
 }
 //---------------------------------------------------------------------
 void EditDraw::update()
@@ -105,10 +107,16 @@ void EditDraw::drawEdit()
     if (chara_num <= AllScenarioData::getInstance()->getCharaNum(num)) {
         //---- chara pos
         DrawFormatStringToHandle(90, 220, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaPos(num, chara_num));
+        DrawGraph(371, 214, image_button_prev[0], TRUE);
+        DrawGraph(399, 214, image_button_next[0], TRUE);
         //---- chara image
         DrawFormatStringToHandle(90, 250, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaImage(num, chara_num));
+        DrawGraph(371, 243, image_button_prev[0], TRUE);
+        DrawGraph(399, 243, image_button_next[0], TRUE);
         //---- chara face
         DrawFormatStringToHandle(90, 280, color_black, font_edit, "%d", AllScenarioData::getInstance()->getCharaFace(num, chara_num));
+        DrawGraph(371, 272, image_button_prev[0], TRUE);
+        DrawGraph(399, 272, image_button_next[0], TRUE);
     }
 }
 //---------------------------------------------------------------------
