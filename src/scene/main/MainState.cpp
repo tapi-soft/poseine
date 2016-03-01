@@ -17,6 +17,9 @@ MainState::MainState()
     chara_alpha = 0;
     now_state = STATE_NORMAL;
     is_disp_window = true;
+    is_fade_in = false;
+    is_fade_out = false;
+    fade_alpha = 0;
 }
 //---------------------------------------------------------------------
 MainState::~MainState()
@@ -26,12 +29,34 @@ MainState::~MainState()
 //---------------------------------------------------------------------
 void MainState::update()
 {
-    if (now_state == STATE_NORMAL) {
-        updateNormal();
+    //---- フェードイン処理
+    if (is_fade_in) {
+        fade_alpha -= 5;
+        if (fade_alpha <= 0) {
+            fade_alpha = 0;
+            is_fade_in = false;
+        }
     }
-    else if (now_state == STATE_LOG) {
-        backlog_state->update();
+    //---- フェードアウト処理
+    else if (is_fade_out) {
+        fade_alpha += 5;
+        if (fade_alpha >= 255) {
+            fade_alpha = 255;
+            is_fade_out = false;
+            is_fade_in = true;
+            nextScenario();
+        }
     }
+    //---- 通常処理
+    else {
+        if (now_state == STATE_NORMAL) {
+            updateNormal();
+        }
+        else if (now_state == STATE_LOG) {
+            backlog_state->update();
+        }
+    }
+
 }
 //---------------------------------------------------------------------
 void MainState::updateNormal()
@@ -52,14 +77,24 @@ void MainState::updateNormal()
     // auto mode
     if (now_mode == MainData::MODE_AUTO) {
         if (elapsed_end_flame >= 100) {
-            nextScenario();
+            if (AllScenarioData::getInstance()->getFade(scenario_num)) {
+                fadeStart();
+            }
+            else {
+                nextScenario();
+            }
         }
     }
     // skip mode
     if (now_mode == MainData::MODE_SKIP) {
         fullTextOpen();
         if (elapsed_end_flame >= 5) {
-            nextScenario();
+            if (AllScenarioData::getInstance()->getFade(scenario_num)) {
+                fadeStart();
+            }
+            else {
+                nextScenario();
+            }
         }
     }
 }
@@ -228,6 +263,7 @@ std::string MainState::getSelectText(int n)
 }
 
 
+
 //---------------------------------------------------------------------
 bool MainState::isTextDisp()
 {
@@ -322,4 +358,19 @@ BacklogState* MainState::getBacklogState()
 bool MainState::isDispWindow()
 {
     return is_disp_window;
+}
+//---------------------------------------------------------------------
+bool MainState::isFade()
+{
+    return (is_fade_in || is_fade_out);
+}
+//---------------------------------------------------------------------
+int MainState::getFadeAlpha()
+{
+    return fade_alpha;
+}
+//---------------------------------------------------------------------
+void MainState::fadeStart()
+{
+    is_fade_out = true;
 }

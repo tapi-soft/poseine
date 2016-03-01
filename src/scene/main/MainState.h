@@ -21,6 +21,9 @@ private:
     int chara_alpha;
     int now_state;           // 現在の状態
     bool is_disp_window;     // ウインドウ表示しているか
+    bool is_fade_in;         // フェードイン中か
+    bool is_fade_out;        // フェードアウト中か
+    int fade_alpha;
 
 public:
     MainState();
@@ -64,4 +67,7 @@ public:
     int getNowState();
     BacklogState* getBacklogState();
     bool isDispWindow();
+    bool isFade();
+    int getFadeAlpha();
+    void fadeStart();
 };

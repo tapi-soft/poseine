@@ -127,7 +127,12 @@ void MainManager::textClickProcess()
         main_state->fullTextOpen();
     }
     else {
-        main_state->nextScenario();
+        if (AllScenarioData::getInstance()->getFade(main_state->getScenarioNum())) {
+            main_state->fadeStart();
+        }
+        else {
+            main_state->nextScenario();
+        }
     }
 }
 //---------------------------------------------------------------------

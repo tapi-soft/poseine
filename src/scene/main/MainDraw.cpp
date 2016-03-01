@@ -34,6 +34,15 @@ void MainDraw::update()
 {
     drawMain();
 
+    if (main_state->isFade()) {
+        SetDrawBlendMode(DX_BLENDMODE_ALPHA, main_state->getFadeAlpha());
+        DrawBox(0, 0,
+            SystemData::getInstance()->getWindowWidth(),
+            SystemData::getInstance()->getWindowHeight(),
+            GetColor(0, 0, 0), TRUE);
+        SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+    }
+
     if (main_state->getNowState() == MainState::STATE_LOG) {
         backlog_draw->update();
     }
@@ -47,8 +56,12 @@ void MainDraw::drawMain()
 
     // chara
     SetDrawMode(DX_DRAWMODE_BILINEAR);
-    SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255 - main_state->getCharaAlpha());
-    drawChara(1);   // pre
+    int scenario_num = main_state->getScenarioNum();
+    int prev_scenario_num = AllScenarioData::getInstance()->getPrev(scenario_num);
+    if (AllScenarioData::getInstance()->getFade(prev_scenario_num) == 0) {
+        SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255 - main_state->getCharaAlpha());
+        drawChara(1);   // pre
+    }
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, main_state->getCharaAlpha());
     drawChara(2);   // next
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);

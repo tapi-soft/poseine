@@ -37,6 +37,7 @@ public:
     int getSelectNum(int);
     int getSelectNext(int, int);
     std::string getSelectText(int, int);
+    int getFade(int);
 
     void setNext(int, int);
     void setPrev(int, int);

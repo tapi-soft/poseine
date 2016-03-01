@@ -286,6 +286,13 @@ std::string AllScenarioData::getSelectText(int scenario_num, int select_num)
     return scenario_data[scenario_num]->getSelectText(select_num);
 }
 //---------------------------------------------------------------------
+int AllScenarioData::getFade(int scenario_num)
+{
+    return scenario_data[scenario_num]->getFade();
+}
+
+
+//---------------------------------------------------------------------
 void AllScenarioData::setNext(int scenario_num, int next) {
     scenario_data[scenario_num]->setNext(next);
 }
