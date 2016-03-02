@@ -17,6 +17,7 @@ EditManager::~EditManager()
 //---------------------------------------------------------------------
 void EditManager::update()
 {
+    edit_state->update();
 
     if (input_state->getLeftClick() == 1) {
         leftClickProcess();

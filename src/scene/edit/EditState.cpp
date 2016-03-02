@@ -36,7 +36,9 @@ EditState::~EditState()
 //---------------------------------------------------------------------
 void EditState::update()
 {
-
+    if (CheckKeyInput(input_handl) == 1) {
+        offInputActive();
+    }
 }
 //---------------------------------------------------------------------
 void EditState::selectThumbnail(int n)
