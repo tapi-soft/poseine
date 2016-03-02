@@ -21,8 +21,7 @@ void EditManager::update()
     if (input_state->getLeftClick() == 1) {
         leftClickProcess();
     }
-    if (input_state->getKey(KEY_INPUT_RETURN) == 1) {
-        edit_state->offInputActive();
+    if (input_state->getKey(KEY_INPUT_F1) == 1) {
         AllScenarioData::getInstance()->saveData();
     }
 }
@@ -40,17 +39,20 @@ void EditManager::leftClickProcess()
         edit_state->onInputActive("name");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
-    if (EditData::isEditTextPos(1, mousex, mousey)) {
+    else if (EditData::isEditTextPos(1, mousex, mousey)) {
         edit_state->onInputActive("text1");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
-    if (EditData::isEditTextPos(2, mousex, mousey)) {
+    else if (EditData::isEditTextPos(2, mousex, mousey)) {
         edit_state->onInputActive("text2");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
-    if (EditData::isEditTextPos(3, mousex, mousey)) {
+    else if (EditData::isEditTextPos(3, mousex, mousey)) {
         edit_state->onInputActive("text3");
         SetActiveKeyInput(edit_state->getInputHandl());
+    }
+    else {
+        edit_state->offInputActive();
     }
 
     for (int i = 0; i < AllScenarioData::getInstance()->getCharaNum(edit_state->getScenarioNum()); i++) {
