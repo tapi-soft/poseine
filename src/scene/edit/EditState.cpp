@@ -81,7 +81,7 @@ void EditState::offInputActive() {
 }
 //---------------------------------------------------------------------
 void EditState::onInputActive(std::string str) {
-    input_handl = MakeKeyInput(100, TRUE, FALSE, FALSE);
+    input_handl = MakeKeyInput(50, TRUE, FALSE, FALSE);
     input_active = 1;
     input_str = str;
     if (str == "name") {

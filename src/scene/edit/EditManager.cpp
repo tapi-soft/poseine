@@ -37,18 +37,22 @@ void EditManager::leftClickProcess()
 
     //---- 
     if (EditData::isEditNamePos(mousex, mousey)) {
+        edit_state->offInputActive();
         edit_state->onInputActive("name");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
     else if (EditData::isEditTextPos(1, mousex, mousey)) {
+        edit_state->offInputActive();
         edit_state->onInputActive("text1");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
     else if (EditData::isEditTextPos(2, mousex, mousey)) {
+        edit_state->offInputActive();
         edit_state->onInputActive("text2");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
     else if (EditData::isEditTextPos(3, mousex, mousey)) {
+        edit_state->offInputActive();
         edit_state->onInputActive("text3");
         SetActiveKeyInput(edit_state->getInputHandl());
     }
